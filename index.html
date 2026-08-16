@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratyaksh Tomar — Aspiring Software Engineer</title>
+<meta name="description" content="Pratyaksh Tomar — B.Tech Computer Engineering student building AI-powered tools, from resume screening apps to a C++ vector database.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand sticker" style="--tilt-rotate:-2deg;">
+      pratyaksh<span style="color:var(--orange); margin-left:2px;">✦</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<svg aria-hidden width="0" height="0" style="position: absolute">
+  <defs>
+    <filter id="sketchy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" />
+    </filter>
+    <filter id="torn-edge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+    </filter>
+  </defs>
+</s<header class="hero" style="min-height: 90vh; display: flex; align-items: center; justify-content: center; position: relative;">
+  
+  <div class="hero-wrap" style="max-width: 1152px; width: 100%; min-height: 90vh; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+    
+    <!-- Scattered Scrapbook Elements (hugging edges) -->
+    
+    <!-- Old approaches note -->
+    <div class="scrap-tilt scrap-tilt-hover doodle" tabindex="0" onfocus="this.style.zIndex='50'" onblur="this.style.zIndex='0'" style="cursor:pointer; outline:none; position:absolute; left:1.5%; top:6%; width:176px; --tilt-rotate:-5deg; z-index:0;">
+      <div style="background:var(--note-yellow); filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; top:0; left:0; width:100%; height:100%;"></div>
+      <div style="position:relative; padding:16px;">
+        <div class="tape" style="top:-10px; left:50%; transform:translateX(-50%) rotate(2deg); background:var(--kraft); width:64px; height:20px;"></div>
+        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">tab-switching</p>
+        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">tutorial hell</p>
+        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">"it works on my machine"</p>
+        <p class="hand" style="color:var(--orange-deep); font-weight:700; font-size:1.2rem; margin-top:8px;">1 realization: just ship it 🚀</p>
+      </div>
+    </div>
+
+    <!-- Washi Tapes -->
+    <div class="tape doodle" style="position:absolute; left:36%; top:5%; width:112px; height:28px; transform:rotate(-24deg); background:var(--teal);"></div>
+    <div class="tape doodle" style="position:absolute; right:3%; top:20%; width:96px; height:24px; transform:rotate(18deg); background:var(--orange);"></div>
+
+    <!-- Sparkles -->
+    <svg class="sketch doodle" style="position:absolute; left:8%; top:26%; width:36px; height:36px; transform:rotate(6deg); opacity:0.8;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--orange)" stroke-width="2.5" stroke-linejoin="round" fill="var(--orange)" fill-opacity="0.12" /></svg>
+    <svg class="sketch doodle" style="position:absolute; right:10%; top:14%; width:24px; height:24px; transform:rotate(-12deg); opacity:0.7;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.12" /></svg>
+    <svg class="sketch doodle" style="position:absolute; left:30%; bottom:8%; width:24px; height:24px; transform:rotate(12deg); opacity:0.7;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.12" /></svg>
+
+    <!-- Stickers -->
+    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-7deg; background:var(--note-blue); left:16%; top:7%;"><span style="font-family:monospace; font-size:0.75rem; font-weight:600; color:var(--ink);">model.train()</span> 🧠</span>
+    <span class="sticker doodle" style="position:absolute; --tilt-rotate:5deg; background:var(--note-orange); right:16%; top:6%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">gpu go brrr</span> 🔥</span>
+    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-4deg; background:var(--note-pink); right:34%; top:3%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">ship it</span> 🚀</span>
+    <span class="sticker doodle" style="position:absolute; --tilt-rotate:4deg; background:var(--note-yellow); right:5%; bottom:27%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">loss ↓ vibes ↑</span> 📈</span>
+    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-4deg; background:var(--note-green); right:24%; bottom:9%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">attention is all you need</span> 🎼</span>
+
+    <!-- Doodles (Neural Net, Chip, Robot, Loss Curve) -->
+    <svg class="sketch doodle" style="position:absolute; right:2%; top:26%; width:128px; height:96px; transform:rotate(3deg); opacity:0.8;" viewBox="0 0 124 92" fill="none">
+      <line x1="14" y1="20" x2="62" y2="10" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="14" y1="20" x2="62" y2="34" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="14" y1="46" x2="62" y2="34" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="14" y1="46" x2="62" y2="58" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="14" y1="72" x2="62" y2="58" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="14" y1="72" x2="62" y2="82" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="62" y1="10" x2="110" y2="32" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="62" y1="34" x2="110" y2="32" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="62" y1="58" x2="110" y2="60" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <line x1="62" y1="82" x2="110" y2="60" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
+      <circle cx="14" cy="20" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="14" cy="46" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="14" cy="72" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="62" cy="10" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="62" cy="34" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="62" cy="58" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="62" cy="82" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--bg)" />
+      <circle cx="110" cy="32" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--orange)" fill-opacity="0.35" />
+      <circle cx="110" cy="60" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--orange)" fill-opacity="0.35" />
+    </svg>
+    <span class="hand doodle" style="position:absolute; right:3%; top:44%; transform:rotate(-3deg); color:var(--teal);">↑ neurons, doing their thing</span>
+
+    <svg class="sketch doodle" style="position:absolute; left:3%; top:44%; width:64px; height:64px; transform:rotate(-6deg); opacity:0.85;" viewBox="0 0 84 84" fill="none">
+      <g stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round">
+        <line x1="26" y1="12" x2="26" y2="22" /><line x1="26" y1="62" x2="26" y2="72" /><line x1="12" y1="26" x2="22" y2="26" /><line x1="62" y1="26" x2="72" y2="26" />
+        <line x1="42" y1="12" x2="42" y2="22" /><line x1="42" y1="62" x2="42" y2="72" /><line x1="12" y1="42" x2="22" y2="42" /><line x1="62" y1="42" x2="72" y2="42" />
+        <line x1="58" y1="12" x2="58" y2="22" /><line x1="58" y1="62" x2="58" y2="72" /><line x1="12" y1="58" x2="22" y2="58" /><line x1="62" y1="58" x2="72" y2="58" />
+      </g>
+      <rect x="22" y="22" width="40" height="40" rx="7" stroke="var(--ink-soft)" stroke-width="3" fill="var(--bg)" />
+      <text x="42" y="49" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="20" fill="var(--orange-deep)">AI</text>
+    </svg>
+
+    <svg class="sketch doodle" style="position:absolute; bottom:7%; left:8%; width:80px; height:80px; transform:rotate(6deg); opacity:0.9;" viewBox="0 0 80 78" fill="none">
+      <line x1="40" y1="18" x2="40" y2="9" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="40" cy="6.5" r="3.5" stroke="var(--ink-soft)" stroke-width="2" fill="var(--orange)" fill-opacity="0.4" />
+      <rect x="5" y="34" width="8" height="15" rx="3" stroke="var(--ink-soft)" stroke-width="2.5" />
+      <rect x="67" y="34" width="8" height="15" rx="3" stroke="var(--ink-soft)" stroke-width="2.5" />
+      <rect x="14" y="18" width="52" height="46" rx="11" stroke="var(--ink-soft)" stroke-width="3" />
+      <circle cx="30" cy="39" r="4" fill="var(--ink-soft)" />
+      <circle cx="50" cy="39" r="4" fill="var(--ink-soft)" />
+      <path d="M30 51C34 56 46 56 50 51" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+    </svg>
+    <span class="hand doodle" style="position:absolute; left:15%; bottom:4%; transform:rotate(2deg); color:var(--ink-soft);">hi, human 👋</span>
+
+    <svg class="sketch doodle" style="position:absolute; right:3%; bottom:36%; width:112px; height:80px; transform:rotate(-2deg);" viewBox="0 0 110 80" fill="none">
+      <path d="M14 8V66H102" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M18 14C24 44 32 28 42 46C50 58 72 58 98 61" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
+      <text x="66" y="30" font-family="Caveat" font-weight="700" font-size="15" fill="var(--ink-soft)">loss ↓</text>
+    </svg>
+
+    <!-- Quote Card -->
+    <div class="scrap-tilt scrap-tilt-hover doodle" tabindex="0" onfocus="this.style.zIndex='50'" onblur="this.style.zIndex='0'" style="cursor:pointer; outline:none; position:absolute; right:2%; bottom:5%; width:192px; --tilt-rotate:2deg; z-index:0;">
+      <div style="background:#fffdf6; filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; top:0; left:0; width:100%; height:100%;"></div>
+      <div style="position:relative; padding:20px;">
+        <div class="tape" style="top:-10px; right:24px; transform:rotate(6deg); background:var(--teal); width:64px; height:20px;"></div>
+        <p class="hand" style="color:rgba(58,47,47,0.85); font-size:1.25rem; line-height:1.3; margin:0;">"Engineering the future with code, creativity, and artificial intelligence"</p>
+      </div>
+    </div>
+    <svg class="sketch doodle" style="position:absolute; right:20%; bottom:13%; width:56px; height:56px; transform:rotate(30deg); opacity:0.6;" viewBox="0 0 80 66" fill="none">
+      <path d="M6 10C22 42 44 54 70 50" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
+      <path d="M70 50C62 46 56 42 50 36" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
+      <path d="M70 50C62 54 56 57 50 60" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
+    </svg>
+
+    <!-- Airmail stamp -->
+    <div class="doodle" style="position:absolute; left:2.5%; bottom:22%; transform:rotate(6deg); border: 2px dashed rgba(58,47,47,0.3); background: rgba(255,255,255,0.8); padding: 8px; box-shadow: 0 2px 6px rgba(58,47,47,0.15);">
+      <svg class="sketch" style="width:40px; height:40px;" viewBox="0 0 90 100" fill="none">
+        <path d="M45 3L39 14H51L45 3Z" stroke="var(--ink-soft)" stroke-width="2.2" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.3" />
+        <path d="M25 22C25 15 65 15 65 22L67 44C67 54 58 60 45 60C32 60 23 54 23 44L25 22Z" stroke="var(--ink-soft)" stroke-width="3" />
+        <rect x="29" y="30" width="32" height="11" rx="5.5" stroke="var(--ink-soft)" stroke-width="2.4" fill="var(--teal)" fill-opacity="0.35" />
+        <circle cx="38" cy="35.5" r="2" fill="var(--ink-soft)" />
+        <circle cx="52" cy="35.5" r="2" fill="var(--ink-soft)" />
+        <path d="M39 48V53M45 49V54M51 48V53" stroke="var(--ink-soft)" stroke-width="2.2" stroke-linecap="round" />
+        <path d="M23 70L10 78V92" stroke="var(--ink-soft)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M67 70L80 78V92" stroke="var(--ink-soft)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+        <rect x="27" y="64" width="36" height="31" rx="7" stroke="var(--ink-soft)" stroke-width="3" />
+        <path d="M48 69L40 81H46L42 91L52 78H46L50 69Z" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.35" />
+      </svg>
+      <p class="hand" style="text-align:center; font-size:0.75rem; font-weight:700; color:rgba(58,47,47,0.6); margin:4px 0 0; letter-spacing:0.05em;">PJ ULTRON</p>
+    </div>
+
+
+    <!-- Central Content (Polaroid + Text) -->
+    <div class="hero-content" style="display:flex; align-items:center; justify-content:center; gap:50px; flex-wrap:wrap; position:relative; z-index:10; padding: 0 20px;">
+      
+      <!-- Polaroid -->
+      <div class="reveal scrap-tilt scrap-tilt-hover" style="position:relative; flex:none; --tilt-rotate:-3deg;">
+        <svg class="sketch doodle" style="position:absolute; left:50%; top:-32px; transform:translateX(-50%); width:96px; height:36px; z-index:5;" viewBox="0 0 100 46" fill="none">
+          <path d="M22 22L18 4L34 14" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round" />
+          <path d="M66 14L82 4L78 22" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round" />
+          <path d="M12 46C14 22 34 14 50 14C66 14 86 22 88 46" stroke="var(--ink-soft)" stroke-width="3" stroke-linecap="round" />
+          <circle cx="36" cy="34" r="3.5" fill="var(--ink-soft)" />
+          <circle cx="64" cy="34" r="3.5" fill="var(--ink-soft)" />
+          <path d="M24 46C24 40 32 40 32 46" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M68 46C68 40 76 40 76 46" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+        <figure class="polaroid" style="margin:0;">
+          <span class="tape plain" style="top:-14px; left:50%; transform:translateX(-50%) rotate(2deg);"></span>
+          <img src="assets/1.jpeg" alt="Photo of Pratyaksh Tomar" style="width:240px; height:300px; object-fit:cover;">
+          <figcaption>that's me! 👋</figcaption>
+        </figure>
+        <span class="hand doodle" style="position:absolute; bottom:-36px; right:0px; font-size:1.1rem; color:var(--orange); transform:rotate(-3deg);">↑ exhibit A</span>
+      </div>
+
+      <!-- Text Block -->
+      <div class="hero-text" style="flex:1; min-width:320px;">
+        <div class="reveal delay-1">
+          <div class="hand" style="font-size: 1.25rem; color:var(--ink-soft); margin-bottom: 12px;">✂️ pasted fresh into the scrapbook —</div>
+          <div style="position:relative; display:inline-block;">
+            <h1 style="font-size: 4rem; line-height:1.1; margin-bottom: 0px; font-family:'Poppins', sans-serif;">Pratyaksh Tomar</h1>
+            <svg viewBox="0 0 300 18" fill="none" style="position:absolute; bottom:-8px; left:0; width:100%; height:20px;">
+              <path d="M3 11C46 5 92 4 138 7c44 3 88 6 159 2" stroke="var(--orange)" stroke-width="4" stroke-linecap="round" />
+              <path d="M14 15C70 12 150 13 286 11" stroke="var(--orange)" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+            </svg>
+          </div>
+        </div>
+        
+        <div class="reveal delay-2">
+          <h2 style="font-size: 1.8rem; margin-top: 32px; font-weight: 600;">
+            <span class="highlight" style="--hl:var(--note-orange); padding:0 8px;">Aspiring Software Engineer</span>
+          </h2>
+        </div>
+        
+        <div class="reveal delay-3">
+          <p class="hand" style="font-size: 1.5rem; max-width: 26ch; color:rgba(58,47,47,0.85); line-height:1.3; margin-top:24px;">Passionate about crafting clean code, solving complex problems, and building impactful software.</p>
+          <div class="hand hero-loc" style="font-size: 1.15rem; color:var(--ink-soft); margin-top:20px; display:flex; align-items:center; gap:8px;">
+            <span>📍</span> Ghaziabad, India
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</header>
+      </div>
+    </div>
+    
+  </div>
+
+</header>
+
+<div class="wrap" style="height:70px;"></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">don't just read about me</div>
+    <h2>Try it live</h2>
+    <div class="rules-groups" style="margin-top:26px; align-items:stretch;">
+      <a href="#chat" class="card feature-card">
+        <span class="tape" style="top:-12px; left:22px; transform:rotate(-3deg);"></span>
+        <div class="feature-icon">💬</div>
+        <h4>Chat with my AI</h4>
+        <p>Ask it anything HR would ask — it only answers from my actual résumé, no hallucinating.</p>
+        <span class="feature-cta">Open the chat →</span>
+      </a>
+      <a href="#jd-matcher" class="card feature-card">
+        <span class="tape orange" style="top:-12px; left:22px; transform:rotate(2deg);"></span>
+        <div class="feature-icon">📄</div>
+        <h4>JD Matcher</h4>
+        <p>Paste a job description and get an instant fit score against my skills and projects.</p>
+        <span class="feature-cta">Check a JD →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">quick facts</div>
+    <h2>The Scrapbook Strip</h2>
+    <div class="chips skills" style="margin-top:20px; gap:10px;">
+      <span class="pill mint">400+ DSA problems solved</span>
+      <span class="pill orange">Policy Conclave'26 · IIT Kanpur finalist</span>
+      <span class="pill blue">AVEVA National AI/ML Hackathon · IIT Hyderabad</span>
+      <span class="pill yellow">B.Tech Computer Engineering, 2023–Present</span>
+      <span class="pill pink">Top Performer · E&amp;ICT IITG × Coding Ninjas</span>
+    </div>
+  </div>
+</section>
+
+<hr class="torn wrap" style="max-width:900px">
+
+<section id="chat" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="section-label">HR interview mode</div>
+    <h2>Ask AI about me</h2>
+
+    <div class="book-container" style="margin-top:22px;">
+      <div class="book-cover">
+        <div class="book-spine"></div>
+        
+        <!-- Left Page: Chat History -->
+        <div class="book-page left-page">
+          <div class="page-header">
+            <h4 class="page-title">AI INTERVIEW LOG</h4>
+            <span id="backend-status" class="page-status">connecting…</span>
+          </div>
+          
+          <div class="chat-body" id="chat-body">
+            <div class="msg bot">Hey! I'm an AI trained on Pratyaksh's résumé — ask me about his projects, skills, or education, as if you were interviewing him. 👋</div>
+          </div>
+        </div>
+
+        <!-- Right Page: Controls -->
+        <div class="book-page right-page">
+          <div class="bookmark"></div>
+          <div class="page-header">
+            <h4 class="page-title">& ASK ME ANYTHING</h4>
+          </div>
+          
+          <div class="chat-controls-wrapper">
+            <div class="chat-suggest" id="chat-suggest">
+              <button type="button">Tell me about the VectorDB project</button>
+              <button type="button">What are your strongest skills?</button>
+              <button type="button">Why should we hire you as a fresher?</button>
+            </div>
+            
+            <form class="chat-input" id="chat-form">
+              <input type="text" id="chat-input" placeholder="Ask something HR would ask…" autocomplete="off">
+              <button type="submit">Send</button>
+            </form>
+            
+            <p class="chat-note" style="margin-top:20px; font-size:0.8rem;">
+              — pratyaksh's twin ✌️
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="torn wrap" style="max-width:900px">
+
+<section id="jd-matcher" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="section-label">worth the shortlist?</div>
+    <h2>JD Matcher</h2>
+    <p class="lede" style="margin-bottom:24px;">Paste a job description and my AI will score how well my
+      résumé fits it — skills that match, gaps I'd need to close, and an honest verdict.</p>
+
+    <div class="card" style="margin-top:0;">
+      <span class="tape mint" style="top:-12px; left:24px;"></span>
+      <form class="jd-form" id="jd-form">
+        <textarea id="jd-input" placeholder="Paste the job description here…" required></textarea>
+        <div class="jd-actions">
+          <button type="submit" id="jd-submit">Check my fit</button>
+        </div>
+      </form>
+      <div class="jd-result" id="jd-result" hidden></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-card" style="position:relative;">
+      <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
+      <h2>Let's make something together</h2>
+      <p>Open to Software Engineering internships and full-time roles. Got a problem worth solving,
+        or just want to chat about AI? My inbox is open.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
+        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
+        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
+      </div>
+      <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
+      <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

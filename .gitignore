@@ -1,0 +1,25 @@
+# Python / Backend Virtual Environment
+backend/venv/
+backend/env/
+venv/
+env/
+
+# Python Cache
+backend/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Variables (Keep secrets out of version control!)
+.env
+.env.*
+!.env.example
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

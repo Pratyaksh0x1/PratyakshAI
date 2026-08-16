@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Pratyaksh Tomar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand sticker" style="--tilt-rotate:-2deg;">
+      pratyaksh<span style="color:var(--orange); margin-left:2px;">✦</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html" class="active">projects</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<svg aria-hidden width="0" height="0" style="position: absolute">
+  <defs>
+    <filter id="sketchy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" />
+    </filter>
+    <filter id="torn-edge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+    </filter>
+  </defs>
+</svg>
+
+<header class="hero" style="padding-bottom:10px; text-align:center;">
+  <div class="wrap" style="position:relative; display:inline-block;">
+    <span class="sparkle doodle" style="top:-16px; right:-24px; font-size:1.8rem; transform:rotate(12deg);">✦</span>
+    <h1 style="font-size:3rem; line-height:1; margin-bottom:8px;">Projects</h1>
+    <svg viewBox="0 0 300 18" fill="none" style="width:100%; height:18px; margin:0 auto 16px;">
+      <path d="M3 11C46 5 92 4 138 7c44 3 88 6 159 2" stroke="var(--teal)" stroke-width="4" stroke-linecap="round" />
+      <path d="M14 15C70 12 150 13 286 11" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+    </svg>
+    <p class="hand" style="font-size:1.25rem; color:var(--ink-soft); max-width:600px; margin:0 auto;">Notes from the lab — voice agents, language models & multimodal experiments.</p>
+  </div>
+</header>
+
+<section style="padding-top:40px; padding-bottom:80px;">
+  <div class="wrap" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; align-items:stretch;">
+
+    <!-- Project 1 -->
+    <div class="scrap-tilt scrap-tilt-hover" style="--tilt-rotate:-1.8deg; position:relative; display:flex; flex-direction:column;">
+      <div style="background:var(--note-orange); filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; inset:0;"></div>
+      <div style="position:relative; padding:24px; display:flex; flex-direction:column; flex:1;">
+        <div class="tape plain" style="top:-12px; left:50%; transform:translateX(-50%) rotate(-2deg); width:96px; height:24px;"></div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;">
+          <h3 style="font-size:1.2rem; font-weight:600; line-height:1.2; margin:0; font-family:'Poppins', sans-serif;">Resume Screening AI</h3>
+          <div style="display:flex; gap:6px; flex-shrink:0;">
+            <a href="https://resume-screening-ai-steel.vercel.app/" target="_blank" rel="noopener" style="border:1px solid rgba(58,47,47,0.25); background:rgba(255,255,255,0.6); padding:4px 10px; border-radius:999px; font-family:'Caveat', cursive; font-size:.9rem; font-weight:700; color:rgba(58,47,47,0.7); text-decoration:none; transition:all 0.2s;">Live ↗</a>
+            <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" style="border:1px solid rgba(58,47,47,0.25); background:rgba(255,255,255,0.6); padding:4px 10px; border-radius:999px; font-family:'Caveat', cursive; font-size:.9rem; font-weight:700; color:rgba(58,47,47,0.7); text-decoration:none; transition:all 0.2s;">GitHub ↗</a>
+          </div>
+        </div>
+        
+        <p class="hand" style="font-weight:700; font-size:1rem; color:var(--ink-soft); margin:0 0 12px;">Jan 2024</p>
+        
+        <p style="font-size:.95rem; line-height:1.4; color:rgba(58,47,47,0.85); margin:0 0 16px;">An AI-driven resume screening platform evaluating PDFs against JDs using Cohere's LLM API for automated match scores and feedback. Features a React (Vite) frontend with Three.js and a secure Express/MongoDB backend.</p>
+        
+        <div style="margin-top:auto; display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">React</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">Node.js</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">MongoDB</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">Cohere AI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="scrap-tilt scrap-tilt-hover" style="--tilt-rotate:1.4deg; position:relative; display:flex; flex-direction:column;">
+      <div style="background:var(--note-yellow); filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; inset:0;"></div>
+      <div style="position:relative; padding:24px; display:flex; flex-direction:column; flex:1;">
+        <div class="tape mint" style="top:-12px; left:50%; transform:translateX(-50%) rotate(2deg); width:96px; height:24px;"></div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;">
+          <h3 style="font-size:1.2rem; font-weight:600; line-height:1.2; margin:0; font-family:'Poppins', sans-serif;">E-Consultation Sentiment Dashboard</h3>
+          <div style="display:flex; gap:6px; flex-shrink:0;">
+            <a href="https://e-consultation-sentiment-analysis-5g1a.onrender.com/" target="_blank" rel="noopener" style="border:1px solid rgba(58,47,47,0.25); background:rgba(255,255,255,0.6); padding:4px 10px; border-radius:999px; font-family:'Caveat', cursive; font-size:.9rem; font-weight:700; color:rgba(58,47,47,0.7); text-decoration:none; transition:all 0.2s;">Live ↗</a>
+            <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" style="border:1px solid rgba(58,47,47,0.25); background:rgba(255,255,255,0.6); padding:4px 10px; border-radius:999px; font-family:'Caveat', cursive; font-size:.9rem; font-weight:700; color:rgba(58,47,47,0.7); text-decoration:none; transition:all 0.2s;">GitHub ↗</a>
+          </div>
+        </div>
+        
+        <p class="hand" style="font-weight:700; font-size:1rem; color:var(--ink-soft); margin:0 0 12px;">Aug 2024</p>
+        
+        <p style="font-size:.95rem; line-height:1.4; color:rgba(58,47,47,0.85); margin:0 0 16px;">An end-to-end sentiment analysis engine using FastAPI and TextBlob to process public feedback. Features LSA-based summarization and an interactive Chart.js dashboard for visualizing data and generating PDF reports.</p>
+        
+        <div style="margin-top:auto; display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">FastAPI</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">Python</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">TextBlob</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">Chart.js</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="scrap-tilt scrap-tilt-hover" style="--tilt-rotate:-1.1deg; position:relative; display:flex; flex-direction:column;">
+      <div style="background:var(--note-blue); filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; inset:0;"></div>
+      <div style="position:relative; padding:24px; display:flex; flex-direction:column; flex:1;">
+        <div class="tape plain" style="top:-12px; left:50%; transform:translateX(-50%) rotate(-3deg); width:96px; height:24px;"></div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px;">
+          <h3 style="font-size:1.2rem; font-weight:600; line-height:1.2; margin:0; font-family:'Poppins', sans-serif;">VectorDB</h3>
+          <div style="display:flex; gap:6px; flex-shrink:0;">
+            <a href="https://github.com/Pratyaksh0x1/VectorDB" target="_blank" rel="noopener" style="border:1px solid rgba(58,47,47,0.25); background:rgba(255,255,255,0.6); padding:4px 10px; border-radius:999px; font-family:'Caveat', cursive; font-size:.9rem; font-weight:700; color:rgba(58,47,47,0.7); text-decoration:none; transition:all 0.2s;">GitHub ↗</a>
+          </div>
+        </div>
+        
+        <p class="hand" style="font-weight:700; font-size:1rem; color:var(--ink-soft); margin:0 0 12px;">Nov 2025</p>
+        
+        <p style="font-size:.95rem; line-height:1.4; color:rgba(58,47,47,0.85); margin:0 0 16px;">A high-performance C++ vector database supporting HNSW and KD-Tree search. Ships with a complete RAG system using Ollama (llama3.2), a thread-safe REST API, and a 2D PCA UI for vector clustering.</p>
+        
+        <div style="margin-top:auto; display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">C++</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">HNSW</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">Ollama</span>
+          <span style="border:1px solid rgba(58,47,47,0.2); background:rgba(255,255,255,0.5); padding:2px 10px; border-radius:999px; font-size:.75rem; font-weight:600; color:rgba(58,47,47,0.8);">REST API</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-card" style="position:relative;">
+      <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
+      <h2>Got something worth building?</h2>
+      <p>I'm always up for a good problem, a collaboration, or just a chat about AI.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
+        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
+        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
+      </div>
+      <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
+      <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

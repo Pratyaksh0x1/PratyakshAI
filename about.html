@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Pratyaksh Tomar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand sticker" style="--tilt-rotate:-2deg;">
+      pratyaksh<span style="color:var(--orange); margin-left:2px;">✦</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="about.html" class="active">about</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<svg aria-hidden width="0" height="0" style="position: absolute">
+  <defs>
+    <filter id="sketchy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" />
+    </filter>
+    <filter id="torn-edge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+    </filter>
+  </defs>
+</svg>
+
+<header class="hero" style="padding: 60px 0;">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:60px; flex-wrap:wrap;">
+    
+    <!-- Polaroid -->
+    <div style="position:relative; flex:none;">
+      <figure class="polaroid" style="margin:0; width: 280px; transform: rotate(-2deg);">
+        <span class="tape plain" style="top:-14px; left:50%; transform:translateX(-50%) rotate(2deg);"></span>
+        <img src="assets/1.jpeg" alt="Photo of Pratyaksh Tomar" style="width:100%; height:320px; object-fit:cover;">
+        <figcaption style="font-size:1.3rem;">that's me! 👋</figcaption>
+      </figure>
+      <span class="hand doodle" style="position:absolute; bottom:-30px; left:10px; font-size:1.1rem; color:var(--teal); transform:rotate(-4deg);">hi again ✌️</span>
+    </div>
+
+    <!-- Torn Card -->
+    <div class="scrap-tilt" style="flex:1; min-width:320px; max-width:600px; --tilt-rotate:1deg;">
+      <div style="background:#fffdf6; filter:url(#torn-edge) drop-shadow(0 4px 10px rgba(58,47,47,0.08)); border-radius:8px; position:absolute; top:0; left:0; width:100%; height:100%;"></div>
+      <div style="position:relative; padding: 40px;">
+        <div class="tape" style="top:-14px; right:40px; transform:rotate(-3deg); background:var(--kraft); width:80px; height:24px;"></div>
+        <h1 style="font-size:2.8rem; margin-bottom: 20px; font-family:'Poppins', sans-serif; color:var(--ink);">About me</h1>
+        <p class="hand" style="font-size: 1.4rem; color:rgba(58,47,47,0.85); line-height: 1.6; margin:0;">
+          I’m a Computer Engineering student with a strong interest in software engineering and AI/ML. I enjoy building practical, technology-driven solutions, solving complex problems, and continuously expanding my technical expertise. 
+        </p>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<section>
+  <div class="wrap" style="text-align:center;">
+    <h2 style="font-size: 2.5rem; display:inline-block; position:relative; margin-bottom: 20px;">
+      Career Path
+      <svg viewBox="0 0 260 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; bottom:-12px; left:0; width:100%; height:14px; transform:rotate(-1deg);">
+        <path d="M3 8C45 2 90 12 135 6C175 1 215 11 257 5" stroke="var(--teal)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </h2>
+    <div class="timeline" style="margin-top:40px; text-align:left;">
+      
+      <!-- Item 1 (Oldest) -->
+      <div class="tl-item">
+        <div class="tl-header-row">
+          <span class="tl-badge">🎓 school</span>
+          <span class="tl-when">2018 — 2020</span>
+        </div>
+        <h4>Secondary (Class X)</h4>
+        <div class="org">Dehradun Public School, Ghaziabad</div>
+        <p>CBSE — 92%. Where the journey started.</p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="tl-item">
+        <div class="tl-header-row">
+          <span class="tl-badge">🎓 school</span>
+          <span class="tl-when">2020 — 2022</span>
+        </div>
+        <h4>Senior Secondary (Class XII)</h4>
+        <div class="org">Dehradun Public School, Ghaziabad</div>
+        <p>CBSE — 82.2%. Started leaning hard into computers and engineering.</p>
+      </div>
+
+      <!-- Item 3 (Current) -->
+      <div class="tl-item">
+        <div class="tl-header-row">
+          <span class="tl-badge">🎓 university</span>
+          <span class="tl-when">2023 — Present</span>
+        </div>
+        <h4>B.Tech · Computer Engineering</h4>
+        <div class="org">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</div>
+        <p>Currently in progress — deep in data structures, systems, and shipping side projects alongside coursework.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:900px; margin: 0 auto; text-align:center;">
+    <div class="section-label">the toolkit</div>
+    <h2 style="font-size:2.8rem; display:inline-block; position:relative; margin-bottom: 20px;">
+      Skills
+      <svg viewBox="0 0 260 14" fill="none" style="position:absolute; bottom:-8px; left:0; width:100%; height:14px;">
+        <path d="M3 8C45 2 90 12 135 6C175 1 215 11 257 5" stroke="var(--orange)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </h2>
+
+    <div style="margin-top:50px; text-align:left; border-top: 1px solid rgba(58,47,47,0.1);">
+      
+      <!-- Category 1 -->
+      <div class="skills-row">
+        <p class="hand" style="font-weight:700; font-size:1.25rem; color:rgba(58,47,47,0.65);">Programming</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <span class="sketch-pill">C</span>
+          <span class="sketch-pill">C++</span>
+          <span class="sketch-pill">Python</span>
+          <span class="sketch-pill">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Category 2 -->
+      <div class="skills-row">
+        <p class="hand" style="font-weight:700; font-size:1.25rem; color:rgba(58,47,47,0.65);">AI &amp; Machine Learning</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <span class="sketch-pill">NumPy</span>
+          <span class="sketch-pill">Pandas</span>
+          <span class="sketch-pill">Scikit-learn</span>
+          <span class="sketch-pill">NLTK</span>
+          <span class="sketch-pill">VADER</span>
+          <span class="sketch-pill">Ollama</span>
+          <span class="sketch-pill">RAG</span>
+        </div>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="skills-row">
+        <p class="hand" style="font-weight:700; font-size:1.25rem; color:rgba(58,47,47,0.65);">Tools</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <span class="sketch-pill">Matplotlib</span>
+          <span class="sketch-pill">Git / GitHub</span>
+        </div>
+      </div>
+
+      <!-- Category 4 -->
+      <div class="skills-row">
+        <p class="hand" style="font-weight:700; font-size:1.25rem; color:rgba(58,47,47,0.65);">Web &amp; Backend</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <span class="sketch-pill">React.js</span>
+          <span class="sketch-pill">Node.js</span>
+          <span class="sketch-pill">Express.js</span>
+          <span class="sketch-pill">HTML5 / CSS3</span>
+          <span class="sketch-pill">Tailwind CSS</span>
+          <span class="sketch-pill">MySQL</span>
+          <span class="sketch-pill">MongoDB</span>
+          <span class="sketch-pill">ChromaDB</span>
+        </div>
+      </div>
+
+      <!-- Category 5 -->
+      <div class="skills-row" style="border-bottom:none;">
+        <p class="hand" style="font-weight:700; font-size:1.25rem; color:rgba(58,47,47,0.65);">Core CS &amp; Systems</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <span class="sketch-pill">Data Structures</span>
+          <span class="sketch-pill">Algorithms</span>
+          <span class="sketch-pill">OOP</span>
+          <span class="sketch-pill">DBMS</span>
+          <span class="sketch-pill">Operating Systems</span>
+          <span class="sketch-pill">Computer Networks</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">giving it a shot</div>
+    <h2>Achievements</h2>
+    <ul class="ach-list" style="margin-top:24px;">
+      <li>Selected as a finalist in Policy Conclave'26, Indian Institute of Technology Kanpur.</li>
+      <li>Participated in Hacker's Premier League — Guru Gobind Singh Indraprastha University, Delhi.</li>
+      <li>Competed in the National AI/ML Hackathon by AVEVA (IIT Hyderabad) as part of team Thunders — Mar 2026.</li>
+      <li>Awarded Top Performer certificate in E&amp;ICT IITG's Introduction to Programming by Coding Ninjas × IIT Guwahati, Feb 2025 (NSDC certified).</li>
+      <li>Solved 400+ coding problems across <a href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener" style="color:var(--teal); font-weight:600; text-decoration:underline;">LeetCode</a>, <a href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener" style="color:var(--teal); font-weight:600; text-decoration:underline;">Code360</a> and other platforms.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="contact-card" style="position:relative;">
+      <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
+      <h2>Let's make something together</h2>
+      <p>Open to Software Engineering internships and full-time roles.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
+        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
+        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
+      </div>
+      <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
+      <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

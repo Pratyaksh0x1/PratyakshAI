@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé — Pratyaksh Tomar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand sticker" style="--tilt-rotate:-2deg;">
+      pratyaksh<span style="color:var(--orange); margin-left:2px;">✦</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">home</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="resume.html" class="active">resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section style="padding-bottom:10px;">
+  <div class="wrap resume-toolbar">
+    <span class="hand" style="font-size:1.05rem;">the official page of the scrapbook ↓</span>
+    <button class="btn" onclick="window.print()" style="cursor:pointer;">🖨 Print / Save as PDF</button>
+  </div>
+
+  <div class="wrap">
+    <div class="card resume-sheet">
+      <span class="tape orange"></span>
+
+      <h2>Pratyaksh Tomar</h2>
+      <div class="role">Aspiring Software Engineer</div>
+      <div class="contact-line">
+        Pratyakshtomar2000@gmail.com ·
+        <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">github.com/Pratyaksh0x1</a> ·
+        <a href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">linkedin.com/in/pratyaksh-tomar</a> ·
+        Ghaziabad, India
+      </div>
+
+      <div class="resume-block">
+        <h5>Education</h5>
+        <div class="resume-entry">
+          <div class="resume-entry-head">
+            <h6>B.Tech · Computer Engineering — Dr. A.P.J. Abdul Kalam Technical University, Lucknow</h6>
+            <span class="when">2023 – Present</span>
+          </div>
+        </div>
+        <div class="resume-entry">
+          <div class="resume-entry-head">
+            <h6>Senior Secondary (Class XII) · CBSE — Dehradun Public School, Ghaziabad</h6>
+            <span class="when">2020 – 2022 · 82.2%</span>
+          </div>
+        </div>
+        <div class="resume-entry">
+          <div class="resume-entry-head">
+            <h6>Secondary (Class X) · CBSE — Dehradun Public School, Ghaziabad</h6>
+            <span class="when">2018 – 2020 · 92%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <h5>Projects</h5>
+        <div class="resume-entry">
+          <div class="resume-entry-head"><h6>Resume Screening AI</h6></div>
+          <div class="org">MERN Stack, Cohere AI, PDF-Parse, Firebase Auth, Multer</div>
+          <ul>
+            <li>AI-driven resume screening platform evaluating PDF resumes against job descriptions via Cohere's LLM API — automated 0–100% match scores with feedback.</li>
+            <li>Secure Express/MongoDB backend with Multer file processing and Firebase Auth (HOCs) protecting routes.</li>
+            <li>Full admin suite and React (Vite) frontend with Three.js animations and cross-user submission management.</li>
+          </ul>
+        </div>
+        <div class="resume-entry">
+          <div class="resume-entry-head"><h6>E-Consultation Sentiment Analysis Dashboard</h6></div>
+          <div class="org">React.js, Python, FastAPI, NLTK, Chart.js</div>
+          <ul>
+            <li>End-to-end sentiment engine using FastAPI + TextBlob to classify public feedback CSVs as positive/negative/neutral.</li>
+            <li>LSA-based extractive summarization (Sumy) and term-frequency extraction turning comments into executive summaries and word clouds.</li>
+            <li>Interactive Chart.js dashboard with automated PDF report generation via fpdf2.</li>
+          </ul>
+        </div>
+        <div class="resume-entry">
+          <div class="resume-entry-head"><h6>VectorDB</h6></div>
+          <div class="org">C++, HNSW, KD-Tree, Ollama, REST API</div>
+          <ul>
+            <li>High-performance C++ vector database — HNSW, KD-Tree, exact nearest-neighbor search across 16D–768D spaces.</li>
+            <li>RAG system integrating Ollama (nomic-embed-text, llama3.2) with a custom 250-word sliding-window chunker.</li>
+            <li>Thread-safe REST API (10+ endpoints, std::mutex) with a 2D PCA scatter-plot UI for vector clustering.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <h5>Skills</h5>
+        <div class="chips skills">
+          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span>
+          <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span><span class="chip">LangChain</span><span class="chip">RAG</span>
+          <span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span>
+          <span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">ChromaDB</span><span class="chip">Git/GitHub</span>
+        </div>
+      </div>
+
+      <div class="resume-block" style="margin-bottom:0;">
+        <h5>Achievements</h5>
+        <ul class="ach-list">
+          <li>Finalist, Policy Conclave'26 — Indian Institute of Technology Kanpur.</li>
+          <li>Participant, Hacker's Premier League — GGSIP University, Delhi.</li>
+          <li>National AI/ML Hackathon by AVEVA (IIT Hyderabad), team Thunders — Mar 2026.</li>
+          <li>Top Performer, E&amp;ICT IITG × Coding Ninjas Introduction to Programming (NSDC certified) — Feb 2025.</li>
+          <li>400+ problems solved across LeetCode and Code360.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="contact-card" style="position:relative;">
+      <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
+      <h2>Prefer a real conversation?</h2>
+      <p>The AI is fun, but I'm happy to talk directly too.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
+        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
+        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
+      </div>
+      <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
+      <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
