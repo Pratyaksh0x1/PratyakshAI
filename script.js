@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setStatus("typing...");
     
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const res = await fetch("https://pratyakshai-backend.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question })
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       jdResult.hidden = true;
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/jd-match", {
+        const res = await fetch("https://pratyakshai-backend.onrender.com/jd-match", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ jd })
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Ping backend on load
-  fetch("http://127.0.0.1:8000/")
+  fetch("https://pratyakshai-backend.onrender.com/")
     .then(res => res.ok ? setStatus("online") : setStatus("offline"))
     .catch(() => setStatus("offline"));
 });
