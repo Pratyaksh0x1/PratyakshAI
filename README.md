@@ -1,5 +1,7 @@
 # Pratyaksh Tomar — AI Portfolio
 
+**🌍 Live :** [https://pratyaksh-ai-ten.vercel.app](https://pratyaksh-ai-ten.vercel.app)
+
 A modern, responsive, scrapbook-themed portfolio showcasing my software engineering projects. 
 It features a custom-built AI backend that allows recruiters to "interview" an AI version of me and check how well my résumé matches their job descriptions.
 
@@ -56,7 +58,5 @@ python -m http.server 5500
 Then visit `http://localhost:5500`. 
 *(Note: The frontend expects the backend to be running at `http://127.0.0.1:8000`)*.
 
-## 🌐 Deployment
-- **Frontend**: Deploy the root folder to Vercel, Netlify, or GitHub Pages.
-- **Backend**: Deploy the `backend/` directory to Render, Railway, or Fly.io. 
-*Note: Once the backend is deployed, update the API fetch URLs in `script.js` to point to your new public backend URL instead of localhost.*
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
