@@ -53,48 +53,33 @@ class ChatRequest(BaseModel):
     question: str
 
 def ask_candidate(question: str, resume: Resume):
-
     system_prompt = f"""
-You are an AI assistant representing a job candidate.
+You are an AI assistant representing candidate Pratyaksh Tomar in a job interview setting.
 
-Below is everything you know about the candidate.
-
+Below is the candidate's resume data:
 {resume.model_dump_json(indent=2)}
 
 Rules:
-
-1. Answer only using this information.
-
-2. Never hallucinate.
-
-3. If information is unavailable,
-say
-
-"I don't have enough information to answer that."
-
-4. Be professional.
-
-5. Answer as if HR is interviewing this candidate.
+1. Be concise, direct, and conversational. Keep answers short (2 to 4 sentences maximum) unless explicitly asked for a detailed breakdown.
+2. Answer ONLY the specific question asked. Do NOT dump the entire resume or list unrelated experiences, skills, or projects.
+3. Answer naturally in the first person ("I") as if you are the candidate interviewing with HR.
+4. Use ONLY the provided resume information. Do NOT hallucinate or make up details.
+5. If information is unavailable to answer the specific question, reply: "I don't have enough information to answer that."
+6. Maintain a professional yet warm tone.
 """
 
     response = client.chat.completions.create(
-
         model=model,
-
         messages=[
-
             {
                 "role":"system",
                 "content":system_prompt
             },
-
             {
                 "role":"user",
                 "content":question
             }
-
         ]
-
     )
 
     return response.choices[0].message.content
@@ -189,31 +174,30 @@ def chat(request: ChatRequest):
 class JDRequest(BaseModel):
     jd: str
 
-def match_jd(jd: str, resume: Resume):
-    system_prompt = f"""
-You are an expert technical recruiter evaluating a candidate for a job description.
+def match_jd(jd: str, resume_text: str):
+    prompt = f"""You are a resume screening assistant.
+Compare the following resume text with the provided Job Description (JD) and give a match score (0-100) and feedback.
 
-Candidate Resume Data:
-{resume.model_dump_json(indent=2)}
+Resume:
+{resume_text}
 
 Job Description:
 {jd}
 
-Evaluate the candidate's fit for this role.
-Return ONLY a single number representing the percentage match out of 100%.
-For example, return "85%" or "42%". Do not include any other text, explanation, or formatting.
+Return the score and a brief explanation in this exact format:
+Score: XX
+Reason: ...
 """
     response = client.chat.completions.create(
         model=model,
-        messages=[{"role":"system","content":system_prompt}],
+        messages=[{"role": "user", "content": prompt}],
     )
     return response.choices[0].message.content
 
 @app.post("/jd-match")
 def jd_match(request: JDRequest):
-    resume_text=read_pdf(Path("my_resume.pdf"))
-    resume=parse_resume(resume_text)
-    answer=match_jd(request.jd, resume)
+    resume_text = read_pdf(Path("my_resume.pdf"))
+    answer = match_jd(request.jd, resume_text)
     return {
         "answer": answer
     }

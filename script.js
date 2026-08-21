@@ -81,16 +81,35 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!res.ok) throw new Error("Server error");
         
         const data = await res.json();
-        jdResult.innerHTML = `
-          <div style="text-align:center; padding: 20px;">
-            <div style="font-size:4rem; font-weight:800; color:var(--teal); line-height:1; font-family:'Baloo 2', sans-serif;">
-              ${data.answer}
+        const text = data.answer || "";
+        const scoreMatch = text.match(/Score:\s*(\d+)/i);
+        const reasonMatch = text.match(/Reason:\s*([\s\S]+)/i);
+
+        if (scoreMatch && reasonMatch) {
+          const score = scoreMatch[1];
+          const reason = reasonMatch[1].trim();
+          jdResult.innerHTML = `
+            <div style="padding: 20px;">
+              <div style="text-align:center;">
+                <div style="font-size:3.5rem; font-weight:800; color:var(--teal); line-height:1; font-family:'Baloo 2', sans-serif;">
+                  ${score}%
+                </div>
+                <div style="font-family:'Kalam', cursive; color:var(--ink-soft); font-size:1.2rem; margin-top:5px;">
+                  Match Score
+                </div>
+              </div>
+              <div style="font-family:'Poppins', sans-serif; color:var(--ink); font-size:0.95rem; margin-top:16px; line-height:1.6; background: rgba(255,255,255,0.7); padding: 16px; border-radius: 12px; border: 1px dashed var(--ink-soft);">
+                <strong>Feedback & Reason:</strong><br>${reason}
+              </div>
             </div>
-            <div style="font-family:'Kalam', cursive; color:var(--ink-soft); font-size:1.2rem; margin-top:10px;">
-              Match Score
+          `;
+        } else {
+          jdResult.innerHTML = `
+            <div style="padding: 20px; text-align:left; white-space:pre-wrap; font-family:'Poppins', sans-serif; line-height:1.5;">
+              ${text}
             </div>
-          </div>
-        `;
+          `;
+        }
         jdResult.hidden = false;
       } catch (err) {
         console.error(err);
