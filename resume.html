@@ -27,7 +27,10 @@
 <section style="padding-bottom:10px;">
   <div class="wrap resume-toolbar">
     <span class="hand" style="font-size:1.05rem;">the official page of the scrapbook ↓</span>
-    <button class="btn" onclick="window.print()" style="cursor:pointer;">🖨 Print / Save as PDF</button>
+    <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+      <a href="assets/my%20resume.pdf" download="Pratyaksh_Tomar_Resume.pdf" class="btn primary" id="download-resume-btn" style="text-decoration:none; cursor:pointer;">📥 Download Original Resume (PDF)</a>
+      <button class="btn" onclick="window.print()" style="cursor:pointer;">🖨 Print Page</button>
+    </div>
   </div>
 
   <div class="wrap">
@@ -69,46 +72,62 @@
       <div class="resume-block">
         <h5>Projects</h5>
         <div class="resume-entry">
-          <div class="resume-entry-head"><h6>PratyakshAI</h6></div>
-          <div class="org">FastAPI, Groq API, Python, HTML5, CSS3, JavaScript</div>
+          <div class="resume-entry-head">
+            <h6>ClawNest</h6>
+            <span class="when">
+              <a href="https://splendid-cactus-4f36bf.netlify.app" target="_blank" rel="noopener" style="color:var(--orange-deep); text-decoration:none; margin-right:8px; font-weight:700;">Live ↗</a>
+              <a href="https://github.com/Pratyaksh0x1/ClawNest.git" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
+            </span>
+          </div>
+          <div class="org">TypeScript, Bun, OpenRouter API, Node.js</div>
           <ul>
-            <li>Built a custom AI-driven portfolio platform featuring an interactive chatbot that answers recruiter queries by parsing an actual PDF résumé, powered by a FastAPI backend integrated with Groq’s LLM API for low-latency inference.</li>
-            <li>Engineered a Job Description (JD) Matcher that analyzes pasted job postings against résumé data in real time, generating an AI-powered fit score, key strengths, and skill gaps.</li>
-            <li>Developed a fully responsive frontend using vanilla HTML, CSS, and JavaScript, integrating custom AI endpoints for real-time chat and JD-matching features.</li>
-            <li>Designed a custom scrapbook-themed UI with handcrafted CSS filters and animations across multiple pages (home, about, projects, résumé), delivering a cohesive personal-branding experience deployed on Vercel.</li>
+            <li>Built an open-source personal AI agent system in TypeScript on Bun that automates software development tasks through a terminal CLI and a remote Telegram bot, with Agent, Plan, and Ask modes.</li>
+            <li>Engineered an autonomous agent loop with a modular tool executor for file operations, shell commands, code search, and web scraping, integrating OpenRouter to switch between multiple LLMs.</li>
+            <li>Designed a staged approval workflow with git-style diff previews so every AI-proposed change is reviewed before it is applied, plus path validation, file-size limits, and owner-only Telegram access.</li>
+            <li>Implemented an AI planning mode that breaks high-level goals into executable steps for selective execution, and a codebase Q&A mode that answers questions with file citations.</li>
           </ul>
         </div>
         <div class="resume-entry">
-          <div class="resume-entry-head"><h6>E-Consultation Sentiment Analysis Dashboard</h6></div>
-          <div class="org">React.js, Python, Flask, NLTK, Chart.js</div>
+          <div class="resume-entry-head">
+            <h6>California Housing Predictor</h6>
+            <span class="when">
+              <a href="https://california-housing-predictor-mhh0.onrender.com" target="_blank" rel="noopener" style="color:var(--orange-deep); text-decoration:none; margin-right:8px; font-weight:700;">Live ↗</a>
+              <a href="https://github.com/Pratyaksh0x1/Project-California" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
+            </span>
+          </div>
+          <div class="org">Python, Flask, scikit-learn, Chart.js, Pandas</div>
           <ul>
-            <li>Architected an end-to-end sentiment analysis engine using FastAPI and TextBlob to process public feedback CSVs and categorize comments into positive, negative, and neutral sentiment categories.</li>
-            <li>Implemented automated NLP pipelines incorporating LSA-based extractive summarization (Sumy) and top-term frequency extraction to turn large comment sets into concise executive summaries and word clouds.</li>
-            <li>Designed an interactive data visualization interface using Chart.js to display dynamic KPIs and sentiment metrics, featuring automated PDF report generation (via fpdf2) complete with embedded analytics.</li>
-            <li>Built a responsive React.js frontend enabling users to upload feedback CSVs, trigger real-time analysis, and visualize sentiment breakdowns and summaries through a clean, intuitive dashboard interface.</li>
+            <li>Built a full-stack machine learning web app using Flask and scikit-learn that predicts California median house values with a Random Forest Regressor (R² of 0.83, MAE of about $30.9K).</li>
+            <li>Engineered a preprocessing pipeline (median imputation, standard scaling, one-hot encoding) and used stratified sampling on income categories for an 80/20 train/test split over 20,640 records.</li>
+            <li>Developed a REST API with single-house prediction, batch CSV inference (drag-and-drop upload, summary metrics, enriched CSV export), and computed housing ratios such as rooms per household.</li>
+            <li>Designed an interactive evaluation dashboard with Chart.js showing actual vs. predicted, residual distribution, and regional comparisons, with ocean-proximity and price filters plus worst-prediction analysis.</li>
           </ul>
         </div>
       </div>
 
       <div class="resume-block">
         <h5>Technical Skills</h5>
-        <div style="margin-bottom:4px;"><strong>Languages:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">C, C++, Python, JavaScript</span></div>
-        <div style="margin-bottom:4px;"><strong>Web Development:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">React.js, FastAPI, HTML5, CSS3, Tailwind CSS</span></div>
-        <div style="margin-bottom:4px;"><strong>AI &amp; Machine Learning:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Groq API, LangChain, RAG, Ollama, NLTK, Scikit-learn</span></div>
+        <div style="margin-bottom:4px;"><strong>Languages:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">C, C++, Python, JavaScript, TypeScript</span></div>
+        <div style="margin-bottom:4px;"><strong>Web Development:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">FastAPI, Flask, Node.js, Bun, REST APIs, HTML5, CSS3, Tailwind CSS</span></div>
+        <div style="margin-bottom:4px;"><strong>AI &amp; Machine Learning:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Groq API, Pandas, Chart.js, Matplotlib, LangChain, RAG, Ollama, NLTK, Scikit-learn, TensorFlow</span></div>
         <div style="margin-bottom:4px;"><strong>Databases:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">MongoDB, MySQL</span></div>
-        <div style="margin-bottom:4px;"><strong>Tools &amp; Platforms:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Git/GitHub, REST APIs, Vercel</span></div>
+        <div style="margin-bottom:4px;"><strong>Tools &amp; Platforms:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Git/GitHub, Vercel</span></div>
         <div style="margin-bottom:4px;"><strong>Coursework:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Data Structures, Algorithms, Object-Oriented Programming, Database Management System, Operating Systems, Computer Networks</span></div>
       </div>
 
       <div class="resume-block" style="margin-bottom:0;">
         <h5>Achievements</h5>
         <ul class="ach-list">
-          <li>Finalist, Policy Conclave'26 — Indian Institute of Technology Kanpur.</li>
-          <li>Participant, Hacker's Premier League — Guru Gobind Singh Indraprastha University, Delhi.</li>
-          <li>National AI/ML Hackathon by AVEVA (IIT Hyderabad), team Thunders — Mar 2026.</li>
-          <li>Top Performer, E&amp;ICT IITG × Coding Ninjas Introduction to Programming (NSDC certified) — Feb 2025.</li>
-          <li>Solved 400+ coding problems across LeetCode and Code360.</li>
+          <li>Selected as a finalist in Policy Conclave ’26 at Indian Institute of Technology Kanpur.</li>
+          <li>Competed in the National AI/ML Hackathon by AVEVA (organised by IIT Hyderabad), building AI/ML solutions as part of team Thunders, Mar 2026.</li>
+          <li>Participated in Hacker’s Premier League at Guru Gobind Singh Indraprastha University, Delhi.</li>
+          <li>Awarded Top Performer certificate in <a href="https://certificate.codingninjas.com/view/342092afadef696f" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">E&amp;ICT IITG: Introduction to Programming</a> by Coding Ninjas × IIT Guwahati, Feb 2025 (NSDC certified).</li>
+          <li>Solved 400+ coding problems across platforms including <a href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">LeetCode</a> and <a href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">Code 360</a>.</li>
         </ul>
+      </div>
+
+      <div style="text-align:center; margin-top:28px; padding-top:20px; border-top:1px dashed rgba(58,47,47,0.2);">
+        <a href="assets/my%20resume.pdf" download="Pratyaksh_Tomar_Resume.pdf" class="btn primary" style="text-decoration:none; cursor:pointer;">📥 Download Original Resume (PDF)</a>
       </div>
     </div>
   </div>

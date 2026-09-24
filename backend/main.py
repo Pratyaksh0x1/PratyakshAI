@@ -155,9 +155,23 @@ def read_pdf(file_path: Path):
 
     return text
 
+def get_resume_path() -> Path:
+    base_dir = Path(__file__).parent
+    candidates = [
+        base_dir / "my_resume.pdf",
+        base_dir.parent / "assets" / "my resume.pdf",
+        Path("backend/my_resume.pdf"),
+        Path("assets/my resume.pdf"),
+        Path("my_resume.pdf")
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    return base_dir / "my_resume.pdf"
+
 @app.get("/")
 def home():
-    resume_text=read_pdf(Path("my_resume.pdf"))
+    resume_text=read_pdf(get_resume_path())
     resume=parse_resume(resume_text)
     return {
         "message" : "my portfolio is running"
@@ -165,7 +179,7 @@ def home():
 
 @app.post("/chat")
 def chat(request: ChatRequest):
-    resume_text=read_pdf(Path("my_resume.pdf"))
+    resume_text=read_pdf(get_resume_path())
     resume=parse_resume(resume_text)
     answer=ask_candidate(request.question, resume)
     return {
@@ -196,7 +210,7 @@ Reason: ...
 
 @app.post("/jd-match")
 def jd_match(request: JDRequest):
-    resume_text = read_pdf(Path("my_resume.pdf"))
+    resume_text = read_pdf(get_resume_path())
     answer = match_jd(request.jd, resume_text)
     return {
         "answer": answer
