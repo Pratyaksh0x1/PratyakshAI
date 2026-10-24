@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     div.innerText = text;
     chatBody.appendChild(div);
     chatBody.scrollTop = chatBody.scrollHeight;
+    return div;
   };
 
   const setStatus = (text) => {
@@ -23,22 +24,61 @@ document.addEventListener("DOMContentLoaded", () => {
     appendMessage(question, true);
     if (chatInput) chatInput.value = "";
     setStatus("typing...");
+
+    // Create bot bubble with animated typing dots
+    const botMsg = document.createElement("div");
+    botMsg.className = "msg bot";
+    botMsg.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+    chatBody.appendChild(botMsg);
+    chatBody.scrollTop = chatBody.scrollHeight;
     
     try {
       const res = await fetch("https://pratyakshai-backend.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question })
+        body: JSON.stringify({ question, streaming: true, stream: true })
       });
-      if (!res.ok) throw new Error("Server error");
+      if (!res.ok) throw new Error("Server error " + res.status);
       
-      const data = await res.json();
-      appendMessage(data.answer);
+      const contentType = res.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
+        const data = await res.json();
+        botMsg.innerText = data.answer || "";
+      } else if (res.body && res.body.getReader) {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let hasReceivedFirstChunk = false;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          if (chunk) {
+            if (!hasReceivedFirstChunk) {
+              botMsg.innerText = "";
+              hasReceivedFirstChunk = true;
+            }
+            botMsg.innerText += chunk;
+            chatBody.scrollTop = chatBody.scrollHeight;
+          }
+        }
+
+        if (!hasReceivedFirstChunk) {
+          botMsg.innerText = "I don't have enough information to answer that.";
+        }
+      } else {
+        const text = await res.text();
+        botMsg.innerText = text;
+      }
       setStatus("online");
     } catch (err) {
       console.error(err);
-      appendMessage("Sorry, I'm having trouble connecting to my brain right now! Make sure the backend is running.");
+      botMsg.className = "msg bot err";
+      botMsg.innerText = "Sorry, I'm having trouble connecting to my brain right now! Make sure the backend is running.";
       setStatus("offline");
+    } finally {
+      chatBody.scrollTop = chatBody.scrollHeight;
     }
   };
 

@@ -4,12 +4,17 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
 from groq import Groq
 from pydantic import BaseModel
 from pypdf import PdfReader
 from fastapi.middleware.cors import CORSMiddleware
 
-load_dotenv()
+env_path = Path(__file__).parent / ".env"
+if env_path.exists():
+    load_dotenv(dotenv_path=env_path)
+else:
+    load_dotenv()
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
@@ -51,9 +56,16 @@ resume_schema = Resume.model_json_schema()
 
 class ChatRequest(BaseModel):
     question: str
+    stream: bool = True
+    streaming: bool | None = None
 
-def ask_candidate(question: str, resume: Resume):
-    system_prompt = f"""
+    def should_stream(self) -> bool:
+        if self.streaming is not None:
+            return bool(self.streaming)
+        return bool(self.stream)
+
+def get_candidate_system_prompt(resume: Resume) -> str:
+    return f"""
 You are an AI assistant representing candidate Pratyaksh Tomar in a job interview setting.
 
 Below is the candidate's resume data:
@@ -68,21 +80,44 @@ Rules:
 6. Maintain a professional yet warm tone.
 """
 
+def ask_candidate(question: str, resume: Resume) -> str:
     response = client.chat.completions.create(
         model=model,
         messages=[
             {
-                "role":"system",
-                "content":system_prompt
+                "role": "system",
+                "content": get_candidate_system_prompt(resume)
             },
             {
-                "role":"user",
-                "content":question
+                "role": "user",
+                "content": question
             }
         ]
     )
-
     return response.choices[0].message.content
+
+def ask_candidate_stream(question: str, resume: Resume):
+    try:
+        response_stream = client.chat.completions.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": get_candidate_system_prompt(resume)
+                },
+                {
+                    "role": "user",
+                    "content": question
+                }
+            ],
+            stream=True
+        )
+        for chunk in response_stream:
+            content = chunk.choices[0].delta.content if (chunk.choices and chunk.choices[0].delta) else None
+            if content:
+                yield content
+    except Exception as e:
+        yield f" [Error: {str(e)}]"
 def parse_resume(resume_text):
     system_prompt = f"""
     You are an expert resume parser.
@@ -169,22 +204,53 @@ def get_resume_path() -> Path:
             return p
     return base_dir / "my_resume.pdf"
 
+_cached_resume: Resume | None = None
+_cached_resume_text: str | None = None
+_cached_pdf_mtime: float = 0.0
+
+def get_resume_text() -> str:
+    global _cached_resume_text, _cached_pdf_mtime
+    pdf_path = get_resume_path()
+    try:
+        mtime = pdf_path.stat().st_mtime
+    except Exception:
+        mtime = 0.0
+    if _cached_resume_text is None or mtime != _cached_pdf_mtime:
+        _cached_resume_text = read_pdf(pdf_path)
+        _cached_pdf_mtime = mtime
+    return _cached_resume_text
+
+def get_parsed_resume() -> Resume:
+    global _cached_resume
+    text = get_resume_text()
+    if _cached_resume is None:
+        _cached_resume = parse_resume(text)
+    return _cached_resume
+
 @app.get("/")
 def home():
-    resume_text=read_pdf(get_resume_path())
-    resume=parse_resume(resume_text)
     return {
-        "message" : "my portfolio is running"
+        "message": "my portfolio is running"
     }
 
 @app.post("/chat")
 def chat(request: ChatRequest):
-    resume_text=read_pdf(get_resume_path())
-    resume=parse_resume(resume_text)
-    answer=ask_candidate(request.question, resume)
+    resume = get_parsed_resume()
+    if request.should_stream():
+        return StreamingResponse(
+            ask_candidate_stream(request.question, resume),
+            media_type="text/plain; charset=utf-8",
+            headers={
+                "Cache-Control": "no-cache",
+                "X-Accel-Buffering": "no",
+                "Connection": "keep-alive",
+            }
+        )
+    answer = ask_candidate(request.question, resume)
     return {
         "answer": answer
     }
+
 class JDRequest(BaseModel):
     jd: str
 
@@ -210,7 +276,7 @@ Reason: ...
 
 @app.post("/jd-match")
 def jd_match(request: JDRequest):
-    resume_text = read_pdf(get_resume_path())
+    resume_text = get_resume_text()
     answer = match_jd(request.jd, resume_text)
     return {
         "answer": answer
