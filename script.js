@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const suggestButtons = document.querySelectorAll("#chat-suggest button");
   const statusEl = document.getElementById("backend-status");
 
+  const conversationHistory = [];
+  const sessionId = "sess_" + Math.random().toString(36).substring(2, 9) + "_" + Date.now();
+
   const appendMessage = (text, isUser = false) => {
     const div = document.createElement("div");
     div.className = "msg " + (isUser ? "user" : "bot");
@@ -19,9 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const sendMessage = async (question) => {
-    if (!question.trim()) return;
+    const trimmed = question.trim();
+    if (!trimmed) return;
     
-    appendMessage(question, true);
+    appendMessage(trimmed, true);
     if (chatInput) chatInput.value = "";
     setStatus("typing...");
 
@@ -32,11 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
     chatBody.appendChild(botMsg);
     chatBody.scrollTop = chatBody.scrollHeight;
     
+    let botFullAnswer = "";
     try {
       const res = await fetch("https://pratyakshai-backend.onrender.com/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, streaming: true, stream: true })
+        body: JSON.stringify({
+          question: trimmed,
+          history: conversationHistory,
+          session_id: sessionId,
+          streaming: true,
+          stream: true
+        })
       });
       if (!res.ok) throw new Error("Server error " + res.status);
       
@@ -44,7 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (contentType.includes("application/json")) {
         const data = await res.json();
-        botMsg.innerText = data.answer || "";
+        botFullAnswer = data.answer || "";
+        botMsg.innerText = botFullAnswer;
       } else if (res.body && res.body.getReader) {
         const reader = res.body.getReader();
         const decoder = new TextDecoder("utf-8");
@@ -60,17 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
               hasReceivedFirstChunk = true;
             }
             botMsg.innerText += chunk;
+            botFullAnswer += chunk;
             chatBody.scrollTop = chatBody.scrollHeight;
           }
         }
 
         if (!hasReceivedFirstChunk) {
-          botMsg.innerText = "I don't have enough information to answer that.";
+          botFullAnswer = "I don't have enough information to answer that.";
+          botMsg.innerText = botFullAnswer;
         }
       } else {
-        const text = await res.text();
-        botMsg.innerText = text;
+        botFullAnswer = await res.text();
+        botMsg.innerText = botFullAnswer;
       }
+
+      if (botFullAnswer && botFullAnswer.trim()) {
+        conversationHistory.push({ role: "user", content: trimmed });
+        conversationHistory.push({ role: "assistant", content: botFullAnswer.trim() });
+        if (conversationHistory.length > 20) {
+          conversationHistory.splice(0, conversationHistory.length - 20);
+        }
+      }
+
       setStatus("online");
     } catch (err) {
       console.error(err);

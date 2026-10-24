@@ -54,8 +54,15 @@ class Resume(BaseModel):
     certifications: list[str] = []
 resume_schema = Resume.model_json_schema()
 
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
 class ChatRequest(BaseModel):
     question: str
+    messages: list[ChatMessage] = []
+    history: list[ChatMessage] = []
+    session_id: str | None = None
     stream: bool = True
     streaming: bool | None = None
 
@@ -63,6 +70,14 @@ class ChatRequest(BaseModel):
         if self.streaming is not None:
             return bool(self.streaming)
         return bool(self.stream)
+
+    def get_history(self) -> list[ChatMessage]:
+        if self.history:
+            return self.history
+        return self.messages
+
+# In-memory session store for tracking conversation history by session_id
+_session_memory: dict[str, list[dict[str, str]]] = {}
 
 def get_candidate_system_prompt(resume: Resume) -> str:
     return f"""
@@ -78,44 +93,80 @@ Rules:
 4. Use ONLY the provided resume information. Do NOT hallucinate or make up details.
 5. If information is unavailable to answer the specific question, reply: "I don't have enough information to answer that."
 6. Maintain a professional yet warm tone.
+7. Remember the ongoing conversation history: maintain context across previous user questions and assistant answers to handle follow-up questions, pronouns, and references naturally.
 """
 
-def ask_candidate(question: str, resume: Resume) -> str:
+def build_chat_messages(
+    question: str,
+    resume: Resume,
+    history: list[ChatMessage] | list[dict[str, str]] | None = None
+) -> list[dict[str, str]]:
+    messages: list[dict[str, str]] = [
+        {
+            "role": "system",
+            "content": get_candidate_system_prompt(resume)
+        }
+    ]
+
+    if history:
+        for msg in history[-14:]:
+            role = msg.role if hasattr(msg, "role") else msg.get("role")
+            content = msg.content if hasattr(msg, "content") else msg.get("content")
+            if role in ("user", "assistant") and content and content.strip():
+                messages.append({"role": role, "content": content.strip()})
+
+    if not messages or messages[-1]["role"] != "user" or messages[-1]["content"] != question:
+        messages.append({"role": "user", "content": question})
+
+    return messages
+
+def record_session_turn(session_id: str | None, question: str, answer: str):
+    if not session_id:
+        return
+    if session_id not in _session_memory:
+        _session_memory[session_id] = []
+    _session_memory[session_id].append({"role": "user", "content": question})
+    _session_memory[session_id].append({"role": "assistant", "content": answer})
+    if len(_session_memory[session_id]) > 20:
+        _session_memory[session_id] = _session_memory[session_id][-20:]
+
+def ask_candidate(
+    question: str,
+    resume: Resume,
+    history: list[ChatMessage] | None = None,
+    session_id: str | None = None
+) -> str:
+    active_history = history or (_session_memory.get(session_id) if session_id else None)
+    messages = build_chat_messages(question, resume, active_history)
     response = client.chat.completions.create(
         model=model,
-        messages=[
-            {
-                "role": "system",
-                "content": get_candidate_system_prompt(resume)
-            },
-            {
-                "role": "user",
-                "content": question
-            }
-        ]
+        messages=messages
     )
-    return response.choices[0].message.content
+    answer = (response.choices[0].message.content or "").strip()
+    record_session_turn(session_id, question, answer)
+    return answer
 
-def ask_candidate_stream(question: str, resume: Resume):
+def ask_candidate_stream(
+    question: str,
+    resume: Resume,
+    history: list[ChatMessage] | None = None,
+    session_id: str | None = None
+):
+    active_history = history or (_session_memory.get(session_id) if session_id else None)
+    messages = build_chat_messages(question, resume, active_history)
+    full_response_parts: list[str] = []
     try:
         response_stream = client.chat.completions.create(
             model=model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": get_candidate_system_prompt(resume)
-                },
-                {
-                    "role": "user",
-                    "content": question
-                }
-            ],
+            messages=messages,
             stream=True
         )
         for chunk in response_stream:
             content = chunk.choices[0].delta.content if (chunk.choices and chunk.choices[0].delta) else None
             if content:
+                full_response_parts.append(content)
                 yield content
+        record_session_turn(session_id, question, "".join(full_response_parts).strip())
     except Exception as e:
         yield f" [Error: {str(e)}]"
 def parse_resume(resume_text):
@@ -236,9 +287,15 @@ def home():
 @app.post("/chat")
 def chat(request: ChatRequest):
     resume = get_parsed_resume()
+    history = request.get_history()
     if request.should_stream():
         return StreamingResponse(
-            ask_candidate_stream(request.question, resume),
+            ask_candidate_stream(
+                request.question,
+                resume,
+                history=history,
+                session_id=request.session_id
+            ),
             media_type="text/plain; charset=utf-8",
             headers={
                 "Cache-Control": "no-cache",
@@ -246,7 +303,12 @@ def chat(request: ChatRequest):
                 "Connection": "keep-alive",
             }
         )
-    answer = ask_candidate(request.question, resume)
+    answer = ask_candidate(
+        request.question,
+        resume,
+        history=history,
+        session_id=request.session_id
+    )
     return {
         "answer": answer
     }
