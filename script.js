@@ -7,13 +7,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const conversationHistory = [];
   const sessionId = "sess_" + Math.random().toString(36).substring(2, 9) + "_" + Date.now();
+  const chatScrollBtn = document.getElementById("chat-scroll-btn");
+  let isUserScrolledUp = false;
+
+  const scrollToBottom = (smooth = true) => {
+    if (!chatBody) return;
+    if (smooth) {
+      chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+    } else {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  };
+
+  const autoScrollChat = () => {
+    if (!chatBody) return;
+    if (!isUserScrolledUp) {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  };
+
+  if (chatBody) {
+    chatBody.addEventListener("scroll", () => {
+      const distanceToBottom = chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight;
+      isUserScrolledUp = distanceToBottom > 50;
+      if (chatScrollBtn) {
+        if (isUserScrolledUp) {
+          chatScrollBtn.classList.add("visible");
+        } else {
+          chatScrollBtn.classList.remove("visible");
+        }
+      }
+    });
+  }
+
+  if (chatScrollBtn) {
+    chatScrollBtn.addEventListener("click", () => {
+      isUserScrolledUp = false;
+      scrollToBottom(true);
+      chatScrollBtn.classList.remove("visible");
+    });
+  }
+
+  const scrollPageToAI = () => {
+    const chatSection = document.getElementById("chat");
+    if (chatSection) {
+      const rect = chatSection.getBoundingClientRect();
+      if (rect.top < -50 || rect.top > window.innerHeight * 0.4) {
+        chatSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
 
   const appendMessage = (text, isUser = false) => {
     const div = document.createElement("div");
     div.className = "msg " + (isUser ? "user" : "bot");
     div.innerText = text;
     chatBody.appendChild(div);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    scrollToBottom(true);
     return div;
   };
 
@@ -25,16 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const trimmed = question.trim();
     if (!trimmed) return;
     
+    isUserScrolledUp = false;
     appendMessage(trimmed, true);
     if (chatInput) chatInput.value = "";
     setStatus("typing...");
+    scrollPageToAI();
 
     // Create bot bubble with animated typing dots
     const botMsg = document.createElement("div");
     botMsg.className = "msg bot";
     botMsg.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
     chatBody.appendChild(botMsg);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    scrollToBottom(true);
     
     let botFullAnswer = "";
     try {
@@ -57,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await res.json();
         botFullAnswer = data.answer || "";
         botMsg.innerText = botFullAnswer;
+        autoScrollChat();
       } else if (res.body && res.body.getReader) {
         const reader = res.body.getReader();
         const decoder = new TextDecoder("utf-8");
@@ -73,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             botMsg.innerText += chunk;
             botFullAnswer += chunk;
-            chatBody.scrollTop = chatBody.scrollHeight;
+            autoScrollChat();
           }
         }
 
@@ -101,7 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
       botMsg.innerText = "Sorry, I'm having trouble connecting to my brain right now! Make sure the backend is running.";
       setStatus("offline");
     } finally {
-      chatBody.scrollTop = chatBody.scrollHeight;
+      if (!isUserScrolledUp) {
+        scrollToBottom(true);
+      }
     }
   };
 
@@ -174,16 +229,36 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
         }
         jdResult.hidden = false;
+        setTimeout(() => {
+          jdResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 50);
       } catch (err) {
         console.error(err);
         jdResult.innerHTML = "<p style='color:red'>Couldn't connect to backend. Please ensure it is running.</p>";
         jdResult.hidden = false;
+        setTimeout(() => {
+          jdResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 50);
       } finally {
         jdSubmit.innerText = "Check my fit";
         jdSubmit.disabled = false;
       }
     });
   }
+
+  // Smooth scroll for in-page anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId && targetId !== "#") {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    });
+  });
 
   // Ping backend on load
   fetch("https://pratyakshai-backend.onrender.com/")
