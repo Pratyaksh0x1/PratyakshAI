@@ -711,6 +711,139 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ----------------------------------------------------
+  // Scrapbook Project Video Demo Popup Modal
+  // ----------------------------------------------------
+  const initVideoModal = () => {
+    const modal = document.getElementById("scrapbook-video-modal");
+    const player = document.getElementById("video-modal-player");
+    const heading = document.getElementById("video-modal-heading");
+    const liveLink = document.getElementById("video-modal-live-link");
+    const backdrop = document.getElementById("video-modal-backdrop");
+    const closeBtn = document.getElementById("video-modal-close-btn");
+
+    if (!modal || !player) return;
+
+    let wasAudioPlayingBeforeModal = false;
+    let wasAudioMutedBeforeModal = false;
+
+    const openModal = (videoSrc, title, linkUrl) => {
+      // 1. Record audio state before opening modal
+      if (globalAudio) {
+        wasAudioPlayingBeforeModal = !globalAudio.paused && !globalAudio.ended;
+        wasAudioMutedBeforeModal = globalAudio.muted || globalAudio.volume === 0 || getSavedMute();
+
+        // Music should stop while playing the video
+        globalAudio.pause();
+        updateAudioUI();
+      }
+
+      // 2. Set video source and metadata
+      const source = player.querySelector("source");
+      if (source) source.src = videoSrc;
+      else player.src = videoSrc;
+      player.load();
+
+      if (heading) heading.textContent = title || "Project Demo Video";
+      if (liveLink) {
+        if (linkUrl) {
+          liveLink.href = linkUrl;
+          liveLink.style.display = "inline-flex";
+        } else {
+          liveLink.style.display = "none";
+        }
+      }
+
+      modal.classList.add("is-active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+
+      // 3. Play video with sound
+      player.muted = false;
+      player.volume = 1.0;
+      const playPromise = player.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Autoplay with sound prevented, retrying muted:", err);
+          player.muted = true;
+          player.play().catch(console.warn);
+        });
+      }
+    };
+
+    const closeModal = () => {
+      if (!modal.classList.contains("is-active")) return;
+
+      player.pause();
+      player.currentTime = 0;
+      const source = player.querySelector("source");
+      if (source) source.src = "";
+      else player.src = "";
+
+      modal.classList.remove("is-active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+
+      // Restore background music state exactly as it was:
+      if (globalAudio) {
+        if (wasAudioMutedBeforeModal) {
+          // If it was muted before playing the video, it remains muted after playing the video
+          globalAudio.muted = true;
+          setSavedMute(true);
+          if (wasAudioPlayingBeforeModal) {
+            globalAudio.play().catch(console.warn);
+          }
+        } else {
+          // It was unmuted before playing the video
+          globalAudio.muted = false;
+          setSavedMute(false);
+          if (wasAudioPlayingBeforeModal) {
+            globalAudio.play().catch(console.warn);
+          }
+        }
+        updateAudioUI();
+      }
+    };
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (backdrop) backdrop.addEventListener("click", closeModal);
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-active")) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest(".has-video-demo");
+      if (!trigger) return;
+
+      const videoSrc = trigger.getAttribute("data-video");
+      if (!videoSrc) return;
+
+      e.preventDefault();
+      const title = trigger.getAttribute("data-project-title") || "";
+      const linkUrl = trigger.getAttribute("data-live-link") || "";
+      openModal(videoSrc, title, linkUrl);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        const trigger = document.activeElement && document.activeElement.closest(".has-video-demo");
+        if (trigger) {
+          const videoSrc = trigger.getAttribute("data-video");
+          if (videoSrc) {
+            e.preventDefault();
+            const title = trigger.getAttribute("data-project-title") || "";
+            const linkUrl = trigger.getAttribute("data-live-link") || "";
+            openModal(videoSrc, title, linkUrl);
+          }
+        }
+      }
+    });
+  };
+
+  initVideoModal();
+
   // Ping backend on load
   fetch("https://pratyakshai-backend.onrender.com/")
     .then(res => res.ok ? setStatus("online") : setStatus("offline"))

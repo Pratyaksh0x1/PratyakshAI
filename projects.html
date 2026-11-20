@@ -207,7 +207,7 @@
             <div class="sheet-date">Nov 2025</div>
           </div>
 
-          <div class="sheet-preview-box">
+          <div class="sheet-preview-box has-video-demo" data-video="assets/videos/california-housing-demo.mp4" data-project-title="California Housing — ML Valuation Lab" data-live-link="https://california-housing-predictor-mhh0.onrender.com" role="button" tabindex="0" title="Click to watch demo video 🎬">
             <img src="assets/projects/california-housing-window.jpg" alt="California Housing Predictor Frontend" class="sheet-preview-img" loading="lazy">
             <div class="badge-starburst starburst-orange">
               <span>R²=0.83</span>
@@ -216,7 +216,7 @@
 
           <div class="sheet-stamps-row">
             <div class="cute-sticker">🏡</div>
-            <div class="stamp-badge badge-live">LIVE DEMO</div>
+            <div class="stamp-badge badge-live has-video-demo" data-video="assets/videos/california-housing-demo.mp4" data-project-title="California Housing — ML Valuation Lab" data-live-link="https://california-housing-predictor-mhh0.onrender.com" role="button" tabindex="0" title="Click to watch video demo" style="cursor:pointer;">LIVE DEMO ▶</div>
           </div>
 
           <div class="sheet-content">
@@ -234,7 +234,8 @@
             </div>
 
             <div class="sheet-footer">
-              <a href="https://california-housing-predictor-mhh0.onrender.com" target="_blank" rel="noopener" class="taped-link taped-live">Live Demo ↗</a>
+              <button type="button" class="taped-link taped-live has-video-demo" data-video="assets/videos/california-housing-demo.mp4" data-project-title="California Housing — ML Valuation Lab" data-live-link="https://california-housing-predictor-mhh0.onrender.com" title="Watch demo video">Watch Demo 🎬</button>
+              <a href="https://california-housing-predictor-mhh0.onrender.com" target="_blank" rel="noopener" class="taped-link taped-app" title="Open live web app">Live App ↗</a>
               <a href="https://github.com/Pratyaksh0x1/Project-California" target="_blank" rel="noopener" class="taped-link taped-github">GitHub ↗</a>
             </div>
           </div>
@@ -406,7 +407,7 @@
           </div>
 
           <!-- Project 5: Research Paper Assistant Preview -->
-          <div class="sheet-preview-box">
+          <div class="sheet-preview-box has-video-demo" data-video="assets/videos/research-lab-demo.mp4" data-project-title="Research Paper Assistant — Academic RAG" data-live-link="https://research-paper-assistant-2knl.onrender.com/" role="button" tabindex="0" title="Click to watch demo video 🎬">
             <img src="assets/projects/research-paper-window.jpg" alt="Research Paper Assistant RAG Frontend" class="sheet-preview-img" loading="lazy">
             <div class="badge-starburst starburst-pink">
               <span>QDRANT<br>RAG</span>
@@ -415,7 +416,7 @@
 
           <div class="sheet-stamps-row">
             <div class="cute-sticker">📄</div>
-            <div class="stamp-badge badge-live">LIVE DEMO</div>
+            <div class="stamp-badge badge-live has-video-demo" data-video="assets/videos/research-lab-demo.mp4" data-project-title="Research Paper Assistant — Academic RAG" data-live-link="https://research-paper-assistant-2knl.onrender.com/" role="button" tabindex="0" title="Click to watch video demo" style="cursor:pointer;">LIVE DEMO ▶</div>
           </div>
 
           <div class="sheet-content">
@@ -433,7 +434,8 @@
             </div>
 
             <div class="sheet-footer">
-              <a href="https://research-paper-assistant-2knl.onrender.com/" target="_blank" rel="noopener" class="taped-link taped-live">Live Demo ↗</a>
+              <button type="button" class="taped-link taped-live has-video-demo" data-video="assets/videos/research-lab-demo.mp4" data-project-title="Research Paper Assistant — Academic RAG" data-live-link="https://research-paper-assistant-2knl.onrender.com/" title="Watch demo video">Watch Demo 🎬</button>
+              <a href="https://research-paper-assistant-2knl.onrender.com/" target="_blank" rel="noopener" class="taped-link taped-app" title="Open live web app">Live App ↗</a>
               <a href="https://github.com/Pratyaksh0x1/Research-paper-assistant.git" target="_blank" rel="noopener" class="taped-link taped-github">GitHub ↗</a>
             </div>
           </div>
@@ -479,6 +481,41 @@
     <line x1="17" y1="9" x2="23" y2="15"></line>
   </svg>
 </button>
+
+<!-- Scrapbook Video Demo Modal -->
+<div class="scrapbook-video-modal" id="scrapbook-video-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="video-modal-backdrop" id="video-modal-backdrop"></div>
+  
+  <div class="video-modal-card">
+    <!-- Washi Tape Accents matching user reference photo -->
+    <div class="modal-tape modal-tape-left" aria-hidden="true"></div>
+    <div class="modal-tape modal-tape-right" aria-hidden="true"></div>
+
+    <!-- Scrapbook Close Button -->
+    <button class="video-modal-close-btn" id="video-modal-close-btn" type="button" aria-label="Close video demo" title="Close">
+      <span>✕</span>
+    </button>
+
+    <!-- Video Player Container with matting frame -->
+    <div class="video-frame-wrap">
+      <video class="video-modal-player" id="video-modal-player" playsinline controls preload="metadata">
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Modal Card Footer -->
+    <div class="video-modal-caption">
+      <div class="video-modal-info">
+        <span class="video-modal-tag">DEMO REEL 🎬</span>
+        <h4 class="video-modal-heading" id="video-modal-heading">Research Paper Assistant — Academic RAG</h4>
+      </div>
+      <a href="#" target="_blank" rel="noopener" class="video-modal-live-link" id="video-modal-live-link">
+        <span>Open Live App</span> <span>↗</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <script src="assets/sketchbook.bundle.js"></script>
 <script src="script.js?v=20261120_1735"></script>

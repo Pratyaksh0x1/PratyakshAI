@@ -3672,3 +3672,217 @@ footer{padding:60px 0 70px; position:relative;}
     height: 360px;
   }
 }
+
+/* ==========================================================================
+   Project Card Video Demo Badges & Triggers
+   ========================================================================== */
+.sheet-preview-box.has-video-demo {
+  cursor: pointer;
+  position: relative;
+}
+.sheet-preview-box.has-video-demo:hover .sheet-preview-img {
+  transform: scale(1.02);
+}
+
+button.taped-link {
+  font-family: inherit;
+  font-size: 0.88rem;
+  border: none;
+  cursor: pointer;
+}
+.taped-link.taped-app {
+  background: #e2c6a3;
+  color: var(--ink);
+  transform: rotate(-1deg);
+}
+.taped-link.taped-app:hover {
+  background: #d8b68e;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Scrapbook Video Demo Modal (Matching Reference Photo Frame & Washi Tape)
+   ========================================================================== */
+.scrapbook-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+.scrapbook-video-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(36, 26, 20, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+.video-modal-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 880px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px 16px 14px 16px;
+  border: 1px solid rgba(138, 114, 92, 0.2);
+  box-shadow: 
+    0 30px 80px rgba(25, 15, 10, 0.5),
+    0 12px 30px rgba(25, 15, 10, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.2deg) scale(0.96);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scrapbook-video-modal.is-active .video-modal-card {
+  transform: rotate(-1.2deg) scale(1);
+}
+
+/* Washi Tape Corner Strips */
+.modal-tape {
+  position: absolute;
+  top: -14px;
+  height: 30px;
+  width: 95px;
+  z-index: 15;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+.modal-tape-left {
+  left: 36px;
+  transform: rotate(-6deg);
+  background: repeating-linear-gradient(45deg, rgba(235, 222, 204, 0.92), rgba(235, 222, 204, 0.92) 5px, rgba(220, 204, 182, 0.92) 5px, rgba(220, 204, 182, 0.92) 10px);
+  border-left: 2px dashed rgba(190, 170, 150, 0.6);
+  border-right: 2px dashed rgba(190, 170, 150, 0.6);
+}
+.modal-tape-right {
+  right: 56px;
+  transform: rotate(5deg);
+  background: repeating-linear-gradient(45deg, rgba(245, 166, 35, 0.8), rgba(245, 166, 35, 0.8) 5px, rgba(224, 122, 56, 0.8) 5px, rgba(224, 122, 56, 0.8) 10px);
+  border-left: 2px dashed rgba(210, 120, 40, 0.6);
+  border-right: 2px dashed rgba(210, 120, 40, 0.6);
+}
+
+/* Scrapbook Close Button */
+.video-modal-close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fde047;
+  color: #1c1917;
+  border: 2px solid #1c1917;
+  box-shadow: 2px 2px 0 #1c1917;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 25;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.video-modal-close-btn:hover {
+  transform: scale(1.1) rotate(6deg);
+  background: #facc15;
+}
+
+/* Inner Video Container */
+.video-frame-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+}
+.video-modal-player {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #000;
+}
+
+/* Caption & Meta */
+.video-modal-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  padding: 4px 6px 2px;
+  flex-wrap: wrap;
+}
+.video-modal-tag {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ea580c;
+  background: rgba(234, 88, 12, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px dashed #ea580c;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.video-modal-heading {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink, #292524);
+  margin: 0;
+}
+.video-modal-live-link {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d9488;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.video-modal-live-link:hover {
+  color: #042f2e;
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .video-modal-card {
+    padding: 10px 10px 12px 10px;
+    transform: none !important;
+  }
+  .modal-tape {
+    width: 65px;
+    height: 22px;
+    top: -10px;
+  }
+  .modal-tape-left { left: 16px; }
+  .modal-tape-right { right: 16px; }
+  .video-modal-close-btn {
+    top: -10px;
+    right: -10px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+  .video-modal-heading {
+    font-size: 1rem;
+  }
+}
