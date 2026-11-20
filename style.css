@@ -470,7 +470,364 @@ hr.torn{ border:none; height:0; margin:20px 0; }
   }
 }
 
-/* ---------- Achievements ---------- */
+/* ---------- Achievements (Notebook Scrapbook Index Cards) ---------- */
+.ach-section {
+  position: relative;
+  padding: 40px 0 60px;
+  overflow: visible;
+}
+
+/* Header Area */
+.ach-header-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+  text-align: center;
+}
+.ach-hand-subhead {
+  font-family: 'Kalam', cursive;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+.ach-title-banner {
+  position: relative;
+  display: inline-block;
+  background: #ffffff;
+  padding: 10px 36px 8px;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(70, 52, 38, 0.08), 0 1px 3px rgba(70, 52, 38, 0.05);
+  border: 1px solid rgba(138, 114, 92, 0.16);
+}
+.ach-banner-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 68px;
+  height: 18px;
+  background: rgba(220, 205, 185, 0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.ach-main-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.15;
+}
+.ach-title-underline {
+  display: block;
+  width: 130px;
+  height: 10px;
+  margin: 4px auto 0;
+  overflow: visible;
+}
+
+/* Floating Header Stickers */
+.ach-sticker-dump {
+  position: absolute;
+  top: -12px;
+  left: 6%;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+.ach-arrow-curve {
+  width: 32px;
+  height: 32px;
+  margin-top: 14px;
+}
+.ach-sticker-badge {
+  position: absolute;
+  top: 14px;
+  left: 22%;
+  background: #fde047;
+  color: #1c1917;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1.8px solid #1c1917;
+  box-shadow: 2px 2px 0 #1c1917;
+  transform: rotate(-4deg);
+  white-space: nowrap;
+}
+.ach-sticker-coffee {
+  position: absolute;
+  top: -10px;
+  right: 12%;
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  transform: rotate(3deg);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.ach-coffee-mug {
+  position: absolute;
+  top: 20px;
+  right: 18%;
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+/* 5 Index Cards Grid */
+.ach-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 34px 26px;
+  position: relative;
+  width: 100%;
+}
+
+/* Individual Index Card */
+.ach-index-card {
+  position: relative;
+  background: #fffdf8;
+  border: 1.5px solid rgba(138, 114, 92, 0.24);
+  border-radius: 6px;
+  padding: 24px 22px 18px;
+  box-shadow: 0 10px 24px rgba(70, 52, 38, 0.07), 0 2px 6px rgba(70, 52, 38, 0.04);
+  background-image: repeating-linear-gradient(transparent, transparent 27px, rgba(160, 140, 120, 0.12) 28px);
+  background-position: 0 4px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  width: calc(33.333% - 20px);
+  min-width: 320px;
+  max-width: 380px;
+}
+.ach-index-card:hover {
+  transform: translateY(-5px) rotate(0.6deg) !important;
+  box-shadow: 0 16px 36px rgba(70, 52, 38, 0.13), 0 4px 10px rgba(70, 52, 38, 0.06);
+}
+
+@media (max-width: 1060px) {
+  .ach-index-card {
+    width: calc(50% - 16px);
+    max-width: 440px;
+  }
+}
+@media (max-width: 720px) {
+  .ach-index-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Realistic Silver Paperclip */
+.ach-paperclip {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  z-index: 10;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.22));
+  pointer-events: none;
+}
+.clip-pos-1 { transform: translateX(-50%) rotate(-2deg); }
+.clip-pos-2 { transform: translateX(-50%) rotate(1deg); }
+.clip-pos-3 { transform: translateX(-50%) rotate(-1deg); }
+.clip-pos-4 { transform: translateX(-50%) rotate(2deg); }
+.clip-pos-5 { transform: translateX(-50%) rotate(-1.5deg); }
+
+/* Decorative Corner Washi Tape */
+.ach-corner-tape {
+  position: absolute;
+  top: -8px;
+  width: 54px;
+  height: 16px;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0.88;
+}
+.tape-top-left {
+  left: -12px;
+  transform: rotate(-35deg);
+  background: rgba(230, 215, 195, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.tape-top-right {
+  right: -10px;
+  transform: rotate(38deg);
+  background: repeating-linear-gradient(45deg, rgba(245, 158, 11, 0.65), rgba(245, 158, 11, 0.65) 4px, rgba(217, 119, 6, 0.65) 4px, rgba(217, 119, 6, 0.65) 8px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Top Metadata Row */
+.ach-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  padding: 0 4px;
+}
+.ach-num-code {
+  font-family: 'Space Mono', 'Consolas', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+.ach-institution {
+  font-family: 'Space Mono', 'Consolas', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.ach-card-divider {
+  width: 100%;
+  height: 1.5px;
+  background: rgba(138, 114, 92, 0.22);
+  margin-bottom: 12px;
+}
+
+/* Card Content */
+.ach-card-body {
+  flex: 1;
+  margin-bottom: 14px;
+}
+.ach-card-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.25;
+}
+.ach-card-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Punch Hole */
+.ach-punch-hole {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ebe4d5;
+  border: 1px solid rgba(138, 114, 92, 0.3);
+  box-shadow: inset 0 1.5px 3px rgba(0,0,0,0.22);
+  margin: 10px auto 14px;
+}
+
+/* Footer with Stamp & Link */
+.ach-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(138, 114, 92, 0.2);
+}
+.ach-stamp {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1.5px dashed currentColor;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+}
+.stamp-teal {
+  color: #0d9488;
+  background: rgba(13, 148, 136, 0.08);
+}
+.stamp-orange {
+  color: #ea580c;
+  background: rgba(234, 88, 12, 0.08);
+}
+.stamp-amber {
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.08);
+}
+.stamp-purple {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.08);
+}
+.stamp-green {
+  color: #15803d;
+  background: rgba(21, 128, 61, 0.08);
+}
+
+.ach-action-link {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.ach-action-link:hover {
+  color: var(--orange-deep, #c25e2e);
+  transform: translateX(2px);
+}
+
+/* Bottom Scrapbook Ambience Row */
+.ach-bottom-ambience {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  padding-right: 12px;
+}
+.ach-robot-doodle {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.ach-heart-sticker {
+  font-size: 1.4rem;
+  animation: pulse-heart 2s ease infinite;
+}
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+.ach-round-stamp {
+  transform: rotate(6deg);
+  filter: drop-shadow(0 2px 4px rgba(13, 148, 136, 0.15));
+}
+
+@media (max-width: 860px) {
+  .ach-sticker-badge, .ach-sticker-coffee, .ach-coffee-mug, .ach-sticker-dump {
+    display: none !important;
+  }
+}
+
 .ach-list{list-style:none; padding:0; margin:0; display:grid; gap:14px;}
 .ach-list li{display:flex; gap:12px; align-items:flex-start; font-size:.98rem; color:var(--ink-soft);}
 .ach-list li::before{content:"✦"; color:var(--teal); flex:none; margin-top:2px;}
