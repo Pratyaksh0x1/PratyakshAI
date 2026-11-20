@@ -841,6 +841,506 @@ footer{padding:60px 0 70px; position:relative;}
 .fine{font-family:'Kalam',cursive; font-size:.95rem; color:var(--ink-soft); text-align:center; margin-top:10px;}
 .fine.small{font-size:.85rem; opacity:.8;}
 
+/* ---------- Scrapbook Lined Postcard Stack Footer ---------- */
+.postcard-stack-wrap {
+  position: relative;
+  max-width: 860px;
+  margin: 10px auto 30px;
+  padding: 16px 8px;
+}
+
+/* 1. Postcard Cover / Envelope Backing Behind the Postcard */
+.postcard-cover-backing {
+  position: absolute;
+  inset: 12px 6px 14px 10px;
+  background: #ebd8c0;
+  border-radius: 12px;
+  border: 2px solid rgba(138, 114, 92, 0.28);
+  box-shadow: 
+    0 22px 55px rgba(50, 35, 20, 0.2),
+    0 6px 16px rgba(50, 35, 20, 0.12),
+    0 1px 3px rgba(0,0,0,0.08);
+  transform: rotate(2.4deg);
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(140, 110, 80, 0.09) 1.2px, transparent 0);
+  background-size: 16px 16px;
+}
+.cover-airmail-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(135deg, 
+    #c2410c 0, #c2410c 12px, 
+    #ffffff 12px, #ffffff 18px, 
+    #0284c7 18px, #0284c7 30px, 
+    #ffffff 30px, #ffffff 36px
+  );
+  opacity: 0.88;
+}
+.cover-postal-stamp {
+  position: absolute;
+  bottom: 14px;
+  right: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(140, 100, 70, 0.45);
+  letter-spacing: 2px;
+  border: 1.5px dashed rgba(140, 100, 70, 0.35);
+  padding: 3px 10px;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+}
+
+/* 2. Main White Lined Postcard Sheet */
+.postcard-sheet {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 32px 42px 28px;
+  border: 1.5px solid rgba(138, 114, 92, 0.22);
+  box-shadow: 
+    0 16px 38px rgba(60, 45, 30, 0.12),
+    0 4px 10px rgba(60, 45, 30, 0.06);
+  transform: rotate(-1.2deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  /* Ruled notebook lines */
+  background-image: repeating-linear-gradient(transparent, transparent 29px, rgba(160, 140, 120, 0.12) 30px);
+  background-position: 0 10px;
+}
+.postcard-sheet:hover {
+  transform: rotate(-0.5deg) translateY(-4px);
+  box-shadow: 
+    0 24px 50px rgba(60, 45, 30, 0.18),
+    0 6px 14px rgba(60, 45, 30, 0.08);
+}
+
+/* Corner Washi Tapes */
+.postcard-tape {
+  position: absolute;
+  top: -12px;
+  width: 72px;
+  height: 22px;
+  z-index: 5;
+  pointer-events: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+.postcard-tape-tl {
+  left: -14px;
+  transform: rotate(-32deg);
+  background: repeating-linear-gradient(45deg, rgba(235, 222, 204, 0.92), rgba(235, 222, 204, 0.92) 5px, rgba(215, 198, 175, 0.92) 5px, rgba(215, 198, 175, 0.92) 10px);
+  border-left: 2px dashed rgba(180, 160, 140, 0.6);
+  border-right: 2px dashed rgba(180, 160, 140, 0.6);
+}
+.postcard-tape-tr {
+  right: -10px;
+  transform: rotate(34deg);
+  background: repeating-linear-gradient(45deg, rgba(245, 166, 35, 0.8), rgba(245, 166, 35, 0.8) 5px, rgba(224, 122, 56, 0.8) 5px, rgba(224, 122, 56, 0.8) 10px);
+  border-left: 2px dashed rgba(210, 120, 40, 0.6);
+  border-right: 2px dashed rgba(210, 120, 40, 0.6);
+}
+
+/* Postcard Header: Badge & Postage Stamp */
+.postcard-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px dashed rgba(138, 114, 92, 0.22);
+}
+.postcard-badge-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
+}
+.postage-stamp-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.postage-stamp {
+  width: 44px;
+  height: 52px;
+  background: #fffdf8;
+  border: 2px dashed #b91c1c;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  transform: rotate(3deg);
+}
+.stamp-art {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.stamp-rate {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: #b91c1c;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.postmark-circle {
+  position: absolute;
+  left: -22px;
+  top: -4px;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  opacity: 0.8;
+}
+
+/* Floating Sparkles */
+.postcard-sparkle {
+  position: absolute;
+  color: #f59e0b;
+  font-size: 1.6rem;
+  font-weight: 800;
+  z-index: 10;
+  pointer-events: none;
+  animation: sparkle-float 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 6px rgba(245, 158, 11, 0.35));
+}
+.sparkle-tl {
+  top: -16px;
+  left: 2%;
+  font-size: 1.8rem;
+  animation-delay: 0s;
+}
+.sparkle-tr {
+  top: -12px;
+  right: 4%;
+  font-size: 1.4rem;
+  color: #0d9488;
+  animation-delay: 0.7s;
+}
+.sparkle-bl {
+  bottom: -10px;
+  left: 4%;
+  font-size: 1.5rem;
+  color: #ea580c;
+  animation-delay: 1.4s;
+}
+.sparkle-br {
+  bottom: -14px;
+  right: 6%;
+  font-size: 1.7rem;
+  color: #eab308;
+  animation-delay: 2.1s;
+}
+.sparkle-top {
+  top: -24px;
+  left: 48%;
+  font-size: 1.3rem;
+  color: #ec4899;
+  animation-delay: 1s;
+}
+@keyframes sparkle-float {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  100% { transform: translateY(-6px) scale(1.15) rotate(12deg); }
+}
+
+/* Postcard Content */
+.postcard-content {
+  text-align: center;
+  position: relative;
+}
+.postcard-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.postcard-subtitle {
+  font-family: 'Kalam', cursive;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  max-width: 48ch;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+.postcard-links {
+  margin-bottom: 20px;
+}
+.postcard-fine {
+  margin-top: 14px;
+}
+.postcard-fine-small {
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .postcard-sheet {
+    padding: 22px 18px 18px;
+    transform: none !important;
+  }
+  .postcard-cover-backing {
+    inset: 6px 3px 8px 6px;
+    transform: rotate(1deg);
+  }
+  .postcard-title {
+    font-size: 1.75rem;
+  }
+  .postcard-subtitle {
+    font-size: 1.05rem;
+  }
+  .postage-stamp-wrap {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Green Classroom Chalkboard with Grey Metallic Frame (Home Page Footer)
+   ========================================================================== */
+.chalkboard-frame {
+  position: relative;
+  max-width: 880px;
+  margin: 10px auto 40px;
+  background: linear-gradient(135deg, #374151 0%, #6b7280 25%, #4b5563 50%, #9ca3af 75%, #374151 100%);
+  padding: 16px 16px 20px 16px;
+  border-radius: 12px;
+  border: 2px solid #1f2937;
+  box-shadow: 
+    0 24px 60px rgba(15, 23, 42, 0.35),
+    0 8px 24px rgba(15, 23, 42, 0.2),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Metallic Screws at the 4 corners */
+.metal-screw {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e5e7eb, #9ca3af 60%, #4b5563 100%);
+  box-shadow: inset 0 1px 1px #fff, 0 1px 2px rgba(0,0,0,0.6);
+  z-index: 5;
+}
+.metal-screw::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 6px;
+  height: 1.5px;
+  background: #374151;
+  transform: rotate(45deg);
+}
+.screw-tl { top: 6px; left: 6px; }
+.screw-tr { top: 6px; right: 6px; }
+.screw-bl { bottom: 6px; left: 6px; }
+.screw-br { bottom: 6px; right: 6px; }
+
+/* The Green Slate Blackboard */
+.chalkboard-slate {
+  position: relative;
+  background: #1e3a2b;
+  background-image: 
+    radial-gradient(ellipse at 50% 40%, rgba(38, 77, 57, 0.85) 0%, rgba(24, 48, 36, 0.95) 75%, rgba(16, 33, 25, 0.98) 100%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 100% 100%, 20px 20px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    inset 0 4px 18px rgba(0, 0, 0, 0.6),
+    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  padding: 38px 36px 30px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Chalk Text & Title */
+.chalk-title {
+  font-family: 'Baloo 2', cursive, sans-serif;
+  font-weight: 800;
+  font-size: 2.3rem;
+  color: #f8fafc;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-shadow: 
+    0 0 1.5px rgba(255, 255, 255, 0.9),
+    0 0 4px rgba(255, 255, 255, 0.4),
+    2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.chalk-underline {
+  display: block;
+  width: 140px;
+  height: 8px;
+  margin: 6px auto 18px;
+  overflow: visible;
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,0.7));
+}
+.chalk-sub {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  max-width: 50ch;
+  margin: 0 auto 26px;
+  line-height: 1.55;
+  text-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.8),
+    1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Chalk Doodles in corners */
+.chalk-doodle {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'Caveat', cursive;
+  pointer-events: none;
+  user-select: none;
+}
+.chalk-star-1 {
+  top: 14px;
+  left: 18px;
+  font-size: 1.6rem;
+  color: rgba(254, 240, 138, 0.65);
+}
+.chalk-star-2 {
+  top: 18px;
+  right: 22px;
+  font-size: 1.3rem;
+  color: rgba(125, 211, 252, 0.65);
+}
+.chalk-math {
+  bottom: 12px;
+  left: 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  transform: rotate(-4deg);
+}
+
+/* Chalk Buttons */
+.chalk-links {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.chalk-btn {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.4px;
+  color: #f1f5f9;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 24px;
+  border: 1.8px dashed rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    inset 0 0 6px rgba(255, 255, 255, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chalk-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #ffffff;
+  border-style: solid;
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+.chalk-btn-primary {
+  background: rgba(254, 240, 138, 0.14);
+  border-color: rgba(254, 240, 138, 0.85);
+  color: #fef08a;
+  text-shadow: 0 0 2px rgba(254, 240, 138, 0.8);
+}
+.chalk-btn-primary:hover {
+  background: rgba(254, 240, 138, 0.26);
+  border-color: #fef08a;
+  color: #fffbeb;
+}
+
+/* Fine Chalk Signoff */
+.chalk-fine {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  color: rgba(241, 245, 249, 0.75);
+  text-align: center;
+  margin-top: 10px;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.chalk-fine-small {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* Chalk Tray at the bottom of the frame */
+.chalk-tray {
+  position: relative;
+  height: 10px;
+  background: linear-gradient(180deg, #1f2937, #111827);
+  border-radius: 0 0 8px 8px;
+  margin-top: 4px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 3px 6px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 28px;
+  gap: 10px;
+}
+.chalk-eraser {
+  width: 38px;
+  height: 8px;
+  background: linear-gradient(180deg, #78350f 40%, #1e293b 40%);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  margin-right: 8px;
+}
+.chalk-stick {
+  width: 22px;
+  height: 5px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.chalk-white { background: #f8fafc; }
+.chalk-yellow { background: #fef08a; }
+.chalk-cyan { background: #7dd3fc; }
+
+@media (max-width: 640px) {
+  .chalkboard-frame {
+    padding: 10px 10px 14px 10px;
+  }
+  .chalkboard-slate {
+    padding: 26px 16px 20px;
+  }
+  .chalk-title {
+    font-size: 1.7rem;
+  }
+  .chalk-sub {
+    font-size: 1.1rem;
+  }
+  .chalk-math {
+    display: none;
+  }
+}
+
 /* ---------- Open Book Chat UI (Realistic Hardcover Sketchbook) ---------- */
 .book-container {
   display: flex;
