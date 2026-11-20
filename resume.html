@@ -3,13 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Résumé — Pratyaksh Tomar</title>
+<title>Resume — Pratyaksh Tomar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/sketchbook.bundle.css">
+<link rel="stylesheet" href="resume-scrapbook.css">
 </head>
 <body>
+<!-- Global sketchbook paper wash background -->
+<div class="sketchbook-wash" aria-hidden="true"></div>
 
+<!-- Background Foliage Botanical Accents -->
+<img src="assets/resume_components/decor/foliage-corner-left.svg" class="resume-foliage resume-foliage-tl" alt="" aria-hidden="true">
+<img src="assets/resume_components/decor/foliage-corner-right.svg" class="resume-foliage resume-foliage-tr" alt="" aria-hidden="true">
+<img src="assets/resume_components/decor/foliage-bottom-left.svg" class="resume-foliage resume-foliage-bl" alt="" aria-hidden="true">
+
+<!-- Embedded SVG Icons Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <symbol fill="none" stroke="currentColor" id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-map-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-graduation-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-code-slash" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/><path d="m14 5-4 14"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/><path d="M11 13v2h2v-2"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-bar-chart" viewBox="0 0 24 24"><path d="M5 21v-5"/><path d="M11 21V10"/><path d="M17 21V13"/><circle cx="20" cy="6" r=".8"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-building" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10l7-6 7 6v11"/><path d="M9 21v-5h6v5"/><path d="M9 12h.01M15 12h.01M12 8h.01"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-book-open" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-paper-plane" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4z"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-external-link" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol fill="none" stroke="currentColor" id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+</svg>
+
+<!-- SVG Filters for Real Deckled Paper Edges -->
+<svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
+  <defs>
+    <!-- Organic hand-torn deckle paper filter for main sheets -->
+    <filter id="paper-rough" x="-5%" y="-5%" width="110%" height="110%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <!-- Subtle deckle filter for cards and pills -->
+    <filter id="paper-rough-subtle" x="-5%" y="-5%" width="110%" height="110%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- Main Navigation Bar -->
 <nav class="nav">
   <div class="wrap nav-row">
     <a href="index.html" class="brand sticker" style="--tilt-rotate:-2deg;">
@@ -24,150 +75,493 @@
   </div>
 </nav>
 
-<section style="padding-bottom:10px;">
-  <div class="wrap resume-toolbar">
-    <span class="hand" style="font-size:1.05rem;">the official page of the scrapbook ↓</span>
-    <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-      <a href="assets/my%20resume.pdf" download="Pratyaksh_Tomar_Resume.pdf" class="btn primary" id="download-resume-btn" style="text-decoration:none; cursor:pointer;">📥 Download Original Resume (PDF)</a>
-      <button class="btn" onclick="window.print()" style="cursor:pointer;">🖨 Print Page</button>
+<!-- Page Content Container -->
+<div class="resume-page-container">
+
+  <!-- Top Toolbar -->
+  <div class="resume-toolbar-row">
+    <div class="resume-heading-wrap">
+      <h1 class="resume-page-heading">Resume <span class="spark">✦</span></h1>
+    </div>
+    <div class="resume-actions-group">
+      <a href="assets/resume.pdf" download="Pratyaksh_Tomar_Resume.pdf" class="scrapbook-pill-btn dark-btn" id="download-resume-btn">
+        <svg width="18" height="18"><use href="#i-download"/></svg>
+        Download Resume (PDF)
+      </a>
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="card resume-sheet">
-      <span class="tape orange"></span>
+  <!-- Top Profile Hero Sheet -->
+  <div class="resume-hero-card">
+    <div class="resume-paper-bg" aria-hidden="true"></div>
+    <!-- Top Center Washi Tape -->
+    <img src="assets/resume_components/decor/tape-orange.svg" class="hero-washi-tape" alt="orange washi tape">
 
-      <h2>Pratyaksh Tomar</h2>
-      <div class="role">Aspiring Software Engineer</div>
-      <div class="contact-line">
-        +91-8287642034 ·
-        Pratyakshtomar2000@gmail.com ·
-        <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">github.com/Pratyaksh0x1</a> ·
-        <a href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">linkedin.com/in/pratyaksh-tomar</a> ·
-        Ghaziabad, India
-      </div>
+    <div class="resume-hero-grid">
+      <!-- Left Column: Profile Info -->
+      <div class="resume-profile-info">
+        <!-- Sparkle Doodles -->
+        <img src="assets/resume_components/decor/sparkle-cluster.svg" class="hero-sparkle-doodle" alt="">
+        <img src="assets/resume_components/decor/accent-lines.svg" class="hero-accent-burst" alt="">
 
-      <div class="resume-block">
-        <h5>Education</h5>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>Bachelor of Technology in Computer Science Engineering — Dr. A.P.J. Abdul Kalam Technical University, Lucknow</h6>
-            <span class="when">2023 – 2027</span>
-          </div>
-        </div>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>Senior Secondary XII · CBSE — Dehradun Public School, Ghaziabad</h6>
-            <span class="when">2021 – 2022</span>
-          </div>
-        </div>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>Secondary X · CBSE — Dehradun Public School, Ghaziabad</h6>
-            <span class="when">2019 – 2020</span>
-          </div>
-        </div>
-      </div>
+        <h1 class="resume-name">Pratyaksh Tomar</h1>
+        <div class="resume-role">Aspiring Software Engineer</div>
+        <p class="resume-bio">Final-year B.Tech CSE student building AI agents and systems software in C++, TypeScript and Python. Shipped an open-source LLM agent (ClawNest), an academic RAG platform (ResearchLab), a full-stack ML web app and a multithreaded C++ packet inspection engine. Seeking an entry-level Software Engineer role.</p>
 
-      <div class="resume-block">
-        <h5>Projects</h5>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>ClawNest</h6>
-            <span class="when">
-              <a href="https://splendid-cactus-4f36bf.netlify.app" target="_blank" rel="noopener" style="color:var(--orange-deep); text-decoration:none; margin-right:8px; font-weight:700;">Live ↗</a>
-              <a href="https://github.com/Pratyaksh0x1/ClawNest.git" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
-            </span>
-          </div>
-          <div class="org">TypeScript, Bun, OpenRouter API</div>
-          <ul>
-            <li>Built an open-source AI agent in TypeScript on Bun, usable via a terminal CLI and Telegram bot.</li>
-            <li>Engineered an autonomous agent loop with tools for files, shell, code search, and web scraping.</li>
-            <li>Integrated OpenRouter to switch between multiple LLMs, featuring Agent, Plan, and Ask modes.</li>
-            <li>Designed a staged approval workflow with git-style diff previews and owner-only Telegram access.</li>
-          </ul>
+        <!-- Contact Badges -->
+        <div class="resume-contact-badges">
+          <a href="mailto:Pratyakshtomar2000@gmail.com" class="resume-badge">
+            <svg width="15" height="15"><use href="#i-mail"/></svg>
+            Pratyakshtomar2000@gmail.com
+          </a>
+          <span class="resume-badge">
+            <svg width="15" height="15"><use href="#i-map-pin"/></svg>
+            Ghaziabad, India
+          </span>
+          <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" class="resume-badge">
+            <svg width="15" height="15"><use href="#i-github"/></svg>
+            github.com/Pratyaksh0x1
+          </a>
+          <a href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener" class="resume-badge">
+            <svg width="15" height="15"><use href="#i-linkedin"/></svg>
+            linkedin.com/in/pratyaksh-tomar
+          </a>
+          <a href="tel:+918287642034" class="resume-badge">
+            <svg width="15" height="15"><use href="#i-external-link"/></svg>
+            +91-8287642034
+          </a>
         </div>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>California Housing Predictor</h6>
-            <span class="when">
-              <a href="https://california-housing-predictor-mhh0.onrender.com" target="_blank" rel="noopener" style="color:var(--orange-deep); text-decoration:none; margin-right:8px; font-weight:700;">Live ↗</a>
-              <a href="https://github.com/Pratyaksh0x1/Project-California" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
-            </span>
-          </div>
-          <div class="org">Python, Flask, scikit-learn, Chart.js, Pandas</div>
-          <ul>
-            <li>Built a full-stack ML web app with Flask and scikit-learn to predict California house values.</li>
-            <li>Trained a Random Forest achieving R² of 0.83 and MAE of $30.9K on 20,640 records.</li>
-            <li>Engineered a preprocessing pipeline with imputation, scaling, and encoding, using a stratified 80/20 split.</li>
-            <li>Developed a REST API with batch CSV inference and an interactive Chart.js evaluation dashboard.</li>
-          </ul>
-        </div>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>DPI Engine</h6>
-            <span class="when">
-              <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
-            </span>
-          </div>
-          <div class="org">C++17, Multithreading, TCP/IP, TLS, PCAP</div>
-          <ul>
-            <li>Built a Deep Packet Inspection engine in C++17 to parse PCAP traffic and classify applications by 5-tuple.</li>
-            <li>Extracted SNI from TLS Client Hello and HTTP Host headers to block traffic by IP, app, and domain.</li>
-            <li>Designed a multithreaded pipeline with consistent hashing and thread-safe queues for fast processing.</li>
-            <li>Added a CLI with reporting features to review classified applications and blocked traffic.</li>
-          </ul>
-        </div>
-        <div class="resume-entry">
-          <div class="resume-entry-head">
-            <h6>Research Paper Assistant</h6>
-            <span class="when">
-              <a href="https://github.com/Pratyaksh0x1/Research-paper-assistant.git" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; font-weight:700;">GitHub ↗</a>
-            </span>
-          </div>
-          <div class="org">Python, Flask, Qdrant, Groq API, Sentence Transformers, PyMuPDF</div>
-          <ul>
-            <li>Built an academic-focused RAG platform to explore, summarize, and cross-compare scientific PDF papers.</li>
-            <li>Implemented page-aware text chunking and vector retrieval via Qdrant with all-MiniLM-L6-v2 embeddings.</li>
-            <li>Integrated Groq LLM for cited Q&amp;A and streaming section summaries via Server-Sent Events (SSE).</li>
-            <li>Engineered multi-paper comparative queries and structured table extraction with CSV export and crop previews.</li>
-          </ul>
+
+        <!-- Dashed Airplane Loop Trail -->
+        <div class="airplane-loop-container">
+          <img src="assets/resume_components/decor/dashed-loop-plane.svg" alt="airplane loop" style="width:100%; height:auto;">
         </div>
       </div>
 
-      <div class="resume-block">
-        <h5>Technical Skills</h5>
-        <div style="margin-bottom:4px;"><strong>Programming:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">C, C++, Python, JavaScript, TypeScript</span></div>
-        <div style="margin-bottom:4px;"><strong>Frontend:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">HTML5, CSS3, Tailwind CSS</span></div>
-        <div style="margin-bottom:4px;"><strong>Backend:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">FastAPI, Flask, Bun, REST APIs</span></div>
-        <div style="margin-bottom:4px;"><strong>AI / ML:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Pandas, Matplotlib, Scikit-learn</span></div>
-        <div style="margin-bottom:4px;"><strong>GenAI:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">OpenRouter API, Groq API, LangChain, RAG</span></div>
-        <div style="margin-bottom:4px;"><strong>Databases:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">MongoDB, MySQL</span></div>
-        <div style="margin-bottom:4px;"><strong>Tools &amp; Platforms:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">Git, GitHub, Vercel</span></div>
-        <div style="margin-bottom:4px;"><strong>Core CS:</strong> <span class="hand" style="font-size:1.1rem; color:var(--ink);">DSA, OOP, DBMS, Computer Networks, Operating Systems</span></div>
-      </div>
-
-      <div class="resume-block" style="margin-bottom:0;">
-        <h5>Achievements</h5>
-        <ul class="ach-list">
-          <li>Selected as a finalist in Policy Conclave ’26 at Indian Institute of Technology Kanpur.</li>
-          <li>Competed in the National AI/ML Hackathon by AVEVA (organised by IIT Hyderabad), building AI/ML solutions as part of team Thunders, Mar 2026.</li>
-          <li>Participated in Hacker’s Premier League at Guru Gobind Singh Indraprastha University, Delhi.</li>
-          <li>Awarded Top Performer certificate in <a href="https://certificate.codingninjas.com/view/342092afadef696f" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">E&amp;ICT IITG: Introduction to Programming</a> by Coding Ninjas × IIT Guwahati, Feb 2025 (NSDC certified).</li>
-          <li>Solved 400+ coding problems across platforms including <a href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">LeetCode</a> and <a href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">Code 360</a>.</li>
-        </ul>
-      </div>
-
-      <div style="text-align:center; margin-top:28px; padding-top:20px; border-top:1px dashed rgba(58,47,47,0.2);">
-        <a href="assets/my%20resume.pdf" download="Pratyaksh_Tomar_Resume.pdf" class="btn primary" style="text-decoration:none; cursor:pointer;">📥 Download Original Resume (PDF)</a>
+      <!-- Right Column: Polaroid Photo -->
+      <div class="resume-polaroid-side">
+        <img src="assets/resume_components/decor/accent-lines.svg" class="polaroid-top-accent" alt="">
+        
+        <div class="polaroid-frame-box">
+          <img src="assets/resume_components/decor/tape-clear.svg" class="tape-clear tape-clear-tl" alt="tape">
+          <img src="assets/resume_components/decor/tape-clear.svg" class="tape-clear tape-clear-br" alt="tape">
+          <div class="polaroid-photo-inner">
+            <img src="assets/pratyaksh_bike_mountain.jpg" class="polaroid-photo-img" alt="Pratyaksh Tomar with bike and dog in mountains">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
+  <!-- Interactive Navigation Tabs Bar & Peeking Cat -->
+  <div class="resume-tabs-wrapper">
+    <!-- Cute Peeking Black Cat -->
+    <div class="resume-cat-peeking">
+      <img src="assets/resume_components/cat/cat-peeking.svg" alt="Cute peeking cat">
+    </div>
 
+    <!-- Navigation Pills (Strictly Resume Sections: Education, Projects, Skills, Achievements) -->
+    <div class="resume-tabs-nav" role="tablist">
+      <button class="resume-tab-btn active" data-tab="education" role="tab" aria-selected="true">
+        <svg width="17" height="17"><use href="#i-graduation-cap"/></svg>
+        Education
+      </button>
+      <button class="resume-tab-btn" data-tab="projects" role="tab" aria-selected="false">
+        <svg width="17" height="17"><use href="#i-folder"/></svg>
+        Projects
+      </button>
+      <button class="resume-tab-btn" data-tab="skills" role="tab" aria-selected="false">
+        <svg width="17" height="17"><use href="#i-code-slash"/></svg>
+        Skills
+      </button>
+      <button class="resume-tab-btn" data-tab="achievements" role="tab" aria-selected="false">
+        <svg width="17" height="17"><use href="#i-trophy"/></svg>
+        Achievements
+      </button>
+    </div>
+  </div>
 
-<footer>
+  <!-- Main Content Paper Sheet -->
+  <div class="resume-main-sheet">
+    <div class="resume-paper-bg" aria-hidden="true"></div>
+    <div class="resume-main-layout">
+
+      <!-- Left Column: Tab Panes -->
+      <div class="resume-panes-column">
+
+        <!-- ==========================================
+             TAB 1: EDUCATION (Active Default)
+             ========================================== -->
+        <div class="resume-tab-pane active" id="tab-education" role="tabpanel">
+          <div class="resume-pane-header">
+            <div class="resume-pane-title-wrap">
+              <img src="assets/resume_components/decor/leaf-sprig.svg" class="pane-leaf-sprig" alt="">
+              <h2 class="resume-pane-title">Education</h2>
+            </div>
+            <img src="assets/resume_components/decor/underline-squiggle.svg" class="pane-underline-squiggle" alt="">
+          </div>
+
+          <!-- Vertical Timeline with Rows -->
+          <div class="education-timeline-list">
+            <!-- Row 1: B.Tech (Highlight Peach Row) -->
+            <div class="education-timeline-item">
+              <div class="timeline-circle-marker"></div>
+              <div class="scrapbook-row-card highlight-row">
+                <div class="row-date-badge">2023 – 2027</div>
+                <div class="row-content-info">
+                  <h4>Bachelor of Technology in Computer Science Engineering</h4>
+                  <p>Dr. A.P.J. Abdul Kalam Technical University, Lucknow</p>
+                </div>
+                <div class="row-icon-cell">
+                  <svg width="26" height="26"><use href="#i-building"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: XII CBSE (Plain Cream Row) -->
+            <div class="education-timeline-item">
+              <div class="timeline-circle-marker"></div>
+              <div class="scrapbook-row-card plain-row">
+                <div class="row-date-badge">2021 – 2022</div>
+                <div class="row-content-info">
+                  <h4>Senior Secondary XII · CBSE</h4>
+                  <p>Dehradun Public School, Ghaziabad</p>
+                </div>
+                <div class="row-icon-cell">
+                  <svg width="24" height="24"><use href="#i-book-open"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: X CBSE (Plain Cream Row) -->
+            <div class="education-timeline-item">
+              <div class="timeline-circle-marker"></div>
+              <div class="scrapbook-row-card plain-row">
+                <div class="row-date-badge">2019 – 2020</div>
+                <div class="row-content-info">
+                  <h4>Secondary X · CBSE</h4>
+                  <p>Dehradun Public School, Ghaziabad</p>
+                </div>
+                <div class="row-icon-cell">
+                  <svg width="24" height="24"><use href="#i-book-open"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 2: PROJECTS
+             ========================================== -->
+        <div class="resume-tab-pane" id="tab-projects" role="tabpanel">
+          <div class="resume-pane-header">
+            <div class="resume-pane-title-wrap">
+              <img src="assets/resume_components/decor/leaf-sprig.svg" class="pane-leaf-sprig" alt="">
+              <h2 class="resume-pane-title">Projects</h2>
+            </div>
+            <img src="assets/resume_components/decor/underline-squiggle.svg" class="pane-underline-squiggle" alt="">
+          </div>
+
+          <div class="projects-tab-list">
+            <!-- Project 1: ClawNest -->
+            <div class="project-scrapbook-card">
+              <div class="project-card-header">
+                <h3 class="project-card-title">ClawNest</h3>
+                <div class="project-card-links">
+                  <a href="https://splendid-cactus-4f36bf.netlify.app" target="_blank" rel="noopener" class="proj-pill-link live-btn">
+                    Live ↗
+                  </a>
+                  <a href="https://github.com/Pratyaksh0x1/ClawNest.git" target="_blank" rel="noopener" class="proj-pill-link github-btn">
+                    <svg width="14" height="14"><use href="#i-github"/></svg> GitHub ↗
+                  </a>
+                </div>
+              </div>
+              <div class="project-tech-line">TypeScript, Bun, OpenRouter API</div>
+              <ul class="project-card-bullets">
+                <li>Built an open-source AI agent in TypeScript on Bun with CLI and Telegram bot access and 3 operational modes (Agent, Plan, Ask).</li>
+                <li>Engineered an autonomous agent loop with 14 tools for files, shell, code search and web scraping, capped at 20–40 steps per mode.</li>
+                <li>Designed a staged approval workflow with git-style diff previews, owner-only Telegram access, and integrated 100+ LLMs via OpenRouter.</li>
+                <li>Integrated OpenRouter for 100+ LLMs; added one-line install scripts for Linux/macOS and Windows.</li>
+              </ul>
+            </div>
+
+            <!-- Project 2: Research Paper Assistant -->
+            <div class="project-scrapbook-card">
+              <div class="project-card-header">
+                <h3 class="project-card-title">Research Paper Assistant</h3>
+                <div class="project-card-links">
+                  <a href="https://github.com/Pratyaksh0x1/Research-paper-assistant.git" target="_blank" rel="noopener" class="proj-pill-link github-btn">
+                    <svg width="14" height="14"><use href="#i-github"/></svg> GitHub ↗
+                  </a>
+                </div>
+              </div>
+              <div class="project-tech-line">Python, Flask, Qdrant, Groq API, PyMuPDF</div>
+              <ul class="project-card-bullets">
+                <li>Built an academic-focused RAG platform to explore, summarize, and cross-compare scientific PDF papers with source citations.</li>
+                <li>Engineered page-aware text chunking and vector retrieval via Qdrant (384d embeddings) paired with Groq LLM streamed via SSE.</li>
+                <li>Developed multi-paper comparative queries and structured table extraction with CSV export and original PDF crop previews.</li>
+              </ul>
+            </div>
+
+            <!-- Project 3: California Housing Predictor -->
+            <div class="project-scrapbook-card">
+              <div class="project-card-header">
+                <h3 class="project-card-title">California Housing Predictor</h3>
+                <div class="project-card-links">
+                  <a href="https://california-housing-predictor-mhh0.onrender.com" target="_blank" rel="noopener" class="proj-pill-link live-btn">
+                    Live ↗
+                  </a>
+                  <a href="https://github.com/Pratyaksh0x1/Project-California" target="_blank" rel="noopener" class="proj-pill-link github-btn">
+                    <svg width="14" height="14"><use href="#i-github"/></svg> GitHub ↗
+                  </a>
+                </div>
+              </div>
+              <div class="project-tech-line">Python, Flask, scikit-learn, Chart.js, Pandas</div>
+              <ul class="project-card-bullets">
+                <li>Built a full-stack ML web app with Flask and scikit-learn to predict California house values.</li>
+                <li>Trained a Random Forest achieving R² of 0.83 and MAE of $30.9K on 20,640 records.</li>
+                <li>Engineered an automated preprocessing pipeline with imputation, scaling and encoding, using a stratified 80/20 split.</li>
+                <li>Developed a REST API with batch CSV inference and an interactive Chart.js evaluation dashboard.</li>
+              </ul>
+            </div>
+
+            <!-- Project 4: DPI Engine -->
+            <div class="project-scrapbook-card">
+              <div class="project-card-header">
+                <h3 class="project-card-title">DPI Engine</h3>
+                <div class="project-card-links">
+                  <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" class="proj-pill-link github-btn">
+                    <svg width="14" height="14"><use href="#i-github"/></svg> GitHub ↗
+                  </a>
+                </div>
+              </div>
+              <div class="project-tech-line">C++17, Multithreading, TCP/IP, TLS, PCAP</div>
+              <ul class="project-card-bullets">
+                <li>Built a Deep Packet Inspection engine in C++17 to parse PCAP traffic and track flows by 5-tuple.</li>
+                <li>Extracted SNI from TLS Client Hello and HTTP Host headers to classify 22 traffic types and block by IP, app, domain and port.</li>
+                <li>Designed an 8-thread pipeline with consistent hashing and thread-safe queues, so each flow stays on one worker.</li>
+                <li>Added a CLI with reporting; validated on a 77-packet synthetic capture of TLS, HTTP and DNS traffic.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 3: SKILLS
+             ========================================== -->
+        <div class="resume-tab-pane" id="tab-skills" role="tabpanel">
+          <div class="resume-pane-header">
+            <div class="resume-pane-title-wrap">
+              <img src="assets/resume_components/decor/leaf-sprig.svg" class="pane-leaf-sprig" alt="">
+              <h2 class="resume-pane-title">Skills</h2>
+            </div>
+            <img src="assets/resume_components/decor/underline-squiggle.svg" class="pane-underline-squiggle" alt="">
+          </div>
+
+          <div class="skills-tab-grid">
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-code"/></svg>
+                Programming
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">C</span>
+                <span class="skill-tag-pill">C++</span>
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">JavaScript</span>
+                <span class="skill-tag-pill">TypeScript</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-code-slash"/></svg>
+                Frontend
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">HTML5</span>
+                <span class="skill-tag-pill">CSS3</span>
+                <span class="skill-tag-pill">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-briefcase"/></svg>
+                Backend
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">FastAPI</span>
+                <span class="skill-tag-pill">Flask</span>
+                <span class="skill-tag-pill">Bun</span>
+                <span class="skill-tag-pill">REST APIs</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-bar-chart"/></svg>
+                AI / ML
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">Pandas</span>
+                <span class="skill-tag-pill">Matplotlib</span>
+                <span class="skill-tag-pill">Scikit-learn</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-sprout"/></svg>
+                GenAI
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">OpenRouter API</span>
+                <span class="skill-tag-pill">Groq API</span>
+                <span class="skill-tag-pill">LangChain</span>
+                <span class="skill-tag-pill">RAG</span>
+                <span class="skill-tag-pill">Qdrant</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-folder"/></svg>
+                Databases
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">MongoDB</span>
+                <span class="skill-tag-pill">MySQL</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-external-link"/></svg>
+                Tools
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">Git</span>
+                <span class="skill-tag-pill">GitHub</span>
+                <span class="skill-tag-pill">Vercel</span>
+                <span class="skill-tag-pill">Docker</span>
+              </div>
+            </div>
+
+            <div class="skill-category-box">
+              <div class="skill-cat-title">
+                <svg width="16" height="16"><use href="#i-building"/></svg>
+                Core CS
+              </div>
+              <div class="skill-tags-group">
+                <span class="skill-tag-pill">DSA</span>
+                <span class="skill-tag-pill">OOP</span>
+                <span class="skill-tag-pill">DBMS</span>
+                <span class="skill-tag-pill">Computer Networks</span>
+                <span class="skill-tag-pill">OS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 4: ACHIEVEMENTS
+             ========================================== -->
+        <div class="resume-tab-pane" id="tab-achievements" role="tabpanel">
+          <div class="resume-pane-header">
+            <div class="resume-pane-title-wrap">
+              <img src="assets/resume_components/decor/leaf-sprig.svg" class="pane-leaf-sprig" alt="">
+              <h2 class="resume-pane-title">Achievements</h2>
+            </div>
+            <img src="assets/resume_components/decor/underline-squiggle.svg" class="pane-underline-squiggle" alt="">
+          </div>
+
+          <div class="achievements-tab-list">
+            <div class="achievement-row-item">
+              <div class="achievement-icon-circle">
+                <svg width="18" height="18"><use href="#i-trophy"/></svg>
+              </div>
+              <div class="achievement-text">
+                Selected as a <strong>finalist in Policy Conclave ’26</strong> at Indian Institute of Technology Kanpur.
+              </div>
+            </div>
+
+            <div class="achievement-row-item">
+              <div class="achievement-icon-circle">
+                <svg width="18" height="18"><use href="#i-star"/></svg>
+              </div>
+              <div class="achievement-text">
+                Competed in the <strong>National AI/ML Hackathon by AVEVA</strong> (organised by IIT Hyderabad), building AI/ML solutions as part of team Thunders, Mar 2026.
+              </div>
+            </div>
+
+            <div class="achievement-row-item">
+              <div class="achievement-icon-circle">
+                <svg width="18" height="18"><use href="#i-sprout"/></svg>
+              </div>
+              <div class="achievement-text">
+                Participated in <strong>Hacker’s Premier League</strong> at Guru Gobind Singh Indraprastha University, Delhi.
+              </div>
+            </div>
+
+            <div class="achievement-row-item">
+              <div class="achievement-icon-circle">
+                <svg width="18" height="18"><use href="#i-graduation-cap"/></svg>
+              </div>
+              <div class="achievement-text">
+                Awarded <strong>Top Performer certificate</strong> in <a href="https://certificate.codingninjas.com/view/342092afadef696f" target="_blank" rel="noopener">E&amp;ICT IITG: Introduction to Programming</a> by Coding Ninjas × IIT Guwahati, Feb 2025 (NSDC certified).
+              </div>
+            </div>
+
+            <div class="achievement-row-item">
+              <div class="achievement-icon-circle">
+                <svg width="18" height="18"><use href="#i-bar-chart"/></svg>
+              </div>
+              <div class="achievement-text">
+                Solved <strong>400+ coding problems</strong> across platforms including <a href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a> and <a href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code 360</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Quick Stats Sticky Note -->
+      <aside class="resume-sticky-sidebar">
+        <div class="resume-sticky-note">
+          <!-- Pushpin SVG on top -->
+          <img src="assets/resume_components/note/pin.svg" class="sticky-note-pin" alt="pushpin">
+
+          <h3 class="sticky-note-title">Quick Stats</h3>
+          <img src="assets/resume_components/decor/underline-squiggle.svg" class="sticky-underline" alt="">
+
+          <div class="sticky-stats-list">
+            <div class="sticky-stat-item">
+              <span class="sticky-stat-icon"><svg width="16" height="16"><use href="#i-bar-chart"/></svg></span>
+              <span>DSA: 400+ problems</span>
+            </div>
+            <div class="sticky-stat-item">
+              <span class="sticky-stat-icon"><svg width="16" height="16"><use href="#i-star"/></svg></span>
+              <span>Projects: 4+</span>
+            </div>
+            <div class="sticky-stat-item">
+              <span class="sticky-stat-icon"><svg width="16" height="16"><use href="#i-sprout"/></svg></span>
+              <span>Hackathons: 3+</span>
+            </div>
+          </div>
+
+          <!-- Dried Botanical Flower Sprig resting on bottom right -->
+          <img src="assets/resume_components/decor/flower-sprig-orange.svg" class="sticky-botanical-flower" alt="dried flower sprig">
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer with direct contact info -->
+<footer id="resume-footer">
   <div class="wrap">
     <div class="contact-card" style="position:relative;">
       <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
@@ -186,6 +580,53 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- Audio element for continuous background music -->
+<audio id="hero-music-audio" src="assets/bg_music.mp3" preload="auto" loop style="display:none;"></audio>
+
+<!-- Global Floating Mute Button (Bottom-Left) -->
+<button class="global-mute-btn" id="global-mute-btn" type="button" aria-label="Mute or Unmute audio" title="Mute / Unmute">
+  <svg class="mute-svg mute-svg-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+  </svg>
+  <svg class="mute-svg mute-svg-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</button>
+
+<!-- Interactive Tabs Switching Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tabButtons = document.querySelectorAll('.resume-tab-btn');
+  const tabPanes = document.querySelectorAll('.resume-tab-pane');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      if (!targetTab) return;
+
+      tabButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const targetPane = document.getElementById('tab-' + targetTab);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+});
+</script>
+
+<script src="assets/sketchbook.bundle.js"></script>
+<script src="script.js?v=20261120_1735"></script>
 </body>
 </html>

@@ -1,0 +1,603 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 840" width="100%" height="100%" class="mountain-rail-svg" style="display:block;">
+  <defs>
+    <!-- Sky & Atmosphere -->
+    <linearGradient id="sky-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcf9f2"/>
+      <stop offset="50%" stop-color="#f6efe0"/>
+      <stop offset="90%" stop-color="#ecdcc2"/>
+      <stop offset="100%" stop-color="#e0cbb0"/>
+    </linearGradient>
+
+    <!-- Watercolor Distant Mountain Ranges -->
+    <linearGradient id="dist-mountain-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a4bab8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#d0dfdb" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="dist-mountain-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fa9a7" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#c4d8d3" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Mountain Terraced Hills & Rock Faces -->
+    <linearGradient id="cliff-tier-top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ad9b85"/>
+      <stop offset="60%" stop-color="#8c7a65"/>
+      <stop offset="100%" stop-color="#615242"/>
+    </linearGradient>
+    <linearGradient id="grass-tier-top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#91a76c"/>
+      <stop offset="50%" stop-color="#7d9258"/>
+      <stop offset="100%" stop-color="#635343"/>
+    </linearGradient>
+
+    <linearGradient id="cliff-tier-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b29f86"/>
+      <stop offset="50%" stop-color="#8f7c66"/>
+      <stop offset="100%" stop-color="#635342"/>
+    </linearGradient>
+    <linearGradient id="grass-tier-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9eb672"/>
+      <stop offset="55%" stop-color="#829c57"/>
+      <stop offset="100%" stop-color="#695745"/>
+    </linearGradient>
+
+    <linearGradient id="cliff-tier-bot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9a8770"/>
+      <stop offset="100%" stop-color="#554636"/>
+    </linearGradient>
+    <linearGradient id="grass-tier-bot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a4bc75"/>
+      <stop offset="60%" stop-color="#8ba25d"/>
+      <stop offset="100%" stop-color="#685542"/>
+    </linearGradient>
+
+    <!-- Stone Arch Bridges -->
+    <linearGradient id="stone-bridge-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfd2bf"/>
+      <stop offset="35%" stop-color="#b6a187"/>
+      <stop offset="100%" stop-color="#6e5d4b"/>
+    </linearGradient>
+
+    <!-- Colorful Glowing Lights Gradients -->
+    <radialGradient id="glow-gold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fef08a"/>
+      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-emerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#6ee7b7"/>
+      <stop offset="70%" stop-color="#10b981" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-amber" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#fed7aa"/>
+      <stop offset="65%" stop-color="#f97316" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#a5f3fc"/>
+      <stop offset="70%" stop-color="#06b6d4" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Roof Colors -->
+    <linearGradient id="roof-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#416450"/>
+      <stop offset="100%" stop-color="#243c2f"/>
+    </linearGradient>
+    <linearGradient id="roof-terracotta" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c85942"/>
+      <stop offset="100%" stop-color="#892d19"/>
+    </linearGradient>
+    <linearGradient id="roof-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b9382c"/>
+      <stop offset="100%" stop-color="#69160e"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="soft-shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#2d2218" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- 1. SKY & DISTANT MOUNTAIN SILHOUETTES -->
+  <rect width="1060" height="840" rx="24" fill="url(#sky-gradient)"/>
+
+  <!-- Distant Watercolor Mountains -->
+  <g>
+    <path d="M-10 380 L120 250 L200 320 L280 230 L410 350 L470 410 H-10 Z" fill="url(#dist-mountain-1)"/>
+    <path d="M640 400 L760 250 L860 330 L950 220 L1070 320 V480 H640 Z" fill="url(#dist-mountain-2)"/>
+    <path d="M-10 430 L90 320 L180 390 L260 300 L380 410 L430 460 H-10 Z" fill="url(#dist-mountain-1)" opacity="0.65"/>
+    <path d="M690 440 L810 290 L900 370 L990 270 L1070 350 V510 H690 Z" fill="url(#dist-mountain-2)" opacity="0.65"/>
+  </g>
+
+  <!-- Soft Watercolor Clouds -->
+  <g fill="#ffffff" opacity="0.55">
+    <path d="M90 120 C110 100 150 100 170 120 C190 110 220 120 230 135 C240 150 220 165 200 165 H110 C85 165 75 140 90 120 Z"/>
+    <path d="M780 90 C800 75 830 75 850 90 C865 80 890 90 900 105 C910 120 895 135 875 135 H800 C775 135 765 110 780 90 Z"/>
+  </g>
+
+  <!-- 2. MOUNTAIN CLIFFS & STONE ARCH VIADUCTS -->
+
+  <!-- Tier 1 Base Grasslands & Embankment -->
+  <g id="tier-1-base">
+    <path d="M0 840 L0 600 C100 580 220 570 360 580 C500 590 620 600 760 560 C880 525 970 545 1060 580 L1060 840 Z" fill="url(#grass-tier-bot)"/>
+    <path d="M40 820 C140 805 320 795 480 805 C660 815 860 800 1040 830 L1060 840 L0 840 Z" fill="url(#cliff-tier-bot)" opacity="0.45"/>
+  </g>
+
+  <!-- Stone Arch Viaduct Bridge (Lower to Middle Level) -->
+  <g id="viaduct-lower">
+    <path d="M210 610 C220 565 240 515 265 475 L395 475 C385 525 385 570 390 610 Z" fill="url(#stone-bridge-grad)" stroke="#4a3f35" stroke-width="1.8"/>
+    <path d="M235 610 C235 535 300 535 300 610 Z" fill="#382d24"/>
+    <path d="M310 610 C310 535 375 535 375 610 Z" fill="#382d24"/>
+    <path d="M230 535 C265 515 305 515 305 535" fill="none" stroke="#f0e6d8" stroke-width="2.5"/>
+    <path d="M305 535 C340 515 380 515 380 535" fill="none" stroke="#f0e6d8" stroke-width="2.5"/>
+  </g>
+
+  <!-- Tier 2 Middle Ridge (Class 12th Plateau) -->
+  <g id="tier-2-middle">
+    <!-- Smooth contoured Cliff Face -->
+    <path d="M120 565 C170 455 215 395 285 360 C370 325 560 330 700 340 C820 345 905 390 970 465 C890 495 785 510 650 520 C490 535 350 530 230 565 Z" fill="url(#cliff-tier-mid)"/>
+    <!-- Grassy Plateau -->
+    <path d="M245 475 C310 470 460 465 650 470 C765 475 870 465 930 455 C920 415 865 390 780 370 C670 345 470 345 365 360 C290 372 250 418 245 475 Z" fill="url(#grass-tier-mid)"/>
+  </g>
+
+  <!-- Stone Arch Viaduct Bridge (Middle to Top Summit) -->
+  <g id="viaduct-upper">
+    <path d="M275 365 C285 310 315 255 360 228 L440 228 C420 280 410 325 415 365 Z" fill="url(#stone-bridge-grad)" stroke="#4a3f35" stroke-width="1.8"/>
+    <path d="M295 365 C295 285 352 285 352 365 Z" fill="#382d24"/>
+    <path d="M362 365 C362 285 410 285 410 365 Z" fill="#382d24"/>
+  </g>
+
+  <!-- Tier 3 Top Mountain Summit (Class X Plateau) -->
+  <g id="tier-3-top">
+    <!-- Summit Cliff Face -->
+    <path d="M305 300 C325 220 350 175 390 145 C450 110 565 110 645 135 C705 158 750 205 760 270 C680 282 565 288 455 282 C375 278 330 290 305 300 Z" fill="url(#cliff-tier-top)"/>
+    <!-- Summit Grassy Plateau -->
+    <path d="M340 222 C385 218 475 212 585 218 C655 220 705 218 722 208 C712 176 665 150 600 140 C525 130 445 135 392 150 C360 168 340 195 340 222 Z" fill="url(#grass-tier-top)"/>
+  </g>
+
+  <!-- Foliage, Pine Trees & Nature -->
+  <g id="nature-foliage">
+    <!-- Summit Pines -->
+    <g fill="#2d4a3e" stroke="#1f362c" stroke-width="1.2">
+      <polygon points="340,195 350,155 360,195"/>
+      <polygon points="335,180 350,140 365,180"/>
+      <polygon points="710,195 720,150 730,195"/>
+      <polygon points="725,210 735,165 745,210"/>
+    </g>
+    <!-- Middle Tier Pines -->
+    <g fill="#243f33" stroke="#172b22" stroke-width="1.2">
+      <polygon points="230,430 242,375 254,430"/>
+      <polygon points="245,450 258,390 271,450"/>
+      <polygon points="800,430 812,370 824,430"/>
+      <polygon points="820,445 832,385 844,445"/>
+    </g>
+    <!-- Pink Cherry Blossom Tree next to Station 2 -->
+    <g id="cherry-tree" transform="translate(205, 390)">
+      <path d="M45 85 C42 65 35 45 40 25 C45 35 55 40 60 48 M40 25 C35 15 25 10 20 5" fill="none" stroke="#5c4033" stroke-width="5.5" stroke-linecap="round"/>
+      <circle cx="35" cy="20" r="28" fill="#fbcfe8" opacity="0.9"/>
+      <circle cx="58" cy="25" r="26" fill="#f472b6" opacity="0.8"/>
+      <circle cx="20" cy="12" r="20" fill="#f9a8d4" opacity="0.85"/>
+      <circle cx="42" cy="5" r="22" fill="#fbcfe8" opacity="0.95"/>
+      <circle cx="38" cy="18" r="12" fill="#ffffff" opacity="0.7"/>
+    </g>
+    <!-- Valley Wildflowers -->
+    <g fill="#ffffff" stroke="#f59e0b" stroke-width="1.6">
+      <circle cx="240" cy="805" r="3.5"/>
+      <circle cx="260" cy="812" r="3.5"/>
+      <circle cx="280" cy="804" r="3.5"/>
+      <circle cx="700" cy="810" r="3.5"/>
+      <circle cx="720" cy="818" r="3.5"/>
+      <circle cx="750" cy="808" r="3.5"/>
+    </g>
+  </g>
+
+  <!-- 3. WINDING TRAIN TRACKS (BLACK RAILS + WOODEN TIES) -->
+  <g id="railway-tracks">
+    
+    <!-- LEVEL 1 TRACK: Bottom Valley (y: ~750 to 780) -->
+    <g stroke="#3c2f24" stroke-width="5" stroke-linecap="round" opacity="0.95">
+      <line x1="140" y1="790" x2="150" y2="755"/>
+      <line x1="175" y1="786" x2="185" y2="752"/>
+      <line x1="210" y1="783" x2="220" y2="750"/>
+      <line x1="245" y1="780" x2="255" y2="748"/>
+      <line x1="280" y1="778" x2="290" y2="747"/>
+      <line x1="315" y1="777" x2="325" y2="746"/>
+      <line x1="350" y1="777" x2="360" y2="746"/>
+      <line x1="385" y1="777" x2="395" y2="746"/>
+      <line x1="420" y1="777" x2="430" y2="746"/>
+      <line x1="455" y1="777" x2="465" y2="746"/>
+      <line x1="490" y1="777" x2="500" y2="746"/>
+      <line x1="525" y1="777" x2="535" y2="746"/>
+      <line x1="560" y1="777" x2="570" y2="746"/>
+      <line x1="595" y1="777" x2="605" y2="746"/>
+      <line x1="630" y1="777" x2="640" y2="746"/>
+      <line x1="665" y1="776" x2="675" y2="745"/>
+      <line x1="700" y1="774" x2="710" y2="743"/>
+      <line x1="735" y1="770" x2="743" y2="738"/>
+      <line x1="770" y1="765" x2="775" y2="732"/>
+      <line x1="805" y1="755" x2="808" y2="720"/>
+    </g>
+    <!-- Steel Black Rails Level 1 -->
+    <path d="M130 778 C300 768 560 768 820 748" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M132 764 C300 754 560 754 818 735" fill="none" stroke="#18181b" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M131 777 C300 767 560 767 819 747" fill="none" stroke="#71717a" stroke-width="1.3"/>
+
+    <!-- LEVEL 2 TRACK: Middle Plateau Curve (Smoothed into terrace) -->
+    <g stroke="#3c2f24" stroke-width="4.5" stroke-linecap="round" opacity="0.95">
+      <line x1="285" y1="585" x2="295" y2="558"/>
+      <line x1="325" y1="562" x2="338" y2="538"/>
+      <line x1="370" y1="540" x2="385" y2="518"/>
+      <line x1="415" y1="522" x2="428" y2="500"/>
+      <line x1="465" y1="512" x2="475" y2="490"/>
+      <line x1="515" y1="506" x2="522" y2="483"/>
+      <line x1="565" y1="504" x2="570" y2="481"/>
+      <line x1="615" y1="506" x2="618" y2="483"/>
+      <line x1="665" y1="512" x2="668" y2="489"/>
+      <line x1="715" y1="524" x2="715" y2="500"/>
+      <line x1="760" y1="544" x2="758" y2="518"/>
+      <line x1="795" y1="570" x2="790" y2="542"/>
+    </g>
+    <!-- Steel Black Rails Level 2 -->
+    <path d="M275 580 C330 540 420 500 565 496 C680 496 750 525 805 565" fill="none" stroke="#18181b" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M285 568 C338 528 425 488 565 484 C680 484 745 513 798 550" fill="none" stroke="#18181b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M276 579 C330 539 420 499 565 495 C680 495 750 524 804 564" fill="none" stroke="#71717a" stroke-width="1.2"/>
+
+    <!-- LEVEL 3 TRACK: Top Summit Plateau Curve (Smoothed into terrace) -->
+    <g stroke="#3c2f24" stroke-width="4.2" stroke-linecap="round" opacity="0.95">
+      <line x1="330" y1="335" x2="345" y2="315"/>
+      <line x1="375" y1="298" x2="395" y2="280"/>
+      <line x1="428" y1="268" x2="445" y2="250"/>
+      <line x1="480" y1="248" x2="492" y2="230"/>
+      <line x1="535" y1="238" x2="542" y2="220"/>
+      <line x1="588" y1="235" x2="592" y2="218"/>
+      <line x1="640" y1="238" x2="642" y2="220"/>
+      <line x1="690" y1="248" x2="690" y2="228"/>
+      <line x1="735" y1="262" x2="732" y2="242"/>
+    </g>
+    <!-- Steel Black Rails Level 3 -->
+    <path d="M320 330 C375 285 460 238 585 234 C665 234 715 250 745 265" fill="none" stroke="#18181b" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M330 318 C382 274 465 226 585 222 C662 222 710 237 738 251" fill="none" stroke="#18181b" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M321 329 C375 284 460 237 585 233 C665 233 715 249 744 264" fill="none" stroke="#71717a" stroke-width="1.2"/>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- 4. THREE STATION COMPONENTS (WITH COLORFUL GLOWING LIGHTS!) -->
+  <!-- ============================================================== -->
+
+  <!-- STATION 1 COMPONENT: CLASS X (Summit Station Cottage) -->
+  <g id="station-cottage-1" class="station-component" transform="translate(420, 65)" filter="url(#soft-shadow)">
+    <!-- Platform Stone Base -->
+    <rect x="-30" y="150" width="180" height="18" rx="4" fill="#d8ccb8" stroke="#4a3f35" stroke-width="2"/>
+    <!-- Wooden Bench -->
+    <g stroke="#3e2723" stroke-width="1.5" fill="#8d6e63">
+      <rect x="95" y="140" width="28" height="10" rx="1"/>
+      <line x1="98" y1="150" x2="98" y2="156"/>
+      <line x1="120" y1="150" x2="120" y2="156"/>
+    </g>
+
+    <!-- Cottage Walls (Stone & Timber) -->
+    <rect x="0" y="70" width="100" height="80" fill="#f6eedc" stroke="#3e2e22" stroke-width="2.4"/>
+    <!-- Corner Quoins -->
+    <rect x="0" y="75" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+    <rect x="0" y="95" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+    <rect x="0" y="115" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+    <rect x="92" y="75" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+    <rect x="92" y="95" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+    <rect x="92" y="115" width="8" height="8" fill="#c4b39f" stroke="#3e2e22" stroke-width="1"/>
+
+    <!-- Green Alpine Roof -->
+    <polygon points="-18,70 50,18 118,70" fill="url(#roof-green)" stroke="#1a2e22" stroke-width="2.6"/>
+    <path d="M-21,70 L50,15 L121,70" fill="none" stroke="#4ade80" stroke-width="2"/>
+
+    <!-- Brick Chimney & Flag -->
+    <rect x="70" y="26" width="16" height="28" fill="#b04a38" stroke="#3e2e22" stroke-width="1.8"/>
+    <line x1="78" y1="26" x2="78" y2="-2" stroke="#18181b" stroke-width="2"/>
+    <path d="M78 -2 C90 -6 90 6 102 0 L102 10 C90 16 90 4 78 8 Z" fill="#dc2626" stroke="#7f1d1d" stroke-width="1" class="flag-flutter"/>
+
+    <!-- Grandfather Clock Tower -->
+    <g transform="translate(132, 65)">
+      <rect x="-3" y="0" width="6" height="85" fill="#18181b"/>
+      <circle cx="0" cy="0" r="16" fill="#ffffff" stroke="#18181b" stroke-width="3"/>
+      <circle cx="0" cy="0" r="1.5" fill="#18181b"/>
+      <line x1="0" y1="0" x2="0" y2="-9" stroke="#18181b" stroke-width="2" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="6" y2="2" stroke="#18181b" stroke-width="1.8" stroke-linecap="round"/>
+      <polygon points="-10,-16 0,-26 10,-16" fill="#18181b"/>
+    </g>
+
+    <!-- COLORFUL GLOWING LIGHTS: FESTIVE EMERALD & GOLD LIGHTS ON ROOF & WINDOWS -->
+    <g class="festive-fairy-lights">
+      <path d="M-12,70 Q16,74 48,24 Q78,54 112,70" fill="none" stroke="#262626" stroke-width="1.2"/>
+      <circle cx="-6" cy="69" r="4.5" fill="#22c55e" class="glow-light-green"/>
+      <circle cx="8" cy="72" r="4.5" fill="#facc15" class="glow-light-gold"/>
+      <circle cx="24" cy="62" r="4.5" fill="#ec4899" class="glow-light-pink"/>
+      <circle cx="38" cy="40" r="4.5" fill="#06b6d4" class="glow-light-cyan"/>
+      <circle cx="62" cy="40" r="4.5" fill="#f97316" class="glow-light-amber"/>
+      <circle cx="82" cy="56" r="4.5" fill="#22c55e" class="glow-light-green"/>
+      <circle cx="102" cy="67" r="4.5" fill="#facc15" class="glow-light-gold"/>
+    </g>
+
+    <!-- Glowing Window 1 (Station pe light glow karni chahiye!) -->
+    <g class="station-window-glow-unit">
+      <circle cx="26" cy="106" r="30" fill="url(#glow-emerald)" class="station-light-pulse-fast"/>
+      <rect x="14" y="92" width="24" height="28" rx="3" fill="#34d399" stroke="#3e2e22" stroke-width="2"/>
+      <line x1="26" y1="92" x2="26" y2="120" stroke="#3e2e22" stroke-width="1.8"/>
+      <line x1="14" y1="106" x2="38" y2="106" stroke="#3e2e22" stroke-width="1.8"/>
+    </g>
+
+    <!-- Station Door & Porch Light -->
+    <rect x="50" y="96" width="22" height="54" rx="2" fill="#4e3629" stroke="#2e1f16" stroke-width="2"/>
+    <circle cx="68" cy="124" r="2" fill="#f59e0b"/>
+    <!-- Over-door warm amber light -->
+    <circle cx="61" cy="90" r="14" fill="url(#glow-amber)" class="station-light-pulse"/>
+    <circle cx="61" cy="90" r="3" fill="#fef08a"/>
+
+    <!-- Station 1 Signboard: Class X -->
+    <g transform="translate(50, 56)">
+      <rect x="-42" y="-12" width="84" height="24" rx="5" fill="#fffdf5" stroke="#3e2e22" stroke-width="2"/>
+      <text x="0" y="4.5" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="14.5" font-weight="800" fill="#1c1917">Class X</text>
+    </g>
+  </g>
+
+  <!-- STATION 2 COMPONENT: CLASS 12th (Middle Plateau Station Cottage) -->
+  <g id="station-cottage-2" class="station-component" transform="translate(480, 305)" filter="url(#soft-shadow)">
+    <!-- Platform Stone Base -->
+    <rect x="-35" y="155" width="210" height="20" rx="4" fill="#dfd3bf" stroke="#4a3f35" stroke-width="2"/>
+    <!-- Wooden Platform Bench -->
+    <g stroke="#3e2723" stroke-width="1.5" fill="#8d6e63">
+      <rect x="125" y="142" width="32" height="12" rx="1"/>
+      <line x1="129" y1="154" x2="129" y2="162"/>
+      <line x1="153" y1="154" x2="153" y2="162"/>
+    </g>
+
+    <!-- Cottage Walls -->
+    <rect x="0" y="70" width="125" height="85" fill="#f6eedc" stroke="#3e2e22" stroke-width="2.4"/>
+
+    <!-- Terracotta Red Roof -->
+    <polygon points="-22,70 62,14 146,70" fill="url(#roof-terracotta)" stroke="#55190f" stroke-width="2.6"/>
+    <path d="M-25,70 L62,11 L149,70" fill="none" stroke="#fca5a5" stroke-width="2"/>
+
+    <!-- Chimney -->
+    <rect x="22" y="24" width="18" height="30" fill="#9c3826" stroke="#3e2e22" stroke-width="1.8"/>
+
+    <!-- COLORFUL GLOWING LIGHTS: COLORFUL GARLAND & STREET LAMP -->
+    <g class="festive-fairy-lights">
+      <path d="M-18,70 Q20,76 62,18 Q105,76 142,70" fill="none" stroke="#262626" stroke-width="1.2"/>
+      <circle cx="-10" cy="70" r="4.5" fill="#f43f5e" class="glow-light-pink"/>
+      <circle cx="8" cy="72" r="4.5" fill="#06b6d4" class="glow-light-cyan"/>
+      <circle cx="28" cy="60" r="4.5" fill="#facc15" class="glow-light-gold"/>
+      <circle cx="48" cy="38" r="4.5" fill="#22c55e" class="glow-light-green"/>
+      <circle cx="76" cy="38" r="4.5" fill="#f97316" class="glow-light-amber"/>
+      <circle cx="96" cy="60" r="4.5" fill="#a855f7" class="glow-light-cyan"/>
+      <circle cx="118" cy="72" r="4.5" fill="#facc15" class="glow-light-gold"/>
+      <circle cx="136" cy="70" r="4.5" fill="#22c55e" class="glow-light-green"/>
+    </g>
+
+    <!-- Vintage Street Lamp Post with Glowing Amber Lantern -->
+    <g transform="translate(162, 95)">
+      <rect x="-2.5" y="0" width="5" height="60" fill="#18181b"/>
+      <circle cx="0" cy="0" r="32" fill="url(#glow-amber)" class="station-light-pulse-fast"/>
+      <polygon points="-8,-10 8,-10 12,6 -12,6" fill="#fef08a" stroke="#18181b" stroke-width="2"/>
+      <polygon points="-12,-10 12,-10 0,-18" fill="#18181b"/>
+      <rect x="-4" y="6" width="8" height="4" fill="#18181b"/>
+    </g>
+
+    <!-- Glowing Window Left (Amber-Gold Glow) -->
+    <g class="station-window-glow-unit">
+      <circle cx="30" cy="110" r="28" fill="url(#glow-gold)" class="station-light-pulse"/>
+      <rect x="18" y="95" width="24" height="30" rx="3" fill="#fde047" stroke="#3e2e22" stroke-width="2"/>
+      <line x1="30" y1="95" x2="30" y2="125" stroke="#3e2e22" stroke-width="1.8"/>
+      <line x1="18" y1="110" x2="42" y2="110" stroke="#3e2e22" stroke-width="1.8"/>
+    </g>
+
+    <!-- Glowing Window Right (Warm Amber Glow) -->
+    <g class="station-window-glow-unit">
+      <circle cx="95" cy="110" r="28" fill="url(#glow-amber)" class="station-light-pulse-fast"/>
+      <rect x="83" y="95" width="24" height="30" rx="3" fill="#fed7aa" stroke="#3e2e22" stroke-width="2"/>
+      <line x1="95" y1="95" x2="95" y2="125" stroke="#3e2e22" stroke-width="1.8"/>
+      <line x1="83" y1="110" x2="107" y2="110" stroke="#3e2e22" stroke-width="1.8"/>
+    </g>
+
+    <!-- Station Door -->
+    <rect x="52" y="98" width="24" height="57" rx="2" fill="#4e3629" stroke="#2e1f16" stroke-width="2"/>
+    <circle cx="71" cy="126" r="2" fill="#f59e0b"/>
+
+    <!-- Station 2 Signboard: Class 12th -->
+    <g transform="translate(62, 56)">
+      <rect x="-46" y="-12" width="92" height="24" rx="5" fill="#fffdf5" stroke="#3e2e22" stroke-width="2"/>
+      <text x="0" y="4.5" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="14.5" font-weight="800" fill="#1c1917">Class 12th</text>
+    </g>
+  </g>
+
+  <!-- STATION 3 COMPONENT: BTECH (Base Grand Station Cottage) -->
+  <g id="station-cottage-3" class="station-component" transform="translate(560, 560)" filter="url(#soft-shadow)">
+    <!-- Platform Stone Base -->
+    <rect x="-45" y="175" width="265" height="22" rx="4" fill="#ded2bf" stroke="#4a3f35" stroke-width="2.4"/>
+    <!-- Wooden Bench -->
+    <g stroke="#3e2723" stroke-width="1.5" fill="#8d6e63">
+      <rect x="145" y="160" width="38" height="14" rx="1"/>
+      <line x1="150" y1="174" x2="150" y2="184"/>
+      <line x1="178" y1="174" x2="178" y2="184"/>
+    </g>
+    <!-- Flower Planters -->
+    <g transform="translate(195, 165)">
+      <rect x="0" y="0" width="20" height="12" rx="2" fill="#c2410c" stroke="#7c2d12" stroke-width="1"/>
+      <circle cx="5" cy="-2" r="4" fill="#22c55e"/>
+      <circle cx="15" cy="-2" r="4" fill="#22c55e"/>
+      <circle cx="10" cy="-4" r="5" fill="#ef4444"/>
+    </g>
+
+    <!-- Main Building Body -->
+    <rect x="0" y="78" width="165" height="97" fill="#f6eedc" stroke="#3e2e22" stroke-width="2.6"/>
+
+    <!-- Burgundy Pitched Tile Roof -->
+    <polygon points="-28,78 82,16 192,78" fill="url(#roof-burgundy)" stroke="#450a0a" stroke-width="2.6"/>
+    <path d="M-31,78 L82,13 L195,78" fill="none" stroke="#f87171" stroke-width="2"/>
+
+    <!-- Porch Awning with Wooden Posts -->
+    <polygon points="-16,112 82,102 180,112 180,118 82,108 -16,118" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.8"/>
+    <line x1="-12" y1="118" x2="-12" y2="175" stroke="#4a3728" stroke-width="3.8"/>
+    <line x1="175" y1="118" x2="175" y2="175" stroke="#4a3728" stroke-width="3.8"/>
+
+    <!-- Station Gable Clock -->
+    <circle cx="82" cy="54" r="14" fill="#ffffff" stroke="#18181b" stroke-width="2.6"/>
+    <circle cx="82" cy="54" r="1.5" fill="#18181b"/>
+    <line x1="82" y1="54" x2="82" y2="45" stroke="#18181b" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="82" y1="54" x2="88" y2="56" stroke="#18181b" stroke-width="1.6" stroke-linecap="round"/>
+
+    <!-- Roof Pole with Red Flag -->
+    <line x1="82" y1="16" x2="82" y2="-8" stroke="#18181b" stroke-width="2.2"/>
+    <path d="M82 -8 C94 -12 94 0 106 -6 L106 4 C94 10 94 -2 82 2 Z" fill="#dc2626" stroke="#7f1d1d" stroke-width="1" class="flag-flutter"/>
+
+    <!-- COLORFUL GLOWING LIGHTS: BTECH FESTIVE MULTICOLOR GARLAND & LANTERNS -->
+    <g class="festive-fairy-lights">
+      <path d="M-22,78 Q28,84 82,20 Q136,84 186,78" fill="none" stroke="#262626" stroke-width="1.2"/>
+      <circle cx="-16" cy="78" r="5" fill="#facc15" class="glow-light-gold"/>
+      <circle cx="0" cy="80" r="5" fill="#06b6d4" class="glow-light-cyan"/>
+      <circle cx="20" cy="74" r="5" fill="#22c55e" class="glow-light-green"/>
+      <circle cx="42" cy="56" r="5" fill="#ec4899" class="glow-light-pink"/>
+      <circle cx="64" cy="38" r="5" fill="#f97316" class="glow-light-amber"/>
+      <circle cx="100" cy="38" r="5" fill="#22c55e" class="glow-light-green"/>
+      <circle cx="122" cy="56" r="5" fill="#06b6d4" class="glow-light-cyan"/>
+      <circle cx="144" cy="74" r="5" fill="#facc15" class="glow-light-gold"/>
+      <circle cx="164" cy="80" r="5" fill="#f43f5e" class="glow-light-pink"/>
+      <circle cx="180" cy="78" r="5" fill="#22c55e" class="glow-light-green"/>
+    </g>
+
+    <!-- Porch Lantern Glow in Center above door -->
+    <circle cx="82" cy="124" r="28" fill="url(#glow-gold)" class="station-light-pulse-fast"/>
+    <rect x="77" y="120" width="10" height="12" rx="2" fill="#fef08a" stroke="#18181b" stroke-width="1.6"/>
+
+    <!-- Left Porch Streetlamp -->
+    <g transform="translate(-32, 120)">
+      <rect x="-2.5" y="0" width="5" height="55" fill="#18181b"/>
+      <circle cx="0" cy="0" r="30" fill="url(#glow-amber)" class="station-light-pulse"/>
+      <polygon points="-8,-8 8,-8 11,6 -11,6" fill="#fed7aa" stroke="#18181b" stroke-width="2"/>
+      <polygon points="-11,-8 11,-8 0,-16" fill="#18181b"/>
+    </g>
+
+    <!-- Glowing Window 1 (Left - Cyan Glow) -->
+    <g class="station-window-glow-unit">
+      <circle cx="26" cy="140" r="30" fill="url(#glow-cyan)" class="station-light-pulse"/>
+      <rect x="14" y="124" width="24" height="32" rx="3" fill="#a5f3fc" stroke="#3e2e22" stroke-width="2"/>
+      <line x1="26" y1="124" x2="26" y2="156" stroke="#3e2e22" stroke-width="1.8"/>
+      <line x1="14" y1="140" x2="38" y2="140" stroke="#3e2e22" stroke-width="1.8"/>
+    </g>
+
+    <!-- Glowing Window 2 (Right - Gold Glow) -->
+    <g class="station-window-glow-unit">
+      <circle cx="140" cy="140" r="30" fill="url(#glow-gold)" class="station-light-pulse-fast"/>
+      <rect x="128" y="124" width="24" height="32" rx="3" fill="#fef08a" stroke="#3e2e22" stroke-width="2"/>
+      <line x1="140" y1="124" x2="140" y2="156" stroke="#3e2e22" stroke-width="1.8"/>
+      <line x1="128" y1="140" x2="152" y2="140" stroke="#3e2e22" stroke-width="1.8"/>
+    </g>
+
+    <!-- Center Station Door -->
+    <rect x="70" y="130" width="24" height="45" rx="2" fill="#4e3629" stroke="#2e1f16" stroke-width="2"/>
+    <circle cx="89" cy="153" r="2" fill="#f59e0b"/>
+
+    <!-- Station 3 Signboard: BTECH -->
+    <g transform="translate(82, 88)">
+      <rect x="-48" y="-12" width="96" height="24" rx="5" fill="#fffdf5" stroke="#3e2e22" stroke-width="2"/>
+      <text x="0" y="4.5" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="14.5" font-weight="800" fill="#1c1917">BTECH</text>
+    </g>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- 5. VINTAGE RED TOY STEAM TRAIN COMPONENT (AT BTECH TRACKS) -->
+  <!-- ============================================================== -->
+  <g id="vintage-toy-train" class="toy-train-component" transform="translate(250, 640)" filter="url(#soft-shadow)">
+    
+    <!-- PASSENGER COACH (DABBA) ON LEFT -->
+    <g class="train-coach" transform="translate(0, 32)">
+      <!-- Coach Body -->
+      <rect x="0" y="10" width="90" height="50" rx="4" fill="#7f1d1d" stroke="#450a0a" stroke-width="2.2"/>
+      <!-- Curved Coach Roof -->
+      <path d="M-2 10 C-2 3 6 0 15 0 H75 C84 0 92 3 92 10 Z" fill="#450a0a" stroke="#18181b" stroke-width="1.8"/>
+      <!-- Glowing Windows inside Coach (Warm Passenger Glow) -->
+      <rect x="10" y="17" width="20" height="19" rx="2" fill="#fef08a" stroke="#450a0a" stroke-width="1.6" class="coach-window-glow"/>
+      <rect x="35" y="17" width="20" height="19" rx="2" fill="#fef08a" stroke="#450a0a" stroke-width="1.6" class="coach-window-glow"/>
+      <rect x="60" y="17" width="20" height="19" rx="2" fill="#fef08a" stroke="#450a0a" stroke-width="1.6" class="coach-window-glow"/>
+      <!-- Gold Waistline Stripe -->
+      <line x1="4" y1="42" x2="86" y2="42" stroke="#f59e0b" stroke-width="2.2"/>
+      <!-- Coach Wheels -->
+      <g class="animated-wheels">
+        <circle cx="24" cy="65" r="10.5" fill="#18181b" stroke="#71717a" stroke-width="2.6"/>
+        <circle cx="24" cy="65" r="4" fill="#f59e0b"/>
+        <circle cx="68" cy="65" r="10.5" fill="#18181b" stroke="#71717a" stroke-width="2.6"/>
+        <circle cx="68" cy="65" r="4" fill="#f59e0b"/>
+      </g>
+    </g>
+
+    <!-- Coupling Bar -->
+    <rect x="89" y="60" width="16" height="6" rx="2" fill="#18181b"/>
+
+    <!-- RED STEAM LOCOMOTIVE ENGINE ON RIGHT -->
+    <g class="train-locomotive" transform="translate(104, 20)">
+      <!-- Engine Cab (Driver compartment) -->
+      <rect x="0" y="5" width="46" height="60" rx="3" fill="#991b1b" stroke="#450a0a" stroke-width="2.2"/>
+      <path d="M-2 5 C-2 0 4 -3 10 -3 H36 C42 -3 48 0 48 5 Z" fill="#450a0a"/>
+      <!-- Cab Window with Warm Yellow Glow -->
+      <rect x="8" y="12" width="26" height="22" rx="2" fill="#fef08a" stroke="#450a0a" stroke-width="1.6" class="coach-window-glow"/>
+
+      <!-- Cylindrical Boiler -->
+      <rect x="46" y="18" width="65" height="47" rx="2" fill="#18181b" stroke="#27272a" stroke-width="1.6"/>
+      <!-- Boiler Front Round Cap -->
+      <path d="M111 18 C120 18 126 28 126 41 C126 54 120 65 111 65 Z" fill="#991b1b" stroke="#450a0a" stroke-width="2.2"/>
+      <!-- Brass Boiler Bands -->
+      <line x1="65" y1="18" x2="65" y2="65" stroke="#f59e0b" stroke-width="2.6"/>
+      <line x1="88" y1="18" x2="88" y2="65" stroke="#f59e0b" stroke-width="2.6"/>
+      <!-- Gold Steam Dome & Whistle -->
+      <path d="M52 18 C52 9 61 9 61 18 Z" fill="#f59e0b" stroke="#78350f" stroke-width="1"/>
+      <rect x="55" y="5" width="3" height="6" fill="#f59e0b"/>
+
+      <!-- Chimney / Smokestack with crown (Train se dhuaan nikalna chahiye!) -->
+      <path d="M94 18 V2 H106 V18" fill="#18181b" stroke="#27272a" stroke-width="1.6"/>
+      <ellipse cx="100" cy="2" rx="8" ry="3" fill="#f59e0b" stroke="#78350f" stroke-width="1"/>
+
+      <!-- Cowcatcher (Front Wedge) -->
+      <polygon points="118,65 135,70 135,74 114,74" fill="#450a0a" stroke="#18181b" stroke-width="1.6"/>
+
+      <!-- Locomotive Driving Wheels -->
+      <g class="animated-wheels">
+        <circle cx="24" cy="74" r="11.5" fill="#18181b" stroke="#e4e4e7" stroke-width="2.6"/>
+        <circle cx="24" cy="74" r="4" fill="#f59e0b"/>
+
+        <circle cx="62" cy="73" r="12.5" fill="#18181b" stroke="#e4e4e7" stroke-width="2.6"/>
+        <circle cx="62" cy="73" r="4" fill="#f59e0b"/>
+
+        <circle cx="98" cy="73" r="12.5" fill="#18181b" stroke="#e4e4e7" stroke-width="2.6"/>
+        <circle cx="98" cy="73" r="4" fill="#f59e0b"/>
+
+        <!-- Animated Mechanical Piston Connecting Rod -->
+        <line x1="24" y1="74" x2="98" y2="73" stroke="#e4e4e7" stroke-width="3.2" stroke-linecap="round" class="piston-rod-chug"/>
+      </g>
+
+      <!-- GLOWING HEADLAMP AT FRONT OF ENGINE -->
+      <g transform="translate(124, 40)">
+        <!-- Forward Projecting Light Cone -->
+        <polygon points="6,-6 85,-30 85,40 6,12" fill="url(#glow-gold)" opacity="0.8" class="headlight-beam-glow"/>
+        <circle cx="4" cy="3" r="18" fill="url(#glow-gold)" class="headlight-core-glow"/>
+        <rect x="-2" y="-4" width="8" height="14" rx="2" fill="#18181b"/>
+        <circle cx="4" cy="3" r="4.5" fill="#fef08a" stroke="#f59e0b" stroke-width="1"/>
+      </g>
+    </g>
+
+    <!-- CONTINUOUS PUFFING STEAM SMOKE BILLOWING UP FROM CHIMNEY (Train se dhuaan nikalna chahiye!) -->
+    <g id="train-smoke-generator" transform="translate(204, 20)">
+      <circle cx="0" cy="0" r="8" fill="#ffffff" stroke="rgba(200,215,230,0.7)" stroke-width="1.2" opacity="0" class="smoke-puff-node p-1"/>
+      <circle cx="0" cy="0" r="14" fill="#ffffff" stroke="rgba(200,215,230,0.7)" stroke-width="1.2" opacity="0" class="smoke-puff-node p-2"/>
+      <circle cx="0" cy="0" r="20" fill="#ffffff" stroke="rgba(200,215,230,0.7)" stroke-width="1.2" opacity="0" class="smoke-puff-node p-3"/>
+      <circle cx="0" cy="0" r="26" fill="#ffffff" stroke="rgba(200,215,230,0.7)" stroke-width="1.2" opacity="0" class="smoke-puff-node p-4"/>
+    </g>
+  </g>
+
+</svg>

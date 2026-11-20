@@ -7,8 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/profile-card.bundle.css">
+<link rel="stylesheet" href="assets/sketchbook.bundle.css">
 </head>
 <body>
+<div class="sketchbook-wash" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="wrap nav-row">
@@ -37,17 +40,15 @@
   </defs>
 </svg>
 
-<header class="hero" style="padding: 60px 0;">
+<header class="hero" style="padding: 90px 0 60px;">
   <div class="wrap" style="display:flex; align-items:center; justify-content:center; gap:60px; flex-wrap:wrap;">
     
-    <!-- Polaroid -->
-    <div style="position:relative; flex:none;">
-      <figure class="polaroid" style="margin:0; width: 280px; transform: rotate(-2deg);">
-        <span class="tape plain" style="top:-14px; left:50%; transform:translateX(-50%) rotate(2deg);"></span>
-        <img src="assets/1.jpeg" alt="Photo of Pratyaksh Tomar" style="width:100%; height:320px; object-fit:cover;">
-        <figcaption style="font-size:1.3rem;">that's me! 👋</figcaption>
-      </figure>
-      <span class="hand doodle" style="position:absolute; bottom:-30px; left:10px; font-size:1.1rem; color:var(--teal); transform:rotate(-4deg);">hi again ✌️</span>
+    <!-- Interactive React Bits ProfileCard -->
+    <div style="position:relative; flex:none; z-index:10; transform:rotate(-1.5deg);">
+      <span class="tape plain" style="position:absolute; top:-15px; left:50%; transform:translateX(-50%) rotate(2deg); z-index:25; width:70px; height:20px;"></span>
+      <div id="profile-card-container" style="min-height:430px; display:flex; justify-content:center;"></div>
+      <span class="hand doodle" style="position:absolute; bottom:-28px; left:12px; font-size:1.15rem; color:var(--teal); transform:rotate(-4deg); z-index:15;">hi again ✌️</span>
+      <span class="hand doodle" style="position:absolute; bottom:-28px; right:16px; font-size:1.15rem; color:var(--orange-deep); transform:rotate(3deg); z-index:15;">that's me! 👏</span>
     </div>
 
     <!-- Torn Card -->
@@ -65,47 +66,234 @@
   </div>
 </header>
 
-<section>
-  <div class="wrap" style="text-align:center;">
-    <h2 style="font-size: 2.5rem; display:inline-block; position:relative; margin-bottom: 20px;">
-      Career Path
-      <svg viewBox="0 0 260 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute; bottom:-12px; left:0; width:100%; height:14px; transform:rotate(-1deg);">
-        <path d="M3 8C45 2 90 12 135 6C175 1 215 11 257 5" stroke="var(--teal)" stroke-width="5" stroke-linecap="round"/>
-      </svg>
-    </h2>
-    <div class="timeline" style="margin-top:40px; text-align:left;">
-      
-      <!-- Item 1 (Oldest) -->
-      <div class="tl-item">
-        <div class="tl-header-row">
-          <span class="tl-badge">🎓 school</span>
-          <span class="tl-when">2019 — 2020</span>
+<section class="career-path-section" style="padding: 40px 0 80px; position: relative;">
+  <div class="wrap" style="max-width: 960px; margin: 0 auto; text-align: center;">
+    
+    <!-- Header: Vintage Torn Paper Note with Cursive Script (Matches Reference Image) -->
+    <div class="career-header-block">
+      <div class="career-journey-kicker">· the journey so far ·</div>
+      <div class="career-torn-title-wrap">
+        <div class="career-title-tape"></div>
+        <div class="career-torn-paper">
+          <h2 class="career-torn-h2">Career Path</h2>
+          <svg class="career-title-brush" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7C35 3 75 9 110 5C135 2 155 7 176 4" stroke="#2d7a6e" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
         </div>
-        <h4>Secondary (Class X)</h4>
-        <div class="org">Dehradun Public School, Ghaziabad</div>
-        <p>CBSE. Built strong fundamentals in science and mathematics.</p>
+      </div>
+    </div>
+
+    <!-- Career Ticket Timeline (Three authentic vintage ticket stubs: Green, Pink, Orange) -->
+    <div class="career-ticket-timeline">
+
+      <!-- ================= CARD 1: GREEN (Class X) ================= -->
+      <div class="career-ticket-item ticket-item-1">
+        <div class="ticket-card ticket-green">
+          <!-- Washi tape at top-left corner -->
+          <div class="ticket-washi-tape washi-green"></div>
+
+          <!-- Perforation Notches & Dashed Line -->
+          <div class="ticket-notch-top"></div>
+          <div class="ticket-perforation-line"></div>
+          <div class="ticket-notch-bottom"></div>
+
+          <!-- Main Left Body -->
+          <div class="ticket-main">
+            <div class="ticket-header-meta">SCHOOL PASS &nbsp;·&nbsp; STOP 1 OF 3</div>
+            <h3 class="ticket-title">Where it started</h3>
+            <div class="ticket-subtitle">Dehradun Public School, Ghaziabad</div>
+            <p class="ticket-description">
+              Class X (CBSE Board) — <strong>92%</strong>. The first dots on the page. Built a solid early foundation in mathematics, science, and analytical thinking.
+            </p>
+          </div>
+
+          <!-- Perforated Right Stub -->
+          <div class="ticket-stub">
+            <div class="ticket-staple-top"></div>
+            <div class="ticket-stub-admit">ADMIT ONE</div>
+            <div class="ticket-stub-years">2019 — 2020</div>
+
+            <!-- Circular Stamped Seal -->
+            <div class="ticket-rubber-stamp">
+              <div class="ticket-stamp-inner">
+                <span class="ticket-stamp-word">SCHOOL</span>
+                <span class="ticket-stamp-score">92%</span>
+              </div>
+            </div>
+
+            <!-- Barcode -->
+            <div class="ticket-barcode-wrap">
+              <svg class="ticket-barcode-svg" width="84" height="26" viewBox="0 0 84 26" fill="currentColor">
+                <rect x="0" y="0" width="2" height="26"/>
+                <rect x="4" y="0" width="1" height="26"/>
+                <rect x="7" y="0" width="3" height="26"/>
+                <rect x="12" y="0" width="1" height="26"/>
+                <rect x="15" y="0" width="4" height="26"/>
+                <rect x="21" y="0" width="2" height="26"/>
+                <rect x="25" y="0" width="1" height="26"/>
+                <rect x="28" y="0" width="3" height="26"/>
+                <rect x="33" y="0" width="2" height="26"/>
+                <rect x="37" y="0" width="4" height="26"/>
+                <rect x="43" y="0" width="1" height="26"/>
+                <rect x="46" y="0" width="3" height="26"/>
+                <rect x="51" y="0" width="2" height="26"/>
+                <rect x="55" y="0" width="1" height="26"/>
+                <rect x="58" y="0" width="4" height="26"/>
+                <rect x="64" y="0" width="2" height="26"/>
+                <rect x="68" y="0" width="3" height="26"/>
+                <rect x="73" y="0" width="1" height="26"/>
+                <rect x="76" y="0" width="3" height="26"/>
+                <rect x="81" y="0" width="3" height="26"/>
+              </svg>
+              <span class="ticket-barcode-num">№ 01</span>
+            </div>
+            <div class="ticket-staple-bottom"></div>
+          </div>
+        </div>
       </div>
 
-      <!-- Item 2 -->
-      <div class="tl-item">
-        <div class="tl-header-row">
-          <span class="tl-badge">🎓 school</span>
-          <span class="tl-when">2021 — 2022</span>
+      <!-- ================= CARD 2: PINK (Class XII) ================= -->
+      <div class="career-ticket-item ticket-item-2">
+        <div class="ticket-card ticket-pink">
+          <!-- Washi tape at top-left corner -->
+          <div class="ticket-washi-tape washi-pink"></div>
+
+          <!-- Perforation Notches & Dashed Line -->
+          <div class="ticket-notch-top"></div>
+          <div class="ticket-perforation-line"></div>
+          <div class="ticket-notch-bottom"></div>
+
+          <!-- Main Left Body -->
+          <div class="ticket-main">
+            <div class="ticket-header-meta">SCHOOL PASS &nbsp;·&nbsp; STOP 2 OF 3</div>
+            <h3 class="ticket-title">Senior Secondary (Class XII)</h3>
+            <div class="ticket-subtitle">Dehradun Public School, Ghaziabad</div>
+            <p class="ticket-description">
+              Class XII (CBSE Board) — <strong>82%</strong>. Stream: <strong>PCM</strong> (Physics, Chemistry, Mathematics). Discovered an enduring passion for logic, algorithms, and computers.
+            </p>
+          </div>
+
+          <!-- Perforated Right Stub -->
+          <div class="ticket-stub">
+            <div class="ticket-staple-top"></div>
+            <div class="ticket-stub-admit">ADMIT ONE</div>
+            <div class="ticket-stub-years">2021 — 2022</div>
+
+            <!-- Circular Stamped Seal -->
+            <div class="ticket-rubber-stamp">
+              <div class="ticket-stamp-inner">
+                <span class="ticket-stamp-word">PCM</span>
+                <span class="ticket-stamp-score">82%</span>
+              </div>
+            </div>
+
+            <!-- Barcode -->
+            <div class="ticket-barcode-wrap">
+              <svg class="ticket-barcode-svg" width="84" height="26" viewBox="0 0 84 26" fill="currentColor">
+                <rect x="0" y="0" width="3" height="26"/>
+                <rect x="5" y="0" width="2" height="26"/>
+                <rect x="9" y="0" width="1" height="26"/>
+                <rect x="12" y="0" width="4" height="26"/>
+                <rect x="18" y="0" width="2" height="26"/>
+                <rect x="22" y="0" width="1" height="26"/>
+                <rect x="25" y="0" width="3" height="26"/>
+                <rect x="30" y="0" width="2" height="26"/>
+                <rect x="34" y="0" width="4" height="26"/>
+                <rect x="40" y="0" width="1" height="26"/>
+                <rect x="43" y="0" width="3" height="26"/>
+                <rect x="48" y="0" width="2" height="26"/>
+                <rect x="52" y="0" width="4" height="26"/>
+                <rect x="58" y="0" width="1" height="26"/>
+                <rect x="61" y="0" width="3" height="26"/>
+                <rect x="66" y="0" width="2" height="26"/>
+                <rect x="70" y="0" width="3" height="26"/>
+                <rect x="75" y="0" width="1" height="26"/>
+                <rect x="78" y="0" width="2" height="26"/>
+                <rect x="82" y="0" width="2" height="26"/>
+              </svg>
+              <span class="ticket-barcode-num">№ 02</span>
+            </div>
+            <div class="ticket-staple-bottom"></div>
+          </div>
         </div>
-        <h4>Senior Secondary (Class XII)</h4>
-        <div class="org">Dehradun Public School, Ghaziabad</div>
-        <p>CBSE. Developed keen problem-solving acumen and interest in computer science.</p>
       </div>
 
-      <!-- Item 3 (Current) -->
-      <div class="tl-item">
-        <div class="tl-header-row">
-          <span class="tl-badge">🎓 university</span>
-          <span class="tl-when">2023 — 2027</span>
+      <!-- ================= CARD 3: ORANGE (B.Tech - Current) ================= -->
+      <div class="career-ticket-item ticket-item-3">
+        <!-- Handwritten annotation on left side (as in reference image) -->
+        <div class="ticket-side-annotation">
+          <span>still on this ride</span>
+          <svg class="hand-arrow" viewBox="0 0 50 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8C18 4 32 14 42 22M42 22L34 22M42 22L39 13"/>
+          </svg>
         </div>
-        <h4>Bachelor of Technology · Computer Science Engineering</h4>
-        <div class="org">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</div>
-        <p>Currently in progress — deep in data structures, systems, and shipping engineering projects alongside coursework.</p>
+
+        <div class="ticket-card ticket-orange">
+          <!-- Rocket sticker at top edge -->
+          <div class="ticket-rocket-sticker" title="Still on this ride! 🚀">🚀</div>
+
+          <!-- Perforation Notches & Dashed Line -->
+          <div class="ticket-notch-top"></div>
+          <div class="ticket-perforation-line"></div>
+          <div class="ticket-notch-bottom"></div>
+
+          <!-- Main Left Body -->
+          <div class="ticket-main">
+            <div class="ticket-header-meta">DEGREE PASS &nbsp;·&nbsp; STOP 3 OF 3</div>
+            <h3 class="ticket-title">B.Tech · Computer Science &amp; Engineering</h3>
+            <div class="ticket-subtitle">IMS Engineering College, Ghaziabad (AKTU)</div>
+            <div class="ticket-headline-note">Where the line reaches today · Currently Pursuing (4th Year, 2023 — 2027)</div>
+            
+            <ul class="ticket-bullet-list">
+              <li>Currently in 4th year pursuing B.Tech in CSE, affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU).</li>
+              <li>Core focus on Software Engineering, Data Structures &amp; Algorithms, and Autonomous AI systems.</li>
+              <li>Building full-stack web applications, agentic workflows, and high-performance interactive architectures.</li>
+              <li>Active builder, turning complex technical problems into elegant, production-grade solutions.</li>
+            </ul>
+          </div>
+
+          <!-- Perforated Right Stub -->
+          <div class="ticket-stub">
+            <div class="ticket-staple-top"></div>
+            <div class="ticket-stub-admit">ADMIT ONE</div>
+            <div class="ticket-stub-years">2023 — Present</div>
+
+            <!-- Circular Stamped Seal -->
+            <div class="ticket-rubber-stamp">
+              <div class="ticket-stamp-inner">
+                <span class="ticket-stamp-word">AKTU</span>
+                <span class="ticket-stamp-score">B.TECH</span>
+              </div>
+            </div>
+
+            <!-- Barcode -->
+            <div class="ticket-barcode-wrap">
+              <svg class="ticket-barcode-svg" width="84" height="26" viewBox="0 0 84 26" fill="currentColor">
+                <rect x="0" y="0" width="2" height="26"/>
+                <rect x="4" y="0" width="3" height="26"/>
+                <rect x="9" y="0" width="1" height="26"/>
+                <rect x="12" y="0" width="3" height="26"/>
+                <rect x="17" y="0" width="4" height="26"/>
+                <rect x="23" y="0" width="1" height="26"/>
+                <rect x="26" y="0" width="2" height="26"/>
+                <rect x="30" y="0" width="4" height="26"/>
+                <rect x="36" y="0" width="2" height="26"/>
+                <rect x="40" y="0" width="1" height="26"/>
+                <rect x="43" y="0" width="3" height="26"/>
+                <rect x="48" y="0" width="4" height="26"/>
+                <rect x="54" y="0" width="1" height="26"/>
+                <rect x="57" y="0" width="3" height="26"/>
+                <rect x="62" y="0" width="2" height="26"/>
+                <rect x="66" y="0" width="4" height="26"/>
+                <rect x="72" y="0" width="1" height="26"/>
+                <rect x="75" y="0" width="3" height="26"/>
+                <rect x="80" y="0" width="3" height="26"/>
+              </svg>
+              <span class="ticket-barcode-num">№ 03</span>
+            </div>
+            <div class="ticket-staple-bottom"></div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -232,5 +420,25 @@
   </div>
 </footer>
 
+<!-- Audio element for continuous background music -->
+<audio id="hero-music-audio" src="assets/bg_music.mp3" preload="auto" loop style="display:none;"></audio>
+
+<!-- Global Floating Mute Button (Bottom-Left) -->
+<button class="global-mute-btn" id="global-mute-btn" type="button" aria-label="Mute or Unmute audio" title="Mute / Unmute">
+  <svg class="mute-svg mute-svg-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+  </svg>
+  <svg class="mute-svg mute-svg-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</button>
+
+<script src="assets/profile-card.bundle.js"></script>
+<script src="assets/sketchbook.bundle.js"></script>
+<script src="script.js?v=20261120_1735"></script>
 </body>
 </html>

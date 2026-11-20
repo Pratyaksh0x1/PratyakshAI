@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 136" preserveAspectRatio="none">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="5" result="n"/>
+ <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8a6a45" flood-opacity=".22"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .42  0 0 0 0 .28  0 0 0 .09 0"/></filter>
+<linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf0e0"/><stop offset="1" stop-color="#fbe6cf"/></linearGradient>
+<clipPath id="shape"><rect x="30" y="30" width="820" height="76" rx="22"/></clipPath></defs>
+<g filter="url(#shadow)"><g filter="url(#rough)">
+ <rect x="30" y="30" width="820" height="76" rx="22" fill="url(#pg)"/>
+ <rect x="30" y="30" width="820" height="76" rx="22" filter="url(#grain)" clip-path="url(#shape)"/>
+ <rect x="33" y="33" width="814" height="70" rx="20" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+</g></g>
+</svg>

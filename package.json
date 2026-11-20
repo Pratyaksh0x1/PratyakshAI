@@ -1,0 +1,27 @@
+{
+  "name": "pratyaksh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pratyaksh Tomar portfolio with React Bits 3D Lanyard component",
+  "scripts": {
+    "build:lanyard": "esbuild src/lanyard-entry.tsx --bundle --minify --sourcemap --jsx=automatic --outfile=assets/lanyard.bundle.js",
+    "build:profile-card": "esbuild src/profile-card-entry.tsx --bundle --minify --sourcemap --jsx=automatic --outfile=assets/profile-card.bundle.js",
+    "build:sketchbook": "esbuild src/sketchbook-entry.tsx --bundle --minify --sourcemap --jsx=automatic --loader:.html=text --external:*.woff2 --outfile=assets/sketchbook.bundle.js",
+    "watch:sketchbook": "esbuild src/sketchbook-entry.tsx --bundle --sourcemap --jsx=automatic --loader:.html=text --external:*.woff2 --outfile=assets/sketchbook.bundle.js --watch",
+    "build": "npm run build:lanyard && npm run build:profile-card && npm run build:sketchbook"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "^4.4.0",
+    "@hugeicons/react": "^1.1.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.170.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.3"
+  }
+}

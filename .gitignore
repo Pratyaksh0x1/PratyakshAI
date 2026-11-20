@@ -1,3 +1,7 @@
+# Node
+node_modules/
+dist/
+
 # Python / Backend Virtual Environment
 backend/venv/
 backend/env/

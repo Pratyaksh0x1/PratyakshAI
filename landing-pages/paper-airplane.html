@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paper Airplane – sketchbook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap">
+<style>
+:root{--bg:#fbf4e4;--ink:#2a2118;--dot:rgba(90,70,45,.13);--note:#fffbe9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1a14;--ink:#efe3cc;--dot:rgba(240,225,200,.1);--note:#2b251c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1e1a14;--ink:#efe3cc;--dot:rgba(240,225,200,.1);--note:#2b251c;color-scheme:dark}
+html,body{height:100%;margin:0;touch-action:manipulation}
+body{background:var(--bg);background-image:radial-gradient(circle,var(--dot) 1.2px,transparent 1.4px);background-size:28px 28px;overflow:hidden;color:var(--ink);font-family:Caveat,"Bradley Hand","Segoe Print","Comic Sans MS",cursive}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.note{position:fixed;left:0;top:0;pointer-events:none;font-size:clamp(16px,2.2vw,28px);font-weight:700;white-space:nowrap;will-change:transform;line-height:1;opacity:0;transition:opacity 0.25s ease}
+body.is-ready .note{opacity:1}
+.note.card{background:var(--note);padding:6px 12px 8px;border:1.5px solid var(--ink);border-radius:3px 9px 4px 10px;box-shadow:3px 4px 0 rgba(0,0,0,.12)}
+.note svg{display:block;margin-top:2px;overflow:visible}
+#tag{font-size:clamp(14px,1.8vw,22px);font-weight:500}
+.title{position:fixed;left:24px;top:calc(18px + env(safe-area-inset-top,0px));font-size:22px;font-weight:700;transform:rotate(-2deg)}
+.title small{display:block;font-size:16px;font-weight:500;opacity:.6}
+.hint{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));text-align:center;font-size:18px;opacity:.55}
+@media (max-width: 600px) {
+  .title{font-size:17px;left:14px;top:10px}
+  .title small{font-size:12px}
+  .note{font-size:14px}
+  .note.card{padding:3px 7px 4px;font-size:13px}
+  #n4{display:none}
+  .hint{font-size:13px;bottom:8px}
+}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="title">sketchbook<small>vol. 03 · paper things</small></div>
+<div class="note card" id="n1">next destination →</div>
+<div class="note" id="n2">ideas taking flight
+<svg width="70" height="34" viewBox="0 0 70 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4C20 28 44 30 64 14M64 14l-12 0M64 14l-3 11"/></svg></div>
+<div class="note card" id="n3">sketch → ship</div>
+<div class="note" id="n4">draft 03 (don’t tell anyone)</div>
+<div class="note" id="tag">idea!</div>
+<div class="hint">move your mouse · the plane speeds up</div>
+<script src="three.min.js"></script>
+<script>
+if(typeof THREE==="undefined"){
+  document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"><\/script>');
+}
+</script>
+<script>
+(function(){
+try {
+const cs=getComputedStyle(document.documentElement);
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const canvas=document.getElementById("c");
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(35,1,.1,60);
+scene.add(new THREE.HemisphereLight(0xffffff,0xd9c9a8,1.5));
+const sun=new THREE.DirectionalLight(0xffffff,2.2);sun.position.set(-3,5,6);scene.add(sun);
+const dark=matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.dataset.theme!=="light"||document.documentElement.dataset.theme==="dark";
+const INK=dark?0xefe3cc:0x2a2118;
+
+/* flight path: a lazy figure-eight with depth */
+const pts=[];
+for(let i=0;i<120;i++){const u=i/120*Math.PI*2;pts.push(new THREE.Vector3(4.6*Math.sin(u),1.25*Math.sin(2*u)+.1,2.2*Math.cos(u)))}
+const curve=new THREE.CatmullRomCurve3(pts,true);
+
+/* dotted hand-drawn trajectory */
+function dotTex(){const c=document.createElement("canvas");c.width=c.height=64;const g=c.getContext("2d");g.fillStyle="#fff";g.beginPath();g.ellipse(32,32,22,19,rnd(0,3),0,7);g.fill();return new THREE.CanvasTexture(c)}
+const N=170,dp=new Float32Array(N*3),dc=new Float32Array(N*3),base=[];
+for(let i=0;i<N;i++){
+  const t=Math.max(0.0001,Math.min(0.9999,((i+rnd(-.25,.25))/N+1)%1));
+  const p=curve.getPointAt(t);
+  dp.set([p.x+rnd(-.05,.05),p.y+rnd(-.05,.05),p.z+rnd(-.03,.03)],i*3);
+}
+const dg=new THREE.BufferGeometry();dg.setAttribute("position",new THREE.BufferAttribute(dp,3));dg.setAttribute("color",new THREE.BufferAttribute(dc,3));
+const dots=new THREE.Points(dg,new THREE.PointsMaterial({size:7,sizeAttenuation:false,map:dotTex(),vertexColors:true,transparent:true,alphaTest:.3}));
+scene.add(dots);
+const inkC=new THREE.Color(INK),bgC=new THREE.Color(dark?0x1e1a14:0xfbf4e4);
+
+/* scribbled clouds */
+function cloud(cx,cy,cz,s){for(let k=0;k<2;k++){const p=[],ph=rnd(0,6);for(let i=0;i<=60;i++){const a=i/60*Math.PI*2+k*.12,r=s*(1+.22*Math.sin(3*a+ph)+rnd(-.03,.03));p.push(new THREE.Vector3(cx+Math.cos(a)*r*1.7,cy+Math.sin(a)*r*.7,cz))}
+scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(p),new THREE.LineBasicMaterial({color:INK,transparent:true,opacity:.28})))}}
+cloud(-4.2,2.2,-4,.55);cloud(4.6,-2.1,-5,.7);cloud(.4,-2.8,-3,.45);cloud(5.2,2.5,-6,.5);
+
+/* the paper plane */
+const V={N:[0,0,1.4],L:[-.95,.2,-.85],R:[.95,.2,-.85],C:[0,.05,-.85],K:[0,-.4,-.85]};
+const tri=(a,b,c)=>[...V[a],...V[b],...V[c]];
+const verts=new Float32Array([...tri("N","L","C"),...tri("N","C","R"),...tri("N","C","K"),...tri("N","K","C")]);
+const pgeo=new THREE.BufferGeometry();pgeo.setAttribute("position",new THREE.BufferAttribute(verts,3));pgeo.computeVertexNormals();
+const mesh=new THREE.Mesh(pgeo,new THREE.MeshStandardMaterial({color:dark?0xf4ead6:0xffffff,flatShading:true,side:THREE.DoubleSide,roughness:.9}));
+const outline=new THREE.LineSegments(new THREE.EdgesGeometry(pgeo,1),new THREE.LineBasicMaterial({color:INK}));
+const inner=new THREE.Group();inner.add(mesh,outline);inner.scale.setScalar(.75);
+const plane=new THREE.Group();plane.add(inner);scene.add(plane);
+
+/* notes anchored in 3D */
+const notes=[["n1",new THREE.Vector3(3.2,1.9,.5),-3],["n2",new THREE.Vector3(-4.6,-1.2,0),2],["n3",new THREE.Vector3(.6,-2.1,1),-2],["n4",new THREE.Vector3(-2.6,2.4,-1),1.5]].map(([id,p,r])=>({el:document.getElementById(id),p,r}));
+const tag=document.getElementById("tag"),tags=["idea!","draft 01","hmm…","almost there","what if?","ship it"];
+let tagI=0,lastTag=0;
+
+let mx=0,my=0,tmx=0,tmy=0,speed=.018,tSpeed=.018;
+const getDims=()=>{
+  const w=Math.max(window.innerWidth||0,document.documentElement.clientWidth||0,320);
+  const h=Math.max(window.innerHeight||0,document.documentElement.clientHeight||0,240);
+  return {w,h};
+};
+const updatePointer=(x,y)=>{
+  const {w,h}=getDims();
+  tmx=(x/w)*2-1;
+  tmy=(y/h)*2-1;
+  tSpeed=.045;
+};
+addEventListener("pointermove",e=>updatePointer(e.clientX,e.clientY));
+addEventListener("pointerleave",()=>{tSpeed=.018});
+addEventListener("touchstart",e=>{if(e.touches&&e.touches[0])updatePointer(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
+addEventListener("touchmove",e=>{if(e.touches&&e.touches[0])updatePointer(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
+addEventListener("touchend",()=>{tSpeed=.018;});
+
+let lastW=0,lastH=0;
+function resize(){
+  const {w,h}=getDims();
+  lastW=w;lastH=h;
+  renderer.setSize(w,h,false);
+  const aspect=Math.max(0.2,w/h);
+  camera.aspect=aspect;
+  camera.updateProjectionMatrix();
+  if(aspect<0.95){
+    camera.userData.z=Math.max(16.5,(10.0/aspect)*1.2);
+  }else if(aspect<1.35){
+    camera.userData.z=Math.max(14.0,(11.0/aspect)*1.1);
+  }else{
+    camera.userData.z=Math.max(12.0,(11.5/aspect)*1.05);
+  }
+}
+addEventListener("resize",resize);
+if(window.ResizeObserver){
+  const ro=new ResizeObserver(()=>resize());
+  ro.observe(document.body);
+}
+resize();
+
+let u=0,prevT=curve.getTangentAt(0),bank=0,clock=new THREE.Clock(),time=0;
+const v=new THREE.Vector3();
+(function loop(){
+requestAnimationFrame(loop);
+const dt=Math.min(clock.getDelta(),.05);time+=dt;
+
+// Self-healing check: if uninitialized or size changed, auto-recompute
+const curW=window.innerWidth||document.documentElement.clientWidth||0;
+const curH=window.innerHeight||document.documentElement.clientHeight||0;
+if(!isFinite(camera.userData.z)||Math.abs(curW-lastW)>2||Math.abs(curH-lastH)>2){
+  resize();
+}
+
+speed+=(tSpeed-speed)*Math.min(dt*2,1);tSpeed+=(.018-tSpeed)*Math.min(dt*.6,1);
+u=Math.max(0.0001,Math.min(0.9999,((u+speed*dt*1.0)%1+1)%1));
+const pos=curve.getPointAt(u),tan=curve.getTangentAt(u);
+const bob=Math.sin(time*2.1)*.06;
+plane.position.set(pos.x,pos.y+bob,pos.z);
+plane.lookAt(pos.x+tan.x,pos.y+tan.y+bob,pos.z+tan.z);
+const turn=prevT.x*tan.z-prevT.z*tan.x;bank+=(THREE.MathUtils.clamp(turn*-420,-.9,.9)-bank)*Math.min(dt*4,1);
+inner.rotation.z=bank+Math.sin(time*3)*.04;prevT.copy(tan);
+
+/* dots: flown ones are inked, ahead ones are faint */
+for(let i=0;i<N;i++){let d=u-i/N;if(d<0)d+=1;const k=d<.45?1-d/.45*.7:.28;const c=bgC.clone().lerp(inkC,k);dc[i*3]=c.r;dc[i*3+1]=c.g;dc[i*3+2]=c.b}
+dg.attributes.color.needsUpdate=true;
+
+mx+=(tmx-mx)*Math.min(dt*3,1);my+=(tmy-my)*Math.min(dt*3,1);
+const safeZ=isFinite(camera.userData.z)&&camera.userData.z>5?camera.userData.z:14;
+camera.position.set(mx*1.2,-my*.7+.3,safeZ);
+camera.lookAt(0,0,0);
+
+renderer.render(scene,camera);
+const {w,h}=getDims();
+const place=(el,p,rot,ox,oy)=>{
+  if(!el||!p)return;
+  v.copy(p).project(camera);
+  if(!isFinite(v.x)||!isFinite(v.y))return;
+  const sx=(v.x*.5+.5)*w+ox;
+  const sy=(-v.y*.5+.5)*h+oy;
+  if(!isFinite(sx)||!isFinite(sy))return;
+  el.style.transform=`translate3d(${sx.toFixed(1)}px,${sy.toFixed(1)}px,0) rotate(${rot}deg)`;
+};
+notes.forEach((n,i)=>place(n.el,n.p,n.r,-n.el.offsetWidth/2,-n.el.offsetHeight/2+Math.sin(time*1.2+i)*4));
+place(tag,plane.position,-4,18,-44);
+if(!document.body.classList.contains("is-ready"))document.body.classList.add("is-ready");
+if(time-lastTag>2.6){lastTag=time;tagI=(tagI+1)%tags.length;tag.textContent=tags[tagI]}
+})();
+} catch(err) {
+  console.error("Airplane animation init error:", err);
+}
+})();
+</script>
+</body>
+</html>

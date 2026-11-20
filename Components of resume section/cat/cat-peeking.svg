@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 102" >
+<defs></defs>
+
+<g id="cat">
+ <!-- ears -->
+ <path d="M36 58 L40 10 L76 38 Z" fill="#1d1a1b" stroke="#1d1a1b" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M124 58 L120 10 L84 38 Z" fill="#1d1a1b" stroke="#1d1a1b" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M44 48 L46 22 L64 38 Z" fill="#d98c97" stroke="#d98c97" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M116 48 L114 22 L96 38 Z" fill="#d98c97" stroke="#d98c97" stroke-width="4" stroke-linejoin="round"/>
+ <!-- head -->
+ <clipPath id="cut"><rect x="0" y="0" width="160" height="94"/></clipPath>
+ <ellipse cx="80" cy="68" rx="50" ry="35" fill="#1d1a1b" clip-path="url(#cut)"/>
+ <!-- eyes -->
+ <circle cx="62" cy="66" r="8" fill="#fff"/><circle cx="98" cy="66" r="8" fill="#fff"/>
+ <circle cx="62" cy="67" r="4.6" fill="#111"/><circle cx="98" cy="67" r="4.6" fill="#111"/>
+ <circle cx="60.3" cy="64.8" r="1.5" fill="#fff"/><circle cx="96.3" cy="64.8" r="1.5" fill="#fff"/>
+ <!-- nose + mouth -->
+ <path d="M76.5 76 h7 l-3.5 4 z" fill="#d98c97"/>
+ <path d="M80 80 v3 M80 83 q-4 3 -8 0 M80 83 q4 3 8 0" stroke="#6b5b5e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+ <!-- whiskers -->
+ <g stroke="#8d8285" stroke-width="1.1" stroke-linecap="round">
+  <path d="M46 78 L20 74"/><path d="M46 82 L22 85"/><path d="M114 78 L140 74"/><path d="M114 82 L138 85"/>
+ </g>
+ <!-- paws -->
+ <g fill="#1d1a1b"><rect x="8" y="88" width="34" height="14" rx="7"/><rect x="118" y="88" width="34" height="14" rx="7"/></g>
+ <g stroke="#4a4446" stroke-width="1.2" stroke-linecap="round"><path d="M18 94v5M25 94v5M32 94v5"/><path d="M128 94v5M135 94v5M142 94v5"/></g>
+</g>
+</svg>

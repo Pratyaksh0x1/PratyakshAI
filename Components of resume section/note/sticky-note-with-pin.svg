@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" >
+<defs><filter id="ns" x="-10%" y="-10%" width="125%" height="130%"><feDropShadow dx="2" dy="7" stdDeviation="7" flood-color="#7a5a30" flood-opacity=".28"/></filter>
+<linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbeec4"/><stop offset="1" stop-color="#f4e0a6"/></linearGradient><radialGradient id="pg2" cx=".35" cy=".3"><stop offset="0" stop-color="#e59a5a"/><stop offset="1" stop-color="#b2561f"/></radialGradient></defs>
+
+<g transform="rotate(2.2 150 160)">
+ <g filter="url(#ns)"><path d="M14 18 H286 V262 L248 304 H14 Z" fill="url(#ng)"/></g>
+ <path d="M286 262 L248 304 L252 268 Q254 262 262 262 Z" fill="#e6d29a"/>
+ <path d="M14 18 H286" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+</g><g transform="translate(212 -10)"><ellipse cx="28" cy="52" rx="16" ry="5" fill="#000" opacity=".15"/>
+<path d="M26 28 L30 50" stroke="#9a9a9a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="26" cy="22" r="17" fill="url(#pg2)"/><ellipse cx="20" cy="15" rx="6" ry="4" fill="#fff" opacity=".4"/></g>
+</svg>

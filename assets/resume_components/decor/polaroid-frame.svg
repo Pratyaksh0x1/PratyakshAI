@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" >
+<defs><filter id="fs" x="-10%" y="-10%" width="125%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#6a5030" flood-opacity=".3"/></filter></defs>
+<g filter="url(#fs)"><path fill-rule="evenodd" fill="#fbf8f2" d="M10 10 H390 V310 H10Z M32 32 H368 V262 H32Z"/></g>
+<path fill-rule="evenodd" fill="none" stroke="#e9e1d2" stroke-width="1.5" d="M32 32 H368 V262 H32Z"/>
+</svg>

@@ -8,8 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/lanyard.bundle.css">
+<link rel="stylesheet" href="assets/sketchbook.bundle.css">
 </head>
 <body>
+<div class="sketchbook-wash" aria-hidden="true"></div>
 
 <nav class="nav">
   <div class="wrap nav-row">
@@ -37,42 +40,260 @@
     </filter>
   </defs>
 </svg>
-<header class="hero" style="min-height: 90vh; display: flex; align-items: center; justify-content: center; position: relative;">
+<header class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: visible; padding-top: 30px;">
+
+  <!-- Lanyard Top Anchor emerging directly from top edge of website -->
+  <div id="lanyard-top-pin" style="position: absolute; top: 0px; left: 28%; transform: translateX(-50%); z-index: 45; pointer-events: none;">
+    <!-- Black lanyard strap strip extending flush into top border of website -->
+    <div style="width: 22px; height: 16px; background: #1a1a1e; margin: -10px auto -3px; border-left: 2px dashed #f59e0b; border-right: 2px dashed #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
+    <span class="tape plain" style="width: 52px; height: 18px; transform: rotate(-1deg); display: block; margin: 0 auto -4px;"></span>
+    <div style="width: 14px; height: 14px; border-radius: 50%; background: #2c303b; border: 2.5px solid #d9dce2; box-shadow: 0 2px 6px rgba(0,0,0,0.25); margin: 0 auto;"></div>
+  </div>
+
+  <!-- Full-Hero 3D Lanyard Interactive Canvas Overlay (in front of text, spans entire hero) -->
+  <div id="lanyard-card" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; overflow: visible;"></div>
   
-  <div class="hero-wrap" style="max-width: 1152px; width: 100%; min-height: 90vh; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+  <div class="hero-wrap" style="max-width: 1540px; width: 100%; min-height: 90vh; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center; padding: 20px 24px;">
     
-    <!-- Scattered Scrapbook Elements (hugging edges) -->
-    
-    <!-- Old approaches note -->
-    <div class="scrap-tilt scrap-tilt-hover doodle" tabindex="0" onfocus="this.style.zIndex='50'" onblur="this.style.zIndex='0'" style="cursor:pointer; outline:none; position:absolute; left:1.5%; top:6%; width:176px; --tilt-rotate:-5deg; z-index:0;">
-      <div style="background:var(--note-yellow); filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; top:0; left:0; width:100%; height:100%;"></div>
-      <div style="position:relative; padding:16px;">
-        <div class="tape" style="top:-10px; left:50%; transform:translateX(-50%) rotate(2deg); background:var(--kraft); width:64px; height:20px;"></div>
-        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">tab-switching</p>
-        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">tutorial hell</p>
-        <p class="hand" style="text-decoration:line-through; color:rgba(58,47,47,0.55); font-weight:700; font-size:1.1rem; margin:0;">"it works on my machine"</p>
-        <p class="hand" style="color:var(--orange-deep); font-weight:700; font-size:1.2rem; margin-top:8px;">1 realization: just ship it 🚀</p>
+    <!-- Botanical corner overlays -->
+    <img src="landing-pages/meng-to-sketchbook/botany-left.png" class="botany-corner botany-tl" alt="botany leaves">
+    <img src="landing-pages/meng-to-sketchbook/botany-right.png" class="botany-corner botany-tr" alt="botany leaves">
+    <img src="landing-pages/meng-to-sketchbook/botany-right.png" class="botany-corner botany-br" alt="botany leaves">
+
+    <!-- Top-Left Checklist Note -->
+    <div class="scrapbook-checklist doodle" tabindex="0">
+      <div class="tape" style="top:-10px; left:25%; transform:rotate(-4deg); background:var(--teal); width:64px; height:20px;"></div>
+      <ul class="checklist-ul">
+        <li><span class="chk-box"></span> tab-switching</li>
+        <li><span class="chk-box"></span> tutorial hell</li>
+        <li><span class="chk-box"></span> "it works on my machine"</li>
+        <li class="chk-checked"><span class="chk-box">✓</span> 1 realization: just ship it 🚀</li>
+      </ul>
+    </div>
+
+    <!-- Top Floating Badges & Washi Tape -->
+    <div class="tape doodle" style="position:absolute; left:38%; top:4%; width:112px; height:26px; transform:rotate(-18deg); background:var(--teal);"></div>
+    <div class="floating-sticker sticker-ship">
+      <span>💻</span> <span>ship it 🚀</span>
+    </div>
+    <div class="floating-sticker sticker-gpu">
+      <span>🔲</span> <span>gpu go brrr 🔥</span>
+    </div>
+    <div class="floating-sticker sticker-model">
+      <span>&gt;_</span> <span>model.train()</span>
+    </div>
+
+    <!-- Cute Retro Turntable Music Player (matching target illustration) -->
+    <div class="retro-music-player cute-player" id="retro-player" style="cursor: pointer;" title="Tap music banner to play/pause">
+      <audio id="hero-music-audio" src="assets/bg_music.mp3" preload="auto" loop></audio>
+      <script>
+        (function() {
+          var a = document.getElementById("hero-music-audio");
+          var p = document.getElementById("retro-player");
+          if (!a || !p) return;
+          var sync = function() {
+            var icon = document.getElementById("retro-play-icon");
+            if (!a.paused && !a.ended) {
+              p.classList.add("is-playing");
+              if (icon) icon.innerText = "⏸";
+            } else {
+              p.classList.remove("is-playing");
+              if (icon) icon.innerText = "▶";
+            }
+          };
+          a.addEventListener("play", sync);
+          a.addEventListener("pause", sync);
+          a.addEventListener("playing", sync);
+          a.addEventListener("timeupdate", function() {
+            var cur = a.currentTime;
+            var dur = a.duration;
+            var curEl = document.getElementById("retro-curr-time");
+            var totEl = document.getElementById("retro-total-time");
+            var fill = document.getElementById("retro-progress-fill");
+            if (curEl && !isNaN(cur)) {
+              var m = Math.floor(cur / 60);
+              var s = Math.floor(cur % 60);
+              curEl.innerText = m + ":" + (s < 10 ? "0" : "") + s;
+            }
+            if (dur && !isNaN(dur) && isFinite(dur)) {
+              if (totEl) {
+                var tm = Math.floor(dur / 60);
+                var ts = Math.floor(dur % 60);
+                totEl.innerText = tm + ":" + (ts < 10 ? "0" : "") + ts;
+              }
+              if (fill) fill.style.width = Math.min(100, Math.max(0, (cur / dur) * 100)) + "%";
+            }
+          });
+        })();
+      </script>
+
+      <!-- Sparkle & Floating notes above -->
+      <div class="player-top-ambience">
+        <span class="p-sparkle">✦</span>
+        <span class="p-note p-note-1">♫</span>
+        <span class="p-note p-note-2">♬</span>
+      </div>
+
+      <!-- Main Turntable Illustration SVG + Interactive Vinyl -->
+      <div class="cute-turntable-deck">
+        
+        <!-- Climbing Ivy Leaves along left -->
+        <svg class="turntable-vines" viewBox="0 0 100 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M75 220C40 180 30 110 55 20" stroke="#788c5d" stroke-width="3.5" stroke-linecap="round" fill="none" />
+          <path d="M68 200C50 200 45 185 58 178C72 172 75 190 68 200Z" fill="#8ea36f" stroke="#5d7044" stroke-width="1.8" />
+          <path d="M42 165C25 160 22 145 35 140C48 135 52 152 42 165Z" fill="#a1b882" stroke="#5d7044" stroke-width="1.8" />
+          <path d="M55 125C38 120 36 102 50 100C64 98 66 114 55 125Z" fill="#8ea36f" stroke="#5d7044" stroke-width="1.8" />
+          <path d="M35 85C18 80 18 64 32 60C46 56 48 74 35 85Z" fill="#a1b882" stroke="#5d7044" stroke-width="1.8" />
+          <path d="M52 45C38 40 40 25 52 24C64 22 64 36 52 45Z" fill="#8ea36f" stroke="#5d7044" stroke-width="1.8" />
+        </svg>
+
+        <!-- Turntable Deck & Vinyl -->
+        <div class="deck-turntable-box">
+          <!-- Upper Arched Slot -->
+          <div class="turntable-slot">
+            <!-- Vinyl Record -->
+            <div class="vinyl-disc-container" id="vinyl-disc-btn" title="Click to spin & play music">
+              <svg class="vinyl-disc" viewBox="0 0 160 160">
+                <defs>
+                  <radialGradient id="cute-v-groove" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#18181b" />
+                    <stop offset="45%" stop-color="#27272a" />
+                    <stop offset="55%" stop-color="#3f3f46" />
+                    <stop offset="68%" stop-color="#18181b" />
+                    <stop offset="82%" stop-color="#27272a" />
+                    <stop offset="100%" stop-color="#09090b" />
+                  </radialGradient>
+                  <linearGradient id="cute-v-glare" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+                    <stop offset="25%" stop-color="rgba(255,255,255,0.02)" />
+                    <stop offset="50%" stop-color="rgba(255,255,255,0.3)" />
+                    <stop offset="75%" stop-color="rgba(255,255,255,0.02)" />
+                    <stop offset="100%" stop-color="rgba(255,255,255,0.25)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="80" cy="80" r="77" fill="#18181b" stroke="#09090b" stroke-width="2" />
+                <circle cx="80" cy="80" r="75" fill="url(#cute-v-groove)" />
+                <circle cx="80" cy="80" r="75" fill="url(#cute-v-glare)" />
+                <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.2" />
+                <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" />
+                <circle cx="80" cy="80" r="58" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.2" />
+                <circle cx="80" cy="80" r="52" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="0.8" />
+                <circle cx="80" cy="80" r="46" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.2" />
+                <circle cx="80" cy="80" r="40" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" />
+                <circle cx="80" cy="80" r="34" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1" />
+                
+                <!-- Center Album Art: Ghibli blue sky, white clouds, green hill -->
+                <circle cx="80" cy="80" r="28" fill="#7dd3fc" stroke="#fde68a" stroke-width="2.5" />
+                <ellipse cx="74" cy="74" rx="14" ry="9" fill="#ffffff" opacity="0.95" />
+                <ellipse cx="88" cy="76" rx="12" ry="8" fill="#ffffff" opacity="0.95" />
+                <path d="M52 86C62 76 78 78 88 82C98 86 106 84 108 86C108 96 98 108 80 108C62 108 52 98 52 86Z" fill="#86efac" />
+                <circle cx="80" cy="80" r="4.5" fill="#fef08a" stroke="#18181b" stroke-width="1.5" />
+              </svg>
+            </div>
+
+            <!-- Tonearm with Totoro Head resting on vinyl -->
+            <div class="totoro-tonearm">
+              <svg class="tonearm-svg" viewBox="0 0 90 120" fill="none">
+                <circle cx="68" cy="22" r="8" fill="#e2d9cc" stroke="#8c7e6c" stroke-width="2" />
+                <circle cx="68" cy="22" r="4" fill="#a89a88" />
+                <path d="M68 22 C64 45 52 75 36 92" stroke="#d5c7b3" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                <path d="M68 22 C64 45 52 75 36 92" stroke="#8c7e6c" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                <g transform="translate(18, 70)">
+                  <path d="M12 18C10 8 16 2 20 4C24 6 22 14 18 20" fill="#94a3b8" stroke="#475569" stroke-width="1.8" />
+                  <path d="M34 18C36 8 30 2 26 4C22 6 24 14 28 20" fill="#94a3b8" stroke="#475569" stroke-width="1.8" />
+                  <ellipse cx="23" cy="30" rx="17" ry="14" fill="#94a3b8" stroke="#475569" stroke-width="1.8" />
+                  <ellipse cx="23" cy="36" rx="12" ry="7" fill="#f8fafc" />
+                  <path d="M19 33L21 31L23 33" stroke="#64748b" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                  <path d="M24 33L26 31L28 33" stroke="#64748b" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                  <circle cx="17" cy="25" r="3.2" fill="#ffffff" stroke="#475569" stroke-width="1" />
+                  <circle cx="17" cy="25" r="1.5" fill="#1e293b" />
+                  <circle cx="29" cy="25" r="3.2" fill="#ffffff" stroke="#475569" stroke-width="1" />
+                  <circle cx="29" cy="25" r="1.5" fill="#1e293b" />
+                  <ellipse cx="23" cy="26" rx="2" ry="1.2" fill="#334155" />
+                  <line x1="8" y1="28" x2="14" y2="27" stroke="#475569" stroke-width="1" />
+                  <line x1="7" y1="31" x2="14" y2="30" stroke="#475569" stroke-width="1" />
+                  <line x1="38" y1="28" x2="32" y2="27" stroke="#475569" stroke-width="1" />
+                  <line x1="39" y1="31" x2="32" y2="30" stroke="#475569" stroke-width="1" />
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Lower Control Panel -->
+          <div class="deck-control-panel">
+            <div class="deck-panel-header">
+              <div>
+                <div class="deck-track-title">Nandemonaiya ♬</div>
+                <div class="deck-artist-name">RADWIMPS · Your Name</div>
+              </div>
+              <svg class="deck-pinwheel" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 12C12 7 16 7 16 12Z" fill="#86efac" />
+                <path d="M12 12C17 12 17 16 12 16Z" fill="#86efac" />
+                <path d="M12 12C12 17 8 17 8 12Z" fill="#86efac" />
+                <path d="M12 12C7 12 7 8 12 8Z" fill="#86efac" />
+                <circle cx="12" cy="12" r="2.5" fill="#fde047" stroke="#15803d" stroke-width="0.8" />
+              </svg>
+            </div>
+
+            <!-- Progress Bar with timestamp -->
+            <div class="deck-progress-wrapper" id="retro-progress-bar">
+              <div class="deck-progress-track">
+                <div class="deck-progress-fill" id="retro-progress-fill"></div>
+              </div>
+            </div>
+            <div class="deck-time-row">
+              <span id="retro-curr-time">0:00</span>
+              <span class="deck-time-divider">/</span>
+              <span id="retro-total-time">5:59</span>
+            </div>
+
+            <!-- Controls row: 1. Play/Pause  2. Volume Control -->
+            <div class="deck-controls-row">
+              <button class="deck-play-btn" id="retro-play-btn" title="Play / Pause" type="button" aria-label="Play or Pause">
+                <span id="retro-play-icon">▶</span>
+              </button>
+              <div class="deck-volume-control" title="Volume">
+                <button class="deck-volume-btn" id="retro-volume-btn" type="button" aria-label="Mute / Unmute">
+                  <svg class="vol-svg vol-svg-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                  <svg class="vol-svg vol-svg-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                  </svg>
+                </button>
+                <div class="deck-volume-slider-wrap">
+                  <input type="range" class="deck-volume-slider" id="retro-volume-slider" min="0" max="1" step="0.01" value="0.35" aria-label="Volume slider">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rubber Feet underneath -->
+          <div class="deck-feet">
+            <span class="foot left-foot"></span>
+            <span class="foot right-foot"></span>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <!-- Washi Tapes -->
-    <div class="tape doodle" style="position:absolute; left:36%; top:5%; width:112px; height:28px; transform:rotate(-24deg); background:var(--teal);"></div>
-    <div class="tape doodle" style="position:absolute; right:3%; top:20%; width:96px; height:24px; transform:rotate(18deg); background:var(--orange);"></div>
+    <!-- Loss Curve Note Card -->
+    <div class="loss-graph-card doodle">
+      <div class="tape" style="top:-8px; right:15%; transform:rotate(4deg); background:var(--orange); width:40px; height:14px;"></div>
+      <div style="font-family:'Caveat',cursive; font-size:1.1rem; font-weight:700; color:var(--ink-soft); text-align:right; margin-bottom:2px;">loss ↓</div>
+      <svg viewBox="0 0 100 65" fill="none" style="width:100%; height:45px;">
+        <path d="M6 6V58H94" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M12 12C20 40 38 48 92 52" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none" />
+      </svg>
+    </div>
 
-    <!-- Sparkles -->
-    <svg class="sketch doodle" style="position:absolute; left:8%; top:26%; width:36px; height:36px; transform:rotate(6deg); opacity:0.8;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--orange)" stroke-width="2.5" stroke-linejoin="round" fill="var(--orange)" fill-opacity="0.12" /></svg>
-    <svg class="sketch doodle" style="position:absolute; right:10%; top:14%; width:24px; height:24px; transform:rotate(-12deg); opacity:0.7;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.12" /></svg>
-    <svg class="sketch doodle" style="position:absolute; left:30%; bottom:8%; width:24px; height:24px; transform:rotate(12deg); opacity:0.7;" viewBox="0 0 40 40" fill="none"><path d="M20 3C21 13 27 19 37 20C27 21 21 27 20 37C19 27 13 21 3 20C13 19 19 13 20 3Z" stroke="var(--teal)" stroke-width="2.5" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.12" /></svg>
-
-    <!-- Stickers -->
-    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-7deg; background:var(--note-blue); left:16%; top:7%;"><span style="font-family:monospace; font-size:0.75rem; font-weight:600; color:var(--ink);">model.train()</span> 🧠</span>
-    <span class="sticker doodle" style="position:absolute; --tilt-rotate:5deg; background:var(--note-orange); right:16%; top:6%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">gpu go brrr</span> 🔥</span>
-    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-4deg; background:var(--note-pink); right:34%; top:3%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">ship it</span> 🚀</span>
-    <span class="sticker doodle" style="position:absolute; --tilt-rotate:4deg; background:var(--note-yellow); right:5%; bottom:27%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">loss ↓ vibes ↑</span> 📈</span>
-    <span class="sticker doodle" style="position:absolute; --tilt-rotate:-4deg; background:var(--note-green); right:24%; bottom:9%;"><span class="hand" style="font-weight:700; font-size:1.1rem; color:var(--ink);">attention is all you need</span> 🎼</span>
-
-    <!-- Doodles (Neural Net, Chip, Robot, Loss Curve) -->
-    <svg class="sketch doodle" style="position:absolute; right:2%; top:26%; width:128px; height:96px; transform:rotate(3deg); opacity:0.8;" viewBox="0 0 124 92" fill="none">
+    <!-- Neural Network Doodle -->
+    <svg class="neural-net-doodle doodle" viewBox="0 0 124 92" fill="none">
       <line x1="14" y1="20" x2="62" y2="10" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
       <line x1="14" y1="20" x2="62" y2="34" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
       <line x1="14" y1="46" x2="62" y2="34" stroke="var(--ink-soft)" stroke-width="1.6" stroke-linecap="round" opacity="0.45" />
@@ -93,125 +314,143 @@
       <circle cx="110" cy="32" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--orange)" fill-opacity="0.35" />
       <circle cx="110" cy="60" r="5.5" stroke="var(--ink-soft)" stroke-width="2.2" fill="var(--orange)" fill-opacity="0.35" />
     </svg>
-    <span class="hand doodle" style="position:absolute; right:3%; top:44%; transform:rotate(-3deg); color:var(--teal);">↑ neurons, doing their thing</span>
 
-    <svg class="sketch doodle" style="position:absolute; left:3%; top:44%; width:64px; height:64px; transform:rotate(-6deg); opacity:0.85;" viewBox="0 0 84 84" fill="none">
-      <g stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round">
-        <line x1="26" y1="12" x2="26" y2="22" /><line x1="26" y1="62" x2="26" y2="72" /><line x1="12" y1="26" x2="22" y2="26" /><line x1="62" y1="26" x2="72" y2="26" />
-        <line x1="42" y1="12" x2="42" y2="22" /><line x1="42" y1="62" x2="42" y2="72" /><line x1="12" y1="42" x2="22" y2="42" /><line x1="62" y1="42" x2="72" y2="42" />
-        <line x1="58" y1="12" x2="58" y2="22" /><line x1="58" y1="62" x2="58" y2="72" /><line x1="12" y1="58" x2="22" y2="58" /><line x1="62" y1="58" x2="72" y2="58" />
-      </g>
-      <rect x="22" y="22" width="40" height="40" rx="7" stroke="var(--ink-soft)" stroke-width="3" fill="var(--bg)" />
-      <text x="42" y="49" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="20" fill="var(--orange-deep)">AI</text>
-    </svg>
-
-    <svg class="sketch doodle" style="position:absolute; bottom:7%; left:8%; width:80px; height:80px; transform:rotate(6deg); opacity:0.9;" viewBox="0 0 80 78" fill="none">
-      <line x1="40" y1="18" x2="40" y2="9" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
-      <circle cx="40" cy="6.5" r="3.5" stroke="var(--ink-soft)" stroke-width="2" fill="var(--orange)" fill-opacity="0.4" />
-      <rect x="5" y="34" width="8" height="15" rx="3" stroke="var(--ink-soft)" stroke-width="2.5" />
-      <rect x="67" y="34" width="8" height="15" rx="3" stroke="var(--ink-soft)" stroke-width="2.5" />
-      <rect x="14" y="18" width="52" height="46" rx="11" stroke="var(--ink-soft)" stroke-width="3" />
-      <circle cx="30" cy="39" r="4" fill="var(--ink-soft)" />
-      <circle cx="50" cy="39" r="4" fill="var(--ink-soft)" />
-      <path d="M30 51C34 56 46 56 50 51" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
-    </svg>
-    <span class="hand doodle" style="position:absolute; left:15%; bottom:4%; transform:rotate(2deg); color:var(--ink-soft);">hi, human 👋</span>
-
-    <svg class="sketch doodle" style="position:absolute; right:3%; bottom:36%; width:112px; height:80px; transform:rotate(-2deg);" viewBox="0 0 110 80" fill="none">
-      <path d="M14 8V66H102" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
-      <path d="M18 14C24 44 32 28 42 46C50 58 72 58 98 61" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
-      <text x="66" y="30" font-family="Caveat" font-weight="700" font-size="15" fill="var(--ink-soft)">loss ↓</text>
-    </svg>
-
-    <!-- Quote Card -->
-    <div class="scrap-tilt scrap-tilt-hover doodle" tabindex="0" onfocus="this.style.zIndex='50'" onblur="this.style.zIndex='0'" style="cursor:pointer; outline:none; position:absolute; right:2%; bottom:5%; width:192px; --tilt-rotate:2deg; z-index:0;">
-      <div style="background:#fffdf6; filter:url(#torn-edge) drop-shadow(0 1px 2px rgba(58,47,47,0.08)) drop-shadow(0 14px 30px rgba(58,47,47,0.14)); border-radius:10px; position:absolute; top:0; left:0; width:100%; height:100%;"></div>
-      <div style="position:relative; padding:20px;">
-        <div class="tape" style="top:-10px; right:24px; transform:rotate(6deg); background:var(--teal); width:64px; height:20px;"></div>
-        <p class="hand" style="color:rgba(58,47,47,0.85); font-size:1.25rem; line-height:1.3; margin:0;">"Engineering the future with code, creativity, and artificial intelligence"</p>
-      </div>
-    </div>
-    <svg class="sketch doodle" style="position:absolute; right:20%; bottom:13%; width:56px; height:56px; transform:rotate(30deg); opacity:0.6;" viewBox="0 0 80 66" fill="none">
-      <path d="M6 10C22 42 44 54 70 50" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
-      <path d="M70 50C62 46 56 42 50 36" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
-      <path d="M70 50C62 54 56 57 50 60" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" />
-    </svg>
-
-    <!-- Airmail stamp -->
-    <div class="doodle" style="position:absolute; left:2.5%; bottom:22%; transform:rotate(6deg); border: 2px dashed rgba(58,47,47,0.3); background: rgba(255,255,255,0.8); padding: 8px; box-shadow: 0 2px 6px rgba(58,47,47,0.15);">
-      <svg class="sketch" style="width:40px; height:40px;" viewBox="0 0 90 100" fill="none">
-        <path d="M45 3L39 14H51L45 3Z" stroke="var(--ink-soft)" stroke-width="2.2" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.3" />
-        <path d="M25 22C25 15 65 15 65 22L67 44C67 54 58 60 45 60C32 60 23 54 23 44L25 22Z" stroke="var(--ink-soft)" stroke-width="3" />
-        <rect x="29" y="30" width="32" height="11" rx="5.5" stroke="var(--ink-soft)" stroke-width="2.4" fill="var(--teal)" fill-opacity="0.35" />
-        <circle cx="38" cy="35.5" r="2" fill="var(--ink-soft)" />
-        <circle cx="52" cy="35.5" r="2" fill="var(--ink-soft)" />
-        <path d="M39 48V53M45 49V54M51 48V53" stroke="var(--ink-soft)" stroke-width="2.2" stroke-linecap="round" />
-        <path d="M23 70L10 78V92" stroke="var(--ink-soft)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M67 70L80 78V92" stroke="var(--ink-soft)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-        <rect x="27" y="64" width="36" height="31" rx="7" stroke="var(--ink-soft)" stroke-width="3" />
-        <path d="M48 69L40 81H46L42 91L52 78H46L50 69Z" stroke="var(--ink-soft)" stroke-width="1.8" stroke-linejoin="round" fill="var(--teal)" fill-opacity="0.35" />
-      </svg>
-      <p class="hand" style="text-align:center; font-size:0.75rem; font-weight:700; color:rgba(58,47,47,0.6); margin:4px 0 0; letter-spacing:0.05em;">PJ ULTRON</p>
-    </div>
-
-
-    <!-- Central Content (Polaroid + Text) -->
-    <div class="hero-content" style="display:flex; align-items:center; justify-content:center; gap:50px; flex-wrap:wrap; position:relative; z-index:10; padding: 0 20px;">
+    <!-- Central Content (Lanyard Card + Parchment Card) -->
+    <div class="hero-content">
       
-      <!-- Polaroid -->
-      <div class="reveal scrap-tilt scrap-tilt-hover" style="position:relative; flex:none; --tilt-rotate:-3deg;">
-        <svg class="sketch doodle" style="position:absolute; left:50%; top:-32px; transform:translateX(-50%); width:96px; height:36px; z-index:5;" viewBox="0 0 100 46" fill="none">
-          <path d="M22 22L18 4L34 14" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round" />
-          <path d="M66 14L82 4L78 22" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linejoin="round" />
-          <path d="M12 46C14 22 34 14 50 14C66 14 86 22 88 46" stroke="var(--ink-soft)" stroke-width="3" stroke-linecap="round" />
-          <circle cx="36" cy="34" r="3.5" fill="var(--ink-soft)" />
-          <circle cx="64" cy="34" r="3.5" fill="var(--ink-soft)" />
-          <path d="M24 46C24 40 32 40 32 46" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
-          <path d="M68 46C68 40 76 40 76 46" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" />
-        </svg>
-        <figure class="polaroid" style="margin:0;">
-          <span class="tape plain" style="top:-14px; left:50%; transform:translateX(-50%) rotate(2deg);"></span>
-          <img src="assets/1.jpeg" alt="Photo of Pratyaksh Tomar" style="width:240px; height:300px; object-fit:cover;">
-          <figcaption>that's me! 👋</figcaption>
-        </figure>
-        <span class="hand doodle" style="position:absolute; bottom:-36px; right:0px; font-size:1.1rem; color:var(--orange); transform:rotate(-3deg);">↑ exhibit A</span>
+      <!-- 3D Interactive Lanyard ID Card Slot Spacer -->
+      <div class="reveal hero-card-spacer">
+        <span class="hand doodle" style="position:absolute; bottom:-34px; left:50%; transform:translateX(-50%) rotate(-2deg); font-size:1.15rem; color:var(--orange); white-space:nowrap; pointer-events:none; z-index:12;">
+          ✦ drag &amp; throw · click to flip! ✦
+        </span>
       </div>
 
-      <!-- Text Block -->
-      <div class="hero-text" style="flex:1; min-width:320px;">
-        <div class="reveal delay-1">
-          <div class="hand" style="font-size: 1.25rem; color:var(--ink-soft); margin-bottom: 12px;">✂️ pasted fresh into the scrapbook —</div>
-          <div style="position:relative; display:inline-block;">
-            <h1 style="font-size: 4rem; line-height:1.1; margin-bottom: 0px; font-family:'Poppins', sans-serif;">Pratyaksh Tomar</h1>
-            <svg viewBox="0 0 300 18" fill="none" style="position:absolute; bottom:-8px; left:0; width:100%; height:20px;">
-              <path d="M3 11C46 5 92 4 138 7c44 3 88 6 159 2" stroke="var(--orange)" stroke-width="4" stroke-linecap="round" />
-              <path d="M14 15C70 12 150 13 286 11" stroke="var(--orange)" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
-            </svg>
+      <!-- Center Hero Parchment Card -->
+      <div class="hero-parchment-card reveal delay-1">
+        <div class="welcome-chip">
+          <span class="code-bracket">&lt;/&gt;</span>
+          <span>Welcome to my developer scrapbook ✨</span>
+        </div>
+
+        <div style="position:relative; display:inline-block;">
+          <h1 class="hero-name">Pratyaksh Tomar</h1>
+          <svg class="hero-underline-swoosh" viewBox="0 0 320 20" fill="none">
+            <path d="M4 11C60 4 140 4 210 7C255 9 290 12 316 8" stroke="var(--orange)" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M16 16C85 12 170 12 304 12" stroke="var(--orange)" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+          </svg>
+        </div>
+
+        <div>
+          <div class="role-chip-peach">
+            <span style="font-family:monospace; font-size:1.1rem; color:#c2410c; font-weight:800;">&lt;/&gt;</span>
+            <span>Aspiring Software Engineer</span>
           </div>
         </div>
-        
-        <div class="reveal delay-2">
-          <h2 style="font-size: 1.8rem; margin-top: 32px; font-weight: 600;">
-            <span class="highlight" style="--hl:var(--note-orange); padding:0 8px;">Aspiring Software Engineer</span>
-          </h2>
+
+        <div class="bio-accent-box">
+          Passionate about crafting clean code, solving complex problems, and building impactful software.
         </div>
-        
-        <div class="reveal delay-3">
-          <p class="hand" style="font-size: 1.5rem; max-width: 26ch; color:rgba(58,47,47,0.85); line-height:1.3; margin-top:24px;">Passionate about crafting clean code, solving complex problems, and building impactful software.</p>
-          <div class="hand hero-loc" style="font-size: 1.15rem; color:var(--ink-soft); margin-top:20px; display:flex; align-items:center; gap:8px;">
-            <span>📍</span> Ghaziabad, India
+
+        <div class="tech-pills-row">
+          <span class="tech-pill tech-pill-purple"><span>💻</span> SDE</span>
+          <span class="tech-pill tech-pill-pink"><span>🧠</span> AI / ML</span>
+          <span class="tech-pill tech-pill-green"><span>⚡</span> Programming</span>
+        </div>
+
+        <div class="hero-footer-row">
+          <div style="display:flex; align-items:center; gap:6px; font-family:'Caveat',cursive; font-weight:700; font-size:1.35rem; color:var(--ink);">
+            <span style="font-size:1.2rem;">📍</span> Ghaziabad, India
           </div>
+          <div class="terminal-sticker" id="terminal-song-pill" title="Click to mute / unmute">
+            <span>&gt;_</span> <span>nandemonaiya ♫</span>
+          </div>
+        </div>
+
+        <!-- Torn Quote Card (overlapping right edge of parchment card) -->
+        <div class="quote-card-torn doodle">
+          <div class="tape" style="top:-9px; left:25%; transform:rotate(-3deg); background:var(--note-pink); width:62px; height:18px;"></div>
+          <p style="font-family:'Caveat',cursive; font-size:1.2rem; line-height:1.35; color:var(--ink); margin:0;">
+            <span style="font-family:'Poppins',serif; font-size:1.4rem; color:var(--orange-deep); font-weight:800; line-height:0; vertical-align:-3px;">“</span>
+            Engineering the future with code, creativity, and artificial intelligence.
+            <span style="font-family:'Poppins',serif; font-size:1.4rem; color:var(--orange-deep); font-weight:800; line-height:0; vertical-align:-3px;">”</span>
+          </p>
+        </div>
+
+        <!-- Coding Robot, Sleeping Cat & Steaming Coffee Scene (overlapping bottom-right corner) -->
+        <div class="robot-study-scene doodle">
+          <svg class="robot-scene-svg" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Steaming Coffee Cup on Stack of Books -->
+            <g transform="translate(15, 125)">
+              <rect x="0" y="55" width="85" height="18" rx="4" fill="#a78bfa" stroke="#4c1d95" stroke-width="2.5" />
+              <path d="M8 58H82V69H8Z" fill="#ede9fe" />
+              <rect x="6" y="38" width="76" height="17" rx="3.5" fill="#5eead4" stroke="#0f766e" stroke-width="2.5" />
+              <path d="M12 41H78V51H12Z" fill="#ccfbf1" />
+              <rect x="12" y="22" width="68" height="16" rx="3" fill="#fde047" stroke="#b45309" stroke-width="2.5" />
+              <rect x="28" y="-6" width="32" height="28" rx="6" fill="#fed7aa" stroke="#9a3412" stroke-width="2.2" />
+              <path d="M60 0C68 0 68 16 60 16" stroke="#9a3412" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <circle cx="39" cy="8" r="1.5" fill="#9a3412" />
+              <circle cx="49" cy="8" r="1.5" fill="#9a3412" />
+              <path d="M42 12C44 14 46 14 48 12" stroke="#9a3412" stroke-width="1.2" stroke-linecap="round" fill="none" />
+              <path d="M35 1L38 4" stroke="#9a3412" stroke-width="1.2" />
+              <path d="M53 4L56 1" stroke="#9a3412" stroke-width="1.2" />
+              <path class="steam-line-1" d="M38 -12C36 -18 42 -22 39 -28" stroke="#d97706" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path class="steam-line-2" d="M48 -10C45 -16 51 -20 48 -26" stroke="#d97706" stroke-width="2" stroke-linecap="round" fill="none" />
+            </g>
+
+            <!-- Sleeping Cat curled up -->
+            <g transform="translate(100, 142)">
+              <ellipse cx="40" cy="38" rx="34" ry="22" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5" />
+              <path d="M30 22C34 26 34 32 30 36" stroke="#c2410c" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M42 20C46 25 46 32 42 37" stroke="#c2410c" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M54 22C58 26 58 32 54 36" stroke="#c2410c" stroke-width="2" stroke-linecap="round" fill="none" />
+              <circle cx="16" cy="38" r="16" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5" />
+              <polygon points="6,28 10,14 18,25" fill="#ea580c" />
+              <polygon points="18,25 24,14 28,28" fill="#ea580c" />
+              <path d="M8 38C10 41 12 41 14 38" stroke="#9a3412" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M18 38C20 41 22 41 24 38" stroke="#9a3412" stroke-width="2" stroke-linecap="round" fill="none" />
+              <path d="M72 40C80 44 80 28 72 26" stroke="#ea580c" stroke-width="4.5" stroke-linecap="round" fill="none" />
+              <text x="32" y="14" font-family="'Caveat', cursive" font-size="16" font-weight="700" fill="#ea580c" opacity="0.8">z</text>
+              <text x="44" y="6" font-family="'Caveat', cursive" font-size="20" font-weight="700" fill="#ea580c" opacity="0.9">Z</text>
+            </g>
+
+            <!-- Coding Robot with Headphones and Laptop -->
+            <g transform="translate(180, 40)">
+              <rect x="25" y="80" width="75" height="70" rx="20" fill="#f8fafc" stroke="#334155" stroke-width="3.5" />
+              <rect x="36" y="94" width="53" height="34" rx="8" fill="#e2e8f0" stroke="#64748b" stroke-width="2" />
+              <circle cx="48" cy="111" r="5" fill="#38bdf8" />
+              <circle cx="63" cy="111" r="5" fill="#34d399" />
+              <circle cx="77" cy="111" r="5" fill="#f472b6" />
+              <path d="M25 105C10 115 5 130 18 140L38 142" stroke="#334155" stroke-width="7" stroke-linecap="round" fill="none" />
+              <path d="M100 105C115 115 120 130 106 140L86 142" stroke="#334155" stroke-width="7" stroke-linecap="round" fill="none" />
+              <g class="robot-head-group">
+                <line x1="62" y1="16" x2="62" y2="2" stroke="#334155" stroke-width="3" stroke-linecap="round" />
+                <circle cx="62" cy="0" r="5" fill="#f59e0b" stroke="#334155" stroke-width="2.5" />
+                <rect x="20" y="16" width="85" height="66" rx="22" fill="#ffffff" stroke="#334155" stroke-width="3.8" />
+                <rect x="29" y="25" width="67" height="48" rx="14" fill="#0f172a" />
+                <circle cx="46" cy="48" r="6" fill="#38bdf8" />
+                <circle cx="48" cy="46" r="2" fill="#ffffff" />
+                <circle cx="78" cy="48" r="6" fill="#38bdf8" />
+                <circle cx="80" cy="46" r="2" fill="#ffffff" />
+                <path d="M56 57C59 62 65 62 68 57" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                <ellipse cx="38" cy="56" rx="3.5" ry="2" fill="#f43f5e" opacity="0.8" />
+                <ellipse cx="86" cy="56" rx="3.5" ry="2" fill="#f43f5e" opacity="0.8" />
+                <path d="M15 45C15 10 110 10 110 45" stroke="#ec4899" stroke-width="6.5" stroke-linecap="round" fill="none" />
+                <rect x="8" y="32" width="14" height="26" rx="7" fill="#f472b6" stroke="#9d174d" stroke-width="2.5" />
+                <rect x="103" y="32" width="14" height="26" rx="7" fill="#f472b6" stroke="#9d174d" stroke-width="2.5" />
+              </g>
+              <g transform="translate(12, 118)">
+                <polygon points="12,4 64,4 58,40 18,40" fill="#64748b" stroke="#334155" stroke-width="2.5" />
+                <polygon points="15,7 61,7 56,37 20,37" fill="#0f172a" />
+                <text x="38" y="26" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#38bdf8">&lt;/&gt;</text>
+                <polygon points="14,40 62,40 74,54 2,54" fill="#94a3b8" stroke="#334155" stroke-width="2.5" />
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
       
     </div>
   </div>
-</header>
-      </div>
-    </div>
-    
-  </div>
-
 </header>
 
 <div class="wrap" style="height:70px;"></div>
@@ -239,16 +478,13 @@
   </div>
 </section>
 
-<section>
+<!-- Interactive 3D Paper Airplane (Sketchbook Showcase) -->
+<section id="paper-airplane-showcase" class="paper-airplane-section">
   <div class="wrap">
-    <div class="section-label">quick facts</div>
-    <h2>The Scrapbook Strip</h2>
-    <div class="chips skills" style="margin-top:20px; gap:10px;">
-      <span class="pill mint">400+ DSA problems solved</span>
-      <span class="pill orange">Policy Conclave'26 · IIT Kanpur finalist</span>
-      <span class="pill blue">AVEVA National AI/ML Hackathon · IIT Hyderabad</span>
-      <span class="pill yellow">B.Tech CSE, 2023–2027</span>
-      <span class="pill pink">Top Performer · E&amp;ICT IITG × Coding Ninjas</span>
+    <div class="airplane-showcase-card">
+      <div class="airplane-frame-inner">
+        <iframe src="landing-pages/paper-airplane.html" class="airplane-iframe" title="Interactive 3D Paper Airplane"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -262,46 +498,47 @@
 
     <div class="book-container" style="margin-top:22px;">
       <div class="book-cover">
-        <div class="book-spine"></div>
-        
-        <!-- Left Page: Chat History -->
-        <div class="book-page left-page">
-          <div class="page-header">
-            <h4 class="page-title">AI INTERVIEW LOG</h4>
-            <span id="backend-status" class="page-status">connecting…</span>
-          </div>
+        <div class="book-paper-stack">
+          <div class="book-spine"></div>
           
-          <div class="chat-body" id="chat-body">
-            <div class="msg bot">Hey! I'm an AI trained on Pratyaksh's résumé — ask me about his projects, skills, or education, as if you were interviewing him. 👋</div>
-          </div>
-          <button type="button" id="chat-scroll-btn" class="chat-scroll-btn" aria-label="Scroll to latest message" title="Scroll to latest message">↓</button>
-        </div>
-
-        <!-- Right Page: Controls -->
-        <div class="book-page right-page">
-          <div class="bookmark"></div>
-          <div class="page-header">
-            <h4 class="page-title">& ASK ME ANYTHING</h4>
-          </div>
-          
-          <div class="chat-controls-wrapper">
-            <div class="chat-suggest" id="chat-suggest">
-              <button type="button">Tell me about ClawNest or DPI Engine</button>
-              <button type="button">What are your technical skills?</button>
-              <button type="button">Why should we hire you as a fresher?</button>
+          <!-- Left Page: Chat History -->
+          <div class="book-page left-page">
+            <div class="page-header">
+              <h4 class="page-title">AI INTERVIEW LOG</h4>
+              <span id="backend-status" class="page-status">connecting…</span>
             </div>
             
-            <form class="chat-input" id="chat-form">
-              <input type="text" id="chat-input" placeholder="Ask something HR would ask…" autocomplete="off">
-              <button type="submit">Send</button>
-            </form>
+            <div class="chat-body" id="chat-body">
+              <div class="msg bot">Hey! I'm an AI trained on Pratyaksh's résumé — ask me about his projects, skills, or education, as if you were interviewing him. 👋</div>
+            </div>
+            <button type="button" id="chat-scroll-btn" class="chat-scroll-btn" aria-label="Scroll to latest message" title="Scroll to latest message">↓</button>
+          </div>
+
+          <!-- Right Page: Controls -->
+          <div class="book-page right-page">
+            <div class="bookmark"></div>
+            <div class="page-header">
+              <h4 class="page-title">& ASK ME ANYTHING</h4>
+            </div>
             
-            <p class="chat-note" style="margin-top:20px; font-size:0.8rem;">
-              — pratyaksh's twin ✌️
-            </p>
+            <div class="chat-controls-wrapper">
+              <div class="chat-suggest" id="chat-suggest">
+                <button type="button">Tell me about ClawNest or DPI Engine</button>
+                <button type="button">What are your technical skills?</button>
+                <button type="button">Why should we hire you as a fresher?</button>
+              </div>
+              
+              <form class="chat-input" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Ask something HR would ask…" autocomplete="off">
+                <button type="submit">Send</button>
+              </form>
+              
+              <p class="chat-note" style="margin-top:20px; font-size:0.8rem;">
+                — pratyaksh's twin ✌️
+              </p>
+            </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -349,6 +586,22 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- Global Floating Mute Button (Bottom-Left) -->
+<button class="global-mute-btn" id="global-mute-btn" type="button" aria-label="Mute or Unmute audio" title="Mute / Unmute">
+  <svg class="mute-svg mute-svg-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+  </svg>
+  <svg class="mute-svg mute-svg-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</button>
+
+<script src="assets/lanyard.bundle.js"></script>
+<script src="assets/sketchbook.bundle.js"></script>
+<script src="script.js?v=20261120_1735"></script>
 </body>
 </html>
