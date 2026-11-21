@@ -398,31 +398,56 @@
 /* Repost / Print Again Button when torn */
 .receipt-reprint-wrap {
   text-align: center;
-  margin-top: 16px;
+  position: relative;
+  z-index: 20;
+  margin-top: 60px;
+  padding-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  animation: fadeInReprint 0.35s ease-out forwards;
+}
+
+@keyframes fadeInReprint {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .receipt-reprint-btn {
-  background: #27282b;
+  position: relative;
+  z-index: 25;
+  background: #222326;
   color: #f3ede2;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 999px;
-  padding: 8px 18px;
+  padding: 10px 22px;
   font-family: inherit;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
 }
 
 .receipt-reprint-btn:hover {
-  background: #3b3d42;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: var(--orange-deep, #c25e2e);
+  border-color: var(--orange-deep, #c25e2e);
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(194, 94, 46, 0.35);
+}
+
+.receipt-reprint-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Mobile Responsiveness */
