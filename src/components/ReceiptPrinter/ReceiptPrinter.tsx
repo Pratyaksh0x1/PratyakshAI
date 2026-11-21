@@ -36,14 +36,29 @@ class ReceiptSoundFX {
     }
   }
 
-  // Thermal stepper motor buzz on print/feed
+  // Thermal printer sound using uploaded authentic audio file with synthesizer fallback
   playFeedSound() {
+    try {
+      const audio = new Audio('assets/receipt_print.mp3');
+      audio.volume = 0.85;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          this.playSynthesizedFeedSound();
+        });
+      }
+    } catch {
+      this.playSynthesizedFeedSound();
+    }
+  }
+
+  private playSynthesizedFeedSound() {
     try {
       this.init();
       if (!this.ctx) return;
       const now = this.ctx.currentTime;
       
-      // Motor pulse
+      // Motor pulse fallback
       for (let i = 0; i < 4; i++) {
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
