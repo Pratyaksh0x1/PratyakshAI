@@ -841,6 +841,160 @@ footer{padding:60px 0 70px; position:relative;}
 .fine{font-family:'Kalam',cursive; font-size:.95rem; color:var(--ink-soft); text-align:center; margin-top:10px;}
 .fine.small{font-size:.85rem; opacity:.8;}
 
+/* ==========================================================
+   HAND-DRAWN PILL BUTTONS & SKETCH ACCENTS (Home Page Footer)
+   ========================================================== */
+
+/* Scribbled underline under "together" */
+.scribble-word {
+  position: relative;
+  display: inline-block;
+}
+.scribble-underline-svg {
+  position: absolute;
+  left: -2%;
+  bottom: -9px;
+  width: 104%;
+  height: 16px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Loose hand-drawn looping circle around "My inbox is open." */
+.hand-circle-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 1px 10px;
+  white-space: nowrap;
+}
+.hand-circle-svg {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Hand-drawn pill buttons row */
+.contact-links.hand-drawn-pill-links {
+  gap: 18px;
+}
+
+/* Base Hand-drawn Pill Button */
+.contact-links .hand-pill {
+  position: relative;
+  border-width: 2.2px;
+  border-color: #261e1b;
+  filter: url(#hand-drawn-border);
+  box-shadow: 
+    0 3px 6px rgba(45, 30, 20, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  overflow: hidden;
+  user-select: none;
+}
+
+.contact-links .hand-pill .btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Crosshatch / Scribble Fill on Hover via ::before pseudo-element */
+.contact-links .hand-pill::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Non-primary buttons: White paper background with ink border */
+.contact-links .hand-pill:not(.primary) {
+  background-color: #ffffff;
+  color: #261e1b;
+}
+
+/* On hover: Crosshatch fill scribbles in! */
+.contact-links .hand-pill:not(.primary):hover {
+  border-color: var(--orange-deep, #c25e2e);
+  color: var(--orange-deep, #c25e2e);
+  box-shadow: 0 6px 16px rgba(194, 94, 46, 0.18);
+}
+
+.contact-links .hand-pill:not(.primary):hover::before {
+  opacity: 1;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(194, 94, 46, 0.18) 0, rgba(194, 94, 46, 0.18) 1.5px, transparent 1.5px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(194, 94, 46, 0.18) 0, rgba(194, 94, 46, 0.18) 1.5px, transparent 1.5px, transparent 6px);
+  background-size: 100% 100%;
+}
+
+/* Primary Button (Email me): Dark ink fill with white/orange crosshatch on hover */
+.contact-links .hand-pill.primary {
+  background-color: #261e1b;
+  color: #ffffff;
+}
+
+.contact-links .hand-pill.primary:hover {
+  background-color: var(--orange-deep, #c25e2e);
+  border-color: var(--orange-deep, #c25e2e);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(194, 94, 46, 0.25);
+}
+
+.contact-links .hand-pill.primary:hover::before {
+  opacity: 1;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.3) 1.5px, transparent 1.5px, transparent 6px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.3) 1.5px, transparent 1.5px, transparent 6px);
+}
+
+/* Uneven border-radius values (as requested) & subtle ±1° tilts for each button */
+.hand-pill-1 {
+  border-radius: 255px 24px 225px 22px / 22px 225px 24px 255px;
+  transform: rotate(-1.2deg);
+}
+.hand-pill-1:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-2px);
+}
+
+.hand-pill-2 {
+  border-radius: 220px 22px 245px 25px / 25px 245px 22px 220px;
+  transform: rotate(0.9deg);
+}
+.hand-pill-2:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-2px);
+}
+
+.hand-pill-3 {
+  border-radius: 260px 25px 215px 22px / 22px 215px 25px 260px;
+  transform: rotate(-0.7deg);
+}
+.hand-pill-3:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-2px);
+}
+
+.hand-pill-4 {
+  border-radius: 235px 22px 250px 24px / 24px 250px 22px 235px;
+  transform: rotate(1.1deg);
+}
+.hand-pill-4:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-2px);
+}
+
+.hand-pill-5 {
+  border-radius: 250px 24px 230px 22px / 22px 230px 24px 250px;
+  transform: rotate(-1deg);
+}
+.hand-pill-5:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-2px);
+}
+
 /* ---------- Scrapbook Lined Postcard Stack Footer ---------- */
 .postcard-stack-wrap {
   position: relative;

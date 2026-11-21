@@ -569,16 +569,26 @@
 <footer>
   <div class="wrap">
     <div class="contact-card" style="position:relative;">
+      <!-- Hidden SVG Filters for Authentic Hand-Drawn Wobbly Borders -->
+      <svg width="0" height="0" class="hand-drawn-filter-svg" style="position:absolute; width:0; height:0; pointer-events:none;" aria-hidden="true">
+        <defs>
+          <filter id="hand-drawn-border" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
       <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
-      <h2>Let's make something together</h2>
+      <h2>Let's make something <span class="scribble-word">together<svg class="scribble-underline-svg" viewBox="0 0 160 18" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M 4,7 Q 45,3 85,8 T 156,7" stroke="#c25e2e" stroke-width="2.6" stroke-linecap="round" fill="none" opacity="0.95" /><path d="M 12,12 Q 55,16 95,11 Q 130,7 152,13" stroke="#c25e2e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8" /><path d="M 145,13 Q 95,15 40,11" stroke="#c25e2e" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.6" stroke-dasharray="14 4 20 2" /></svg></span></h2>
       <p>Open to Software Engineering internships and full-time roles. Got a problem worth solving,
-        or just want to chat about AI? My inbox is open.</p>
-      <div class="contact-links">
-        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
-        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
-        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
+        or just want to chat about AI? <span class="hand-circle-wrap">My inbox is open.<svg class="hand-circle-svg" viewBox="0 0 220 54" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M 14,28 C 12,12 38,4 105,4 C 180,4 212,12 210,28 C 208,44 175,50 105,50 C 35,50 6,42 8,26 C 9,14 42,7 105,6 C 145,5 190,9 204,18" stroke="#c25e2e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.88" /></svg></span></p>
+      <div class="contact-links hand-drawn-pill-links">
+        <a class="btn primary hand-pill hand-pill-1" href="mailto:Pratyakshtomar2000@gmail.com"><span class="btn-text">✉ Email me</span></a>
+        <a class="btn hand-pill hand-pill-2" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener"><span class="btn-text">GitHub</span></a>
+        <a class="btn hand-pill hand-pill-3" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener"><span class="btn-text">LinkedIn</span></a>
+        <a class="btn hand-pill hand-pill-4" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener"><span class="btn-text">LeetCode</span></a>
+        <a class="btn hand-pill hand-pill-5" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener"><span class="btn-text">Code360</span></a>
       </div>
       <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
       <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
