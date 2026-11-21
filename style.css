@@ -2962,6 +2962,176 @@ footer{padding:60px 0 70px; position:relative;}
 }
 
 /* ==========================================================
+   FLOATING WHITE PAPER-STYLE "PRATYAKSH AI" BUTTON
+   Tactile square note with authentic torn/deckled paper edges,
+   washi tape, dog-ear fold, and smooth scroll to Ask AI chat
+   ========================================================== */
+.paper-ai-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: block;
+  text-decoration: none;
+  filter: 
+    drop-shadow(0 10px 22px rgba(45, 30, 20, 0.22))
+    drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
+  transform: rotate(2.5deg);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), filter 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.paper-ai-btn:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-4px);
+  filter: 
+    drop-shadow(0 16px 30px rgba(45, 30, 20, 0.28))
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+}
+
+.paper-ai-btn:active {
+  transform: scale(0.96) translateY(1px);
+}
+
+/* Translucent Washi Masking Tape across top edge */
+.paper-ai-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 48px;
+  height: 14px;
+  background: rgba(228, 208, 178, 0.85);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.12);
+  border-left: 2px dashed rgba(185, 160, 125, 0.5);
+  border-right: 2px dashed rgba(185, 160, 125, 0.5);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Paper Sheet Body with Deckled / Torn Paper Edges */
+.paper-ai-sheet {
+  position: relative;
+  background: #ffffff;
+  color: #1e1e24;
+  padding: 13px 18px 12px;
+  min-width: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Authentic rough torn paper edge polygon */
+  clip-path: polygon(
+    0% 2px, 3% 0px, 8% 2px, 14% 1px, 21% 3px, 29% 0px, 37% 2px, 45% 1px, 53% 3px, 61% 0px, 69% 2px, 77% 1px, 85% 3px, 92% 0px, 97% 2px, 100% 1px,
+    99% 8%, 100% 18%, 98% 28%, 100% 38%, 99% 49%, 100% 60%, 98% 71%, 100% 82%, 99% 92%, 100% 98%,
+    96% 100%, 89% 98%, 81% 99%, 73% 97%, 65% 100%, 57% 98%, 49% 99%, 41% 97%, 33% 100%, 25% 98%, 17% 99%, 9% 97%, 3% 100%, 0% 98%,
+    1% 90%, 0% 80%, 2% 70%, 1% 60%, 0% 50%, 2% 40%, 1% 30%, 0% 20%, 2% 10%, 0% 2px
+  );
+  /* Faint tactile paper grain & warm white paper gradient */
+  background-image: 
+    radial-gradient(#ebe5dc 0.75px, transparent 0.75px),
+    linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
+  background-size: 8px 8px, 100% 100%;
+}
+
+/* Dog-ear corner fold */
+.paper-ai-dogear {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, transparent 50%, rgba(200, 190, 175, 0.95) 50%, #d8d0c2 100%);
+  box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.paper-ai-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+
+.paper-ai-sparkle {
+  color: var(--orange-deep, #c25e2e);
+  font-size: 0.95rem;
+  line-height: 1;
+  display: inline-block;
+  animation: paperSparklePulse 2.4s infinite ease-in-out;
+}
+
+@keyframes paperSparklePulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  50% { transform: scale(1.25) rotate(15deg); opacity: 1; color: #e06c35; }
+}
+
+.paper-ai-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  color: #1f2024;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.paper-ai-sub {
+  font-family: 'Kalam', cursive;
+  font-size: 0.75rem;
+  color: var(--orange-deep, #c25e2e);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 1px;
+}
+
+.paper-ai-arrow {
+  font-family: sans-serif;
+  font-size: 0.82rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.paper-ai-btn:hover .paper-ai-arrow {
+  transform: translateX(3px);
+}
+
+@keyframes inputPulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(194, 94, 46, 0.45); border-color: #c25e2e; }
+  50% { box-shadow: 0 0 0 8px rgba(194, 94, 46, 0.2); border-color: #c25e2e; }
+  100% { box-shadow: 0 0 0 0 rgba(194, 94, 46, 0); }
+}
+
+.input-pulse-glow {
+  animation: inputPulseGlow 1.8s ease-out;
+}
+
+@media (max-width: 600px) {
+  .paper-ai-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+  .paper-ai-sheet {
+    min-width: 110px;
+    padding: 10px 14px 9px;
+  }
+  .paper-ai-heading {
+    font-size: 0.84rem;
+  }
+  .paper-ai-sub {
+    font-size: 0.7rem;
+  }
+}
+
+/* ==========================================================
    CAREER PATH - VINTAGE TICKET TIMELINE
    (Three authentic retro tickets: Green, Pink, Orange)
    ========================================================== */

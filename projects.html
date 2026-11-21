@@ -279,7 +279,7 @@
           </div>
 
           <!-- Frontend Preview Box -->
-          <div class="sheet-preview-box">
+          <div class="sheet-preview-box has-video-demo" data-video="assets/videos/dpi-engine-promo-voiceover.mp4" data-project-title="DPI Engine — Deep Packet Inspection" data-live-link="https://dpidemo.vercel.app" role="button" tabindex="0" title="Click to watch demo video 🎬">
             <img src="assets/projects/dpi-engine-window.jpg" alt="DPI Engine Frontend Preview" class="sheet-preview-img" loading="lazy">
             <div class="badge-starburst starburst-green">
               <span>C++17<br>FAST</span>
@@ -288,7 +288,10 @@
 
           <div class="sheet-stamps-row">
             <div class="cute-sticker">🛡️</div>
-            <div class="stamp-badge">SYSTEMS</div>
+            <div style="display:inline-flex; gap:8px; align-items:center;">
+              <div class="stamp-badge">SYSTEMS</div>
+              <div class="stamp-badge badge-live has-video-demo" data-video="assets/videos/dpi-engine-promo-voiceover.mp4" data-project-title="DPI Engine — Deep Packet Inspection" data-live-link="https://dpidemo.vercel.app" role="button" tabindex="0" title="Click to watch video demo" style="cursor:pointer;">LIVE DEMO ▶</div>
+            </div>
           </div>
 
           <div class="sheet-content">
@@ -305,7 +308,8 @@
             </div>
 
             <div class="sheet-footer">
-              <a href="https://dpidemo.vercel.app" target="_blank" rel="noopener" class="taped-link taped-live">Live Demo ↗</a>
+              <button type="button" class="taped-link taped-live has-video-demo" data-video="assets/videos/dpi-engine-promo-voiceover.mp4" data-project-title="DPI Engine — Deep Packet Inspection" data-live-link="https://dpidemo.vercel.app" title="Watch demo video">Watch Demo 🎬</button>
+              <a href="https://dpidemo.vercel.app" target="_blank" rel="noopener" class="taped-link taped-app" title="Open live web app">Live App ↗</a>
               <a href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener" class="taped-link taped-github">GitHub ↗</a>
             </div>
           </div>
@@ -534,6 +538,19 @@
     <line x1="17" y1="9" x2="23" y2="15"></line>
   </svg>
 </button>
+
+<!-- Floating Paper-Style Pratyaksh AI Button (Bottom-Right) -->
+<a href="index.html#chat" class="paper-ai-btn" id="paper-ai-btn" aria-label="Ask AI about me - Pratyaksh AI" title="Ask AI about me">
+  <span class="paper-ai-tape" aria-hidden="true"></span>
+  <span class="paper-ai-sheet">
+    <span class="paper-ai-dogear" aria-hidden="true"></span>
+    <span class="paper-ai-header-row">
+      <span class="paper-ai-sparkle">✦</span>
+      <span class="paper-ai-heading">Pratyaksh AI</span>
+    </span>
+    <span class="paper-ai-sub">Ask about me <span class="paper-ai-arrow">→</span></span>
+  </span>
+</a>
 
 <!-- Scrapbook Video Demo Modal -->
 <div class="scrapbook-video-modal" id="scrapbook-video-modal" aria-hidden="true" role="dialog" aria-modal="true">

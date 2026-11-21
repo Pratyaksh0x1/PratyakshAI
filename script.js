@@ -848,4 +848,40 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("https://pratyakshai-backend.onrender.com/")
     .then(res => res.ok ? setStatus("online") : setStatus("offline"))
     .catch(() => setStatus("offline"));
+
+  // Handle Floating Paper-Style Pratyaksh AI Button
+  const paperAiBtn = document.getElementById("paper-ai-btn");
+  if (paperAiBtn) {
+    paperAiBtn.addEventListener("click", (e) => {
+      const chatSection = document.getElementById("chat");
+      if (chatSection) {
+        e.preventDefault();
+        chatSection.scrollIntoView({ behavior: "smooth" });
+        const input = document.getElementById("chat-input");
+        if (input) {
+          setTimeout(() => {
+            input.focus();
+            input.classList.add("input-pulse-glow");
+            setTimeout(() => input.classList.remove("input-pulse-glow"), 2000);
+          }, 650);
+        }
+      }
+    });
+  }
+
+  // Auto-scroll and highlight if arriving on page with #chat hash
+  if (window.location.hash === "#chat") {
+    setTimeout(() => {
+      const chatSection = document.getElementById("chat");
+      if (chatSection) {
+        chatSection.scrollIntoView({ behavior: "smooth" });
+        const input = document.getElementById("chat-input");
+        if (input) {
+          input.focus();
+          input.classList.add("input-pulse-glow");
+          setTimeout(() => input.classList.remove("input-pulse-glow"), 2000);
+        }
+      }
+    }, 450);
+  }
 });
