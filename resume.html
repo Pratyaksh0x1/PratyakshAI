@@ -89,6 +89,14 @@
         <svg width="18" height="18"><use href="#i-download"/></svg>
         Download Resume (PDF)
       </a>
+      <a href="#receipt-printer-root" class="scrapbook-pill-btn receipt-paper-btn" id="receipt-scroll-btn" title="Jump to Thermal Receipt Ticket below">
+        <svg class="receipt-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1Z"/>
+          <path d="M16 8h-8M16 12h-8M12 16h-4"/>
+        </svg>
+        <span>Thermal Receipt</span>
+        <span class="receipt-pill-arrow">↓</span>
+      </a>
     </div>
   </div>
 
@@ -651,6 +659,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Smooth scroll to Thermal Receipt Printer
+  const receiptScrollBtn = document.getElementById('receipt-scroll-btn');
+  if (receiptScrollBtn) {
+    receiptScrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('receipt-printer-root') || document.getElementById('resume-footer');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
 });
 </script>
 

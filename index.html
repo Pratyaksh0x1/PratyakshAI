@@ -493,8 +493,15 @@
 
 <section id="chat" style="padding-top:10px;">
   <div class="wrap">
-    <div class="section-label">HR interview mode</div>
-    <h2>Ask AI about me</h2>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; margin-bottom: 8px;">
+      <div>
+        <div class="section-label">HR interview mode</div>
+        <h2>Ask AI about me</h2>
+      </div>
+      <button type="button" class="scrapbook-pill-btn dark-btn has-video-demo" data-video="assets/videos/Pratyaksh AI promo .mp4" data-project-title="Pratyaksh AI — Recruiter Agent &amp; JD Matcher" data-live-link="https://pratyaksh-ai-ten.vercel.app/" style="padding:9px 18px; font-size:0.88rem; cursor:pointer;" title="Watch Pratyaksh AI Demo Video">
+        <span>🎬 Watch Promo Reel</span>
+      </button>
+    </div>
 
     <div class="book-container" style="margin-top:22px;">
       <div class="book-cover">
@@ -622,6 +629,41 @@
     <span class="paper-ai-sub">Ask about me <span class="paper-ai-arrow">→</span></span>
   </span>
 </a>
+
+<!-- Scrapbook Video Demo Modal -->
+<div class="scrapbook-video-modal" id="scrapbook-video-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="video-modal-backdrop" id="video-modal-backdrop"></div>
+  
+  <div class="video-modal-card">
+    <!-- Washi Tape Accents matching user reference photo -->
+    <div class="modal-tape modal-tape-left" aria-hidden="true"></div>
+    <div class="modal-tape modal-tape-right" aria-hidden="true"></div>
+
+    <!-- Scrapbook Close Button -->
+    <button class="video-modal-close-btn" id="video-modal-close-btn" type="button" aria-label="Close video demo" title="Close">
+      <span>✕</span>
+    </button>
+
+    <!-- Video Player Container with matting frame -->
+    <div class="video-frame-wrap">
+      <video class="video-modal-player" id="video-modal-player" playsinline controls preload="metadata">
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Modal Card Footer -->
+    <div class="video-modal-caption">
+      <div class="video-modal-info">
+        <span class="video-modal-tag">DEMO REEL 🎬</span>
+        <h4 class="video-modal-heading" id="video-modal-heading">Pratyaksh AI — Recruiter Agent &amp; JD Matcher</h4>
+      </div>
+      <a href="https://pratyaksh-ai-ten.vercel.app/" target="_blank" rel="noopener" class="video-modal-live-link" id="video-modal-live-link">
+        <span>Open Live App</span> <span>↗</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <script src="assets/lanyard.bundle.js"></script>
 <script src="assets/sketchbook.bundle.js"></script>

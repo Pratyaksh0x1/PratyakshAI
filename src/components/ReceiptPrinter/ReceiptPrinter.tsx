@@ -18,6 +18,7 @@ export interface ReceiptPrinterProps {
   lines?: ReceiptLine[];
   autoplay?: boolean;
   tearable?: boolean;
+  resumeUrl?: string;
   onTear?: () => void;
   onPrinted?: () => void;
 }
@@ -174,6 +175,7 @@ export const ReceiptPrinter: React.FC<ReceiptPrinterProps> = ({
   lines = defaultReceiptLines,
   autoplay = true,
   tearable = true,
+  resumeUrl = 'assets/resume.pdf',
   onTear,
   onPrinted
 }) => {
@@ -203,12 +205,40 @@ export const ReceiptPrinter: React.FC<ReceiptPrinterProps> = ({
     }
   }, []);
 
+  // Open resume PDF in new tab
+  const openResumePdf = () => {
+    if (typeof window === 'undefined') return;
+    try {
+      const win = window.open(resumeUrl, '_blank');
+      if (win) {
+        win.focus();
+      } else {
+        const link = document.createElement('a');
+        link.href = resumeUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch {
+      const link = document.createElement('a');
+      link.href = resumeUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   // Handle Tear Off Action
   const handleTearOff = () => {
     if (status === 'torn') return;
     setStatus('torn');
     setDragY(0);
     soundFX.playTearSound();
+    openResumePdf();
     if (onTear) onTear();
   };
 
@@ -463,7 +493,12 @@ export const ReceiptPrinter: React.FC<ReceiptPrinterProps> = ({
               <span>PULL OR CLICK TO TEAR RECEIPT</span>
             </div>
           ) : (
-            <div className="receipt-tear-handle" style={{ background: '#dcfce7', borderColor: '#22c55e', color: '#16a34a' }}>
+            <div 
+              className="receipt-tear-handle" 
+              style={{ background: '#dcfce7', borderColor: '#22c55e', color: '#16a34a', cursor: 'pointer' }}
+              onClick={openResumePdf}
+              title="Receipt torn! Click to view/download resume PDF"
+            >
               <span>✓</span>
               <span>RECEIPT TORN &amp; SAVED</span>
             </div>

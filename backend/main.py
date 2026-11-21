@@ -244,16 +244,17 @@ def read_pdf(file_path: Path):
 def get_resume_path() -> Path:
     base_dir = Path(__file__).parent
     candidates = [
+        base_dir.parent / "assets" / "resume.pdf",
+        base_dir / "resume.pdf",
+        Path("assets/resume.pdf"),
+        Path("resume.pdf"),
         base_dir / "my_resume.pdf",
-        base_dir.parent / "assets" / "my resume.pdf",
-        Path("backend/my_resume.pdf"),
-        Path("assets/my resume.pdf"),
-        Path("my_resume.pdf")
+        Path("backend/my_resume.pdf")
     ]
     for p in candidates:
         if p.exists():
             return p
-    return base_dir / "my_resume.pdf"
+    return base_dir.parent / "assets" / "resume.pdf"
 
 _cached_resume: Resume | None = None
 _cached_resume_text: str | None = None

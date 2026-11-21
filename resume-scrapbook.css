@@ -116,6 +116,62 @@
 .scrapbook-pill-btn.light-btn:hover {
   background: #ffffff;
 }
+
+/* Thermal Receipt Paper Button (Jump to Receipt Printer) */
+.scrapbook-pill-btn.receipt-paper-btn {
+  background: #faf7f0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.015) 3px, rgba(0, 0, 0, 0.015) 4px),
+    linear-gradient(180deg, #fdfbf7 0%, #f4ede1 100%);
+  color: #1f2024;
+  border: 1.5px dashed rgba(194, 94, 46, 0.6);
+  border-radius: 999px;
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(60, 45, 30, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.scrapbook-pill-btn.receipt-paper-btn:hover {
+  background: #ffffff;
+  border-color: #c25e2e;
+  border-style: solid;
+  color: #c25e2e;
+  box-shadow: 0 6px 20px rgba(194, 94, 46, 0.22), inset 0 1px 0 #ffffff;
+  transform: translateY(-2px) rotate(-0.5deg);
+}
+.scrapbook-pill-btn.receipt-paper-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+.scrapbook-pill-btn.receipt-paper-btn .receipt-btn-icon {
+  stroke: #c25e2e;
+  transition: transform 0.2s ease;
+}
+.scrapbook-pill-btn.receipt-paper-btn:hover .receipt-btn-icon {
+  transform: rotate(-6deg) scale(1.1);
+}
+.scrapbook-pill-btn.receipt-paper-btn .receipt-pill-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(194, 94, 46, 0.12);
+  color: #c25e2e;
+  font-size: 0.82rem;
+  font-weight: 900;
+  margin-left: 2px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.scrapbook-pill-btn.receipt-paper-btn:hover .receipt-pill-arrow {
+  background: #c25e2e;
+  color: #ffffff;
+  transform: translateY(2px);
+}
 .scrapbook-pill-btn svg {
   stroke-width: 2.2;
 }
