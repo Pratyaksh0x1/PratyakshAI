@@ -8,7 +8,8 @@
     "build:profile-card": "esbuild src/profile-card-entry.tsx --bundle --minify --sourcemap --jsx=automatic --outfile=assets/profile-card.bundle.js",
     "build:sketchbook": "esbuild src/sketchbook-entry.tsx --bundle --minify --sourcemap --jsx=automatic --loader:.html=text --external:*.woff2 --outfile=assets/sketchbook.bundle.js",
     "watch:sketchbook": "esbuild src/sketchbook-entry.tsx --bundle --sourcemap --jsx=automatic --loader:.html=text --external:*.woff2 --outfile=assets/sketchbook.bundle.js --watch",
-    "build": "npm run build:lanyard && npm run build:profile-card && npm run build:sketchbook"
+    "build:receipt-printer": "esbuild src/receipt-printer-entry.tsx --bundle --minify --sourcemap --jsx=automatic --outfile=assets/receipt-printer.bundle.js",
+    "build": "npm run build:lanyard && npm run build:profile-card && npm run build:sketchbook && npm run build:receipt-printer"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^4.4.0",

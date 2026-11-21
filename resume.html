@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="assets/sketchbook.bundle.css">
+<link rel="stylesheet" href="assets/receipt-printer.bundle.css">
 <link rel="stylesheet" href="resume-scrapbook.css">
 </head>
 <body>
@@ -587,23 +588,10 @@
 
 </div>
 
-<!-- Footer with direct contact info -->
-<footer id="resume-footer">
+<!-- Footer with Thermal Receipt Printer (React Bits Pro Inspired) -->
+<footer id="resume-footer" style="padding: 40px 0 60px;">
   <div class="wrap">
-    <div class="contact-card" style="position:relative;">
-      <span class="sparkle doodle" style="top:-10px; left:8%; font-size:1.6rem;">✦</span>
-      <h2>Prefer a real conversation?</h2>
-      <p>The AI is fun, but I'm happy to talk directly too.</p>
-      <div class="contact-links">
-        <a class="btn primary" href="mailto:Pratyakshtomar2000@gmail.com">✉ Email me</a>
-        <a class="btn" href="https://github.com/Pratyaksh0x1" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/pratyaksh-tomar-112bb6337" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://leetcode.com/u/PratyakshTomar/" target="_blank" rel="noopener">LeetCode</a>
-        <a class="btn" href="https://www.naukri.com/code360/profile/575f3b5a-e2ca-4e24-bbee-205f68c7de95" target="_blank" rel="noopener">Code360</a>
-      </div>
-      <div class="fine">Pratyakshtomar2000@gmail.com · Ghaziabad, India</div>
-      <p class="fine small">✂️ Cut, taped &amp; glued — 2026 Pratyaksh Tomar</p>
-    </div>
+    <div id="receipt-printer-root"></div>
   </div>
 </footer>
 
@@ -654,6 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script src="assets/sketchbook.bundle.js"></script>
+<script src="assets/receipt-printer.bundle.js"></script>
 <script src="script.js?v=20261120_1735"></script>
 </body>
 </html>
